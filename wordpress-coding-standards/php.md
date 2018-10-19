@@ -4,7 +4,7 @@ Some parts of the WordPress code structure for PHP markup are inconsistent in th
 
 Keep the following points in mind when writing PHP code for WordPress, whether for core programming code, plugins, or themes. The guidelines are similar to <a href="http://pear.php.net/manual/en/standards.php">Pear standards</a> in many ways, but differ in some key respects.
 
-See also: <a href="https://make.wordpress.org/core/handbook/best-practices/inline-documentation-standards/php/">PHP Documentation Standards</a>.
+See also: <a href="https://developer.wordpress.org/coding-standards/inline-documentation-standards/php/">PHP Documentation Standards</a>.
 <h2>PHP</h2>
 <h3>Single and Double Quotes</h3>
 Use single and double quotes when appropriate. If you're not evaluating anything in the string, use single quotes. You should almost never have to escape quotes in a string, because you can just alternate your quoting style, like so:
@@ -276,7 +276,7 @@ $id = some_foo_number(); // data we expect to be an integer, but we're not certa
 $wpdb->query( $wpdb->prepare( "UPDATE $wpdb->posts SET post_title = %s WHERE ID = %d", $var, $id ) );
 [/php]
 
-<code>%s</code> is used for string placeholders and <code>%d</code> is used for integer placeholders. Note that they are not 'quoted'! <code>$wpdb-&gt;prepare()</code> will take care of escaping and quoting for us. The benefit of this is that we don't have to remember to manually use <code><a href="http://codex.wordpress.org/Function_Reference/esc_sql">esc_sql</a>()</code>, and also that it is easy to see at a glance whether something has been escaped or not, because it happens right when the query happens.
+<code>%s</code> is used for string placeholders and <code>%d</code> is used for integer placeholders. Note that they are not 'quoted'! <code>$wpdb-&gt;prepare()</code> will take care of escaping and quoting for us. The benefit of this is that we don't have to remember to manually use <code><a href="https://developer.wordpress.org/reference/functions/esc_sql/">esc_sql</a>()</code>, and also that it is easy to see at a glance whether something has been escaped or not, because it happens right when the query happens.
 
 See <a title="Data Validation" href="http://codex.wordpress.org/Data_Validation" target="_blank">Data Validation</a> in the Codex for more information.
 <h3>Database Queries</h3>
