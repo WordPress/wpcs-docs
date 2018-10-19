@@ -12,12 +12,12 @@ If you are planning to contribute to WordPress core, you need to familiarize you
 
 <h2>Language-specific Standards</h2>
 <ul>
-		<li><a href="https://make.wordpress.org/core/handbook/best-practices/coding-standards/css/">CSS Coding Standards</a></li>
-		<li><a href="https://make.wordpress.org/core/handbook/best-practices/coding-standards/html/">HTML Coding Standards</a></li>
-		<li><a href="https://make.wordpress.org/core/handbook/best-practices/coding-standards/javascript/">JavaScript Coding Standards</a></li>
-		<li><a href="https://make.wordpress.org/core/handbook/best-practices/coding-standards/php/">PHP Coding Standards</a></li>
+		<li><a href="https://developer.wordpress.org/coding-standards/wordpress-coding-standards/css/">CSS Coding Standards</a></li>
+		<li><a href="https://developer.wordpress.org/coding-standards/wordpress-coding-standards/html/">HTML Coding Standards</a></li>
+		<li><a href="https://developer.wordpress.org/coding-standards/wordpress-coding-standards/javascript/">JavaScript Coding Standards</a></li>
+		<li><a href="https://developer.wordpress.org/coding-standards/wordpress-coding-standards/php/">PHP Coding Standards</a></li>
 </ul>
 
 <h2>Accessibility Standards</h2>
 
-WordPress is committed to meeting the <a href="https://www.w3.org/TR/WCAG20/">Web Content Accessibility Guidelines (WCAG) at level AA</a> for all new and updated code. We've provided a <a href="https://make.wordpress.org/core/handbook/best-practices/coding-standards/accessibility-coding-standards/">quick guide to common accessibility issues</a> you should be aware of when creating patches or feature plug-ins. 
+WordPress is committed to meeting the <a href="https://www.w3.org/TR/WCAG20/">Web Content Accessibility Guidelines (WCAG) at level AA</a> for all new and updated code. We've provided a <a href="https://developer.wordpress.org/coding-standards/wordpress-coding-standards/accessibility/">quick guide to common accessibility issues</a> you should be aware of when creating patches or feature plug-ins. 
