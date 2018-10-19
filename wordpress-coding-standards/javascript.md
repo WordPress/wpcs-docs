@@ -250,7 +250,7 @@ window.wp = window.wp || {};
 [/javascript]
 
 <h2>Naming Conventions</h2>
-Variable and function names should be full words, using camel case with a lowercase first letter. This is an area where this standard differs from the <a href="https://make.wordpress.org/core/handbook/coding-standards/php/#naming-conventions">WordPress PHP coding standards</a>.
+Variable and function names should be full words, using camel case with a lowercase first letter. This is an area where this standard differs from the <a href="https://developer.wordpress.org/coding-standards/wordpress-coding-standards/php/#naming-conventions">WordPress PHP coding standards</a>.
 
 Constructors intended for use with <code>new</code> should have a capital first letter (UpperCamelCase).
 
@@ -267,7 +267,7 @@ someStatement();
 $( 'p' ).doSomething();
 [/javascript]
 
-Multi-line comments should be used for long comments, see also the <a href="https://make.wordpress.org/core/handbook/best-practices/inline-documentation-standards/javascript/#multi-line-comments">JavaScript Documentation Standards</a>:
+Multi-line comments should be used for long comments, see also the <a href="https://developer.wordpress.org/coding-standards/inline-documentation-standards/javascript/#multi-line-comments">JavaScript Documentation Standards</a>:
 
 [javascript]
 /*
@@ -415,7 +415,7 @@ prop = object['key-with-hyphens'];
 [/javascript]
 
 <h3>"Yoda" Conditions</h3>
-For consistency with the <a href="https://make.wordpress.org/core/handbook/coding-standards/php/#yoda-conditions">PHP code standards</a>, whenever you are comparing an object to a string, boolean, integer, or other constant or literal, the variable should always be put on the right hand side, and the constant or literal put on the left.
+For consistency with the <a href="https://developer.wordpress.org/coding-standards/wordpress-coding-standards/php/#yoda-conditions">PHP code standards</a>, whenever you are comparing an object to a string, boolean, integer, or other constant or literal, the variable should always be put on the right hand side, and the constant or literal put on the left.
 
 [javascript]
 if ( true === myCondition ) {
