@@ -10,8 +10,8 @@ Inline documentation provides a good resource for core developers in future deve
 
 <h2>Language-specific Standards</h2>
 <ul class="sub-menu">
-	<li><a title="PHP Documentation Standards" href="https://make.wordpress.org/core/handbook/best-practices/inline-documentation-standards/php/">PHP Documentation Standards</a></li>
-	<li><a href="https://make.wordpress.org/core/handbook/best-practices/inline-documentation-standards/javascript/">JavaScript Documentation Standards</a></li>
+	<li><a title="PHP Documentation Standards" href="https://developer.wordpress.org/coding-standards/inline-documentation-standards/php/">PHP Documentation Standards</a></li>
+	<li><a href="https://developer.wordpress.org/coding-standards/inline-documentation-standards/javascript/">JavaScript Documentation Standards</a></li>
 </ul>
 
 <h2>Resources</h2>
