@@ -48,13 +48,13 @@
 		"markdown_source": "https://github.com/WordPress-Coding-Standards/docs/blob/master/inline-documentation-standards.md"
 	},
 	"inline-documentation-standards/javascript": {
-		"title": "PHP Documentation Standards",
+		"title": "JavaScript Documentation Standards",
 		"slug": "javascript",
 		"parent": "inline-documentation-standards",
 		"markdown_source": "https://github.com/WordPress-Coding-Standards/docs/blob/master/inline-documentation-standards/javascript.md"
 	},
 	"inline-documentation-standards/php": {
-		"title": "JavaScript Documentation Standards",
+		"title": "PHP Documentation Standards",
 		"slug": "php",
 		"parent": "inline-documentation-standards",
 		"markdown_source": "https://github.com/WordPress-Coding-Standards/docs/blob/master/inline-documentation-standards/php.md"
