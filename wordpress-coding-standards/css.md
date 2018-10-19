@@ -35,7 +35,7 @@ Incorrect:
 <h2>Selectors</h2>
 With specificity, comes great responsibility. Broad selectors allow us to be efficient, yet can have adverse consequences if not tested. Location-specific selectors can save us time, but will quickly lead to a cluttered stylesheet. Exercise your best judgement to create selectors that find the right balance between contributing to the overall style and layout of the DOM.
 <ul>
- 	<li>Similar to the <a href="https://make.wordpress.org/core/handbook/best-practices/coding-standards/php/#naming-conventions">WordPress PHP Coding Standards</a> for file names, use lowercase and separate words with hyphens when naming selectors. Avoid camelcase and underscores.</li>
+ 	<li>Similar to the <a href="https://developer.wordpress.org/coding-standards/wordpress-coding-standards/php/#naming-conventions">WordPress PHP Coding Standards</a> for file names, use lowercase and separate words with hyphens when naming selectors. Avoid camelcase and underscores.</li>
  	<li>Use human readable selectors that describe what element(s) they style.</li>
  	<li>Attribute selectors should use double quotes around values</li>
  	<li>Refrain from using over-qualified selectors, <code>div.container</code> can simply be stated as <code>.container</code></li>
