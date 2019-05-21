@@ -63,6 +63,7 @@
 		"title": "Changelog",
 		"slug": "changelog",
 		"parent": null,
+		"order": 3,
 		"markdown_source": "https://github.com/WordPress-Coding-Standards/docs/blob/master/changelog.md"
 	}
 }
