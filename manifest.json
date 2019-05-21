@@ -9,6 +9,7 @@
 		"title": "WordPress Coding Standards",
 		"slug": "wordpress-coding-standards",
 		"parent": null,
+		"order": 1,
 		"markdown_source": "https://github.com/WordPress-Coding-Standards/docs/blob/master/wordpress-coding-standards.md"
 	},
 	"wordpress-coding-standards/accessibility": {
@@ -45,6 +46,7 @@
 		"title": "Inline Documentation Standards",
 		"slug": "inline-documentation-standards",
 		"parent": null,
+		"order": 2,
 		"markdown_source": "https://github.com/WordPress-Coding-Standards/docs/blob/master/inline-documentation-standards.md"
 	},
 	"inline-documentation-standards/javascript": {
