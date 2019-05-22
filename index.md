@@ -2,7 +2,6 @@
 
 WordPress is a big project with thousands of contributors. It's important that best practices are followed so that the codebase is consistent and readable, and changes are easy to find and read, whether the code is five days old or five years old. What follows are a series of best practices to help keep WordPress code clean and well documented for years to come.
 <ul>
-	<li><a href="https://developer.wordpress.org/coding-standards/commit-messages/">Commit Messages</a></li>
 	<li><a href="https://developer.wordpress.org/coding-standards/wordpress-coding-standards/">WordPress Coding Standards</a>
 <ul>
 	<li><a href="https://developer.wordpress.org/coding-standards/wordpress-coding-standards/accessibility/">Accessibility Coding Standards</a></li>
@@ -18,6 +17,4 @@ WordPress is a big project with thousands of contributors. It's important that b
 	<li><a href="https://developer.wordpress.org/coding-standards/inline-documentation-standards/php/">PHP Documentation Standards</a></li>
 </ul>
 </li>
-	<li><a href="https://developer.wordpress.org/coding-standards/core-apis/">Core APIs</a></li>
-	<li><a href="https://developer.wordpress.org/coding-standards/writing-patches/">Writing Patches</a></li>
 </ul>
