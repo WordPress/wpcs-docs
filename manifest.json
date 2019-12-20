@@ -69,7 +69,7 @@
 		"markdown_source": "https://github.com/WordPress-Coding-Standards/docs/blob/master/changelog.md"
 	},
 	"styleguide": {
-		"title": "Coding Standards Markdown Style Guide",
+		"title": "Markdown Style Guide",
 		"slug": "styleguide",
 		"parent": null,
 		"order": 4,

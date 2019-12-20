@@ -1,74 +1,98 @@
-# Coding Standards Markdown Style Guide
+# Markdown Style Guide
 
-# Heading h1 (One `#`)
-## Heading h2 (Two `#`'s)
-### Heading h3 (Three `#`'s)
-#### Heading h4 (Four `#`'s)
-##### Heading h5 (Five `#`'s)
-###### Heading h6 (Six `#`'s)
+## Headings
 
-### Emphasis
+```md
+# Heading h1
+## Heading h2
+### Heading h3
+#### Heading h4
+##### Heading h5
+###### Heading h6
+```
+Note: h1 - h4 items will be automatically added to the Table of Contents.
 
-Use single `*` for *Italic* or single underscore for _Italic_ text.
+## Italics
 
-Use double `*` for *Bold* or double underscore for __Bold__ text.
+Wrap text with a single `_` for _Italic_ text:
 
-### Links
+```md
+This is _italic text_.
+```
 
-Wrap the title in square brackets `[title]`, e.g. [WordPress](https://wordpress.org),
+## Bold
+Wrap text with double `**` for **Bold** text:
 
-Links can also be autoconverted e.g. https://wordpress.org
+```md
+This is **bold text**.
+```
 
-### Blockquotes
+## Strikethrough
+Wrap text with double `~~` for ~~striketrhough~~ text:
 
-> Use `>` to indent for blockquote
->> Further indent using 2 `>>` Nested Blockquote
->>> Or even 3 `>>>` for Deeper Nested Blockquote
+```md
+This is ~~striketrhough~~ text.
+```
 
-### Lists
+## Links
 
-Lists can use `*`, and intent two spaces for subitems `  *`:
-* List
-  * List
-* List
+Wrap the title in square brackets `[title]` immediately followed by the URL in `(https://example.com)`:
 
-Lists can use `-`, and intent two spaces for subitems `  -`:
+```md
+[WordPress](https://wordpress.org/)
+```
 
+## Blockquotes
+
+Use `>` for blockquotes, double `>>` to further indent:
+
+```md
+> Blockquote
+>> Indented Blockquote
+```
+
+## Lists
+
+Use `-` for unordereed lists, and intent two spaces for list subitems:
+
+```md
 - List
   - List
 - List
+- List
+```
 
-Numbered Lists
+## Numbered Lists
+
+Use numbered items followed by a `.:
+
+```md
 1. One
 2. Two
 3. Three
+```
 
-1) One
-2) Two
-3) Three
+## Horizontal Rules
 
-Offset numbered lists
-42. 42
-1. 43
-1. 44 
-
-### Horizontal Rules
-
+Use `---` for a horizontal rules:
+```md
 ---
-
-***
-
-### Code
-
-`Inline code` with backticks
-
-```
-# code block using 3 backticks
 ```
 
-### Syntax highlighting
+## Inline Code
 
-``` js
+Wrap inline code with `\`` backticks:
+```md
+This is `inline code` wrapped with backticks
+```
+
+## Documenting Examples
+
+When documenting an example, use the markdown `\`\`\`` code block to demarcate the beginning and end of the code sample:
+
+### Syntax highlighting (fenced code blocks)
+
+```js
 var foo = function (bar) {
   return bar++;
 };
@@ -76,7 +100,7 @@ var foo = function (bar) {
 console.log(foo(5));
 ```
 
-``` css
+```css
 foo {
   padding: 5px;
   margin-right: 3px;
@@ -87,12 +111,45 @@ foo {
 }
 ```
 
-``` php
-<?php
+```php
 $array = array(
     "foo" => "bar",
     "bar" => "foo",
 );
-
-?>
 ```
+
+```md
+This is _italic text_. This is **bold text**.
+```
+
+### Syntax highlighting (shortcode code blocks)
+
+[javascript]
+var foo = function (bar) {
+  return bar++;
+};
+
+console.log(foo(5));
+[/javascript]
+
+[css]
+foo {
+  padding: 5px;
+  margin-right: 3px;
+}
+
+.bar {
+  background-color: #f00;
+}
+[/css]
+
+[php]
+$array = array(
+    "foo" => "bar",
+    "bar" => "foo",
+);
+[/php]
+
+[md]
+This is _italic text_. This is **bold text**.
+[/md]
