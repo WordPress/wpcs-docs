@@ -86,6 +86,14 @@ Wrap inline code with `\`` backticks:
 This is `inline code` wrapped with backticks
 ```
 
+## Tables
+
+```md
+| A     | B     |
+| ----- | ----- |
+| Alpha | Bravo |
+```
+
 ## Documenting Examples
 
 When documenting an example, use the markdown `\`\`\`` code block to demarcate the beginning and end of the code sample:
