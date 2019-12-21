@@ -45,7 +45,7 @@ These rules encourage liberal spacing for improved developer readability. The mi
 - All function bodies are indented by one tab, even if the entire file is wrapped in a closure.<sup>*</sup>
 - Spaces may align code within documentation blocks or within a line, but only tabs should be used at the start of a line.<sup>*</sup>
 
-*****: The WordPress JavaScript standards prefer slightly broader whitespace rules than the jQuery style guide. These deviations are for consistency between the PHP and JavaScript files in the WordPress codebase.
+<a name="spacing-whitespace">*</a>: The WordPress JavaScript standards prefer slightly broader whitespace rules than the jQuery style guide. These deviations are for consistency between the PHP and JavaScript files in the WordPress codebase.
 
 Whitespace can easily accumulate at the end of a line – avoid this, as trailing whitespace is caught as an error in JSHint. One way to catch whitespace buildup is enabling visible whitespace characters within your text editor.
 
