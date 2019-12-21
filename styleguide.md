@@ -130,8 +130,8 @@ foo {
 #### PHP
 ```php
 $array = array(
-    "foo" =&gt; "bar",
-    "bar" =&gt; "foo",
+    \"foo\" => \"bar\",
+    \"bar\" => \"foo\",
 );
 ```
 
