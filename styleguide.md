@@ -98,12 +98,15 @@ This is `inline code` wrapped with backticks
 | Alpha | Bravo |
 ```
 
-## Documenting Examples
+## Example Code
 
-When documenting an example, use the markdown `\`\`\`` code block to demarcate the beginning and end of the code sample:
+When documenting an example, use the markdown ``\`\`` code block to demarcate the beginning and end of the code sample:
 
-### Syntax highlighting (fenced code blocks)
+Note: Full support for _fenced code blocks_ is not yet implemented for the handbooks, to workaround this see the shortcodes section below:
 
+### Fenced Code Blocks
+
+#### Javascript
 ```js
 var foo = function (bar) {
   return bar++;
@@ -112,6 +115,7 @@ var foo = function (bar) {
 console.log(foo(5));
 ```
 
+#### CSS & SCSS
 ```css
 foo {
   padding: 5px;
@@ -123,6 +127,7 @@ foo {
 }
 ```
 
+#### PHP
 ```php
 $array = array(
     "foo" => "bar",
@@ -130,12 +135,15 @@ $array = array(
 );
 ```
 
+#### Markdown
 ```md
 This is _italic text_. This is **bold text**.
 ```
 
-### Syntax highlighting (shortcode code blocks)
+### Shortcodes
 
+#### Javascript
+```md
 [javascript]
 var foo = function (bar) {
   return bar++;
@@ -143,7 +151,10 @@ var foo = function (bar) {
 
 console.log(foo(5));
 [/javascript]
+```
 
+#### CSS & SCSS
+```md
 [css]
 foo {
   padding: 5px;
@@ -154,14 +165,22 @@ foo {
   background-color: #f00;
 }
 [/css]
+```
 
+#### PHP
+```md
 [php]
 $array = array(
     "foo" => "bar",
     "bar" => "foo",
 );
 [/php]
+```
 
+#### Markdown
+```md
 [md]
 This is _italic text_. This is **bold text**.
 [/md]
+```
+Note: The `[md]` shortcode is also not currently supported.
