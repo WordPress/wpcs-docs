@@ -30,10 +30,10 @@ This is **bold text**.
 ```
 
 ### Strikethrough
-Wrap text with double `~~` for ~~striketrhough~~ text:
+Wrap text with double `~~` for ~~strikethrough~~ text:
 
 ```md
-This is ~~striketrhough~~ text.
+This is ~~strikethrough~~ text.
 ```
 
 ## Links
