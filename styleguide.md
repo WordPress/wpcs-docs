@@ -93,7 +93,6 @@ Use `---` for a horizontal rules:
 
 ## Example Code
 
-
 ### Inline Code
 
 Wrap inline code with `\`` backticks:
@@ -103,7 +102,7 @@ This is `inline code` wrapped with backticks
 
 When documenting an example, use the markdown ``\`\`` code block to demarcate the beginning and end of the code sample:
 
-Note: Full support for _fenced code blocks_ is not yet implemented for the handbooks, to workaround this see the shortcodes section below:
+**Note:** Full support for _fenced code blocks_ is not yet implemented for the handbooks, to workaround this see the shortcodes section below:
 
 ### Fenced Code Blocks
 
@@ -136,7 +135,6 @@ $array = array(
 );
 ```
 
-#### Markdown
 ```md
 This is _italic text_. This is **bold text**.
 ```
@@ -144,44 +142,15 @@ This is _italic text_. This is **bold text**.
 ### Shortcodes
 
 #### Javascript
-```md
-[javascript]
-var foo = function (bar) {
-  return bar++;
-};
-
-console.log(foo(5));
-[/javascript]
-```
+Wrap multiline Javascript code in <code>[</code><code>javascript</code><code>]</code> and <code>[/javascript]</code> each on their own line.
 
 #### CSS & SCSS
-```md
-[css]
-foo {
-  padding: 5px;
-  margin-right: 3px;
-}
-
-.bar {
-  background-color: #f00;
-}
-[/css]
-```
+Wrap multiline CSS & SCSS code in <code>[</code><code>css</code><code>]</code> and <code>[/css]</code> each on their own line.
 
 #### PHP
-```md
-[php]
-$array = array(
-    "foo" => "bar",
-    "bar" => "foo",
-);
-[/php]
-```
+Wrap multiline PHP code in <code>[</code><code>php</code><code>]</code> and <code>[/php]</code> each on their own line.
 
 #### Markdown
-```md
-[md]
-This is _italic text_. This is **bold text**.
-[/md]
-```
-Note: The `[md]` shortcode is also not currently supported.
+Wrap multiline Markdown code in <code>[</code><code>md</code><code>]</code> and <code>[/md]</code> each on their own line.
+
+**Note:** The <code>[md]</code> shortcode is also not currently supported.
