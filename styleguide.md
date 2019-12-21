@@ -83,13 +83,6 @@ Use `---` for a horizontal rules:
 ---
 ```
 
-## Inline Code
-
-Wrap inline code with `\`` backticks:
-```md
-This is `inline code` wrapped with backticks
-```
-
 ## Tables
 
 ```md
@@ -99,6 +92,14 @@ This is `inline code` wrapped with backticks
 ```
 
 ## Example Code
+
+
+### Inline Code
+
+Wrap inline code with `\`` backticks:
+```md
+This is `inline code` wrapped with backticks
+```
 
 When documenting an example, use the markdown ``\`\`` code block to demarcate the beginning and end of the code sample:
 
