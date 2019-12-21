@@ -14,7 +14,7 @@ The WordPress JavaScript Coding Standards are adapted from the [jQuery JavaScrip
 
 Many of the examples below have been adapted directly from the jQuery style guide; these differences have all been integrated into the examples on this page. Any of the below standards and examples should be considered best practice for WordPress code, unless explicitly noted as anti-patterns.
 
- ## Code Refactoring
+## Code Refactoring
 
 > "[Code refactoring should not be done just because we can.](https://make.wordpress.org/core/2011/03/23/code-refactoring/)" - Lead Developer Andrew Nacin
 
@@ -24,7 +24,7 @@ While the coding standards are important, refactoring older .js files simply to 
 
 All new or updated JavaScript code will be reviewed to ensure it conforms to the standards, and passes JSHint.
 
- ## Spacing
+## Spacing
 
 Use spaces liberally throughout your code. "When in doubt, space it out."
 
@@ -133,11 +133,11 @@ try {
 }
 [/javascript]
 
- ## Semicolons
+## Semicolons
 
 Use them. Never rely on Automatic Semicolon Insertion (ASI).
 
- ## Indentation and Line Breaks
+## Indentation and Line Breaks
 
 Indentation and line breaks add readability to complex statements.
 
@@ -220,7 +220,7 @@ elements
 	.appendTo( 'body' );
 	[/javascript]
 
- ## Assignments and Globals
+## Assignments and Globals
 
 ### Declaring Variables with `const` and `let`
 
@@ -283,7 +283,7 @@ Files which add to, or modify, the `wp` object must safely access the global to 
 window.wp = window.wp || {};
 [/javascript]
 
- ## Naming Conventions
+## Naming Conventions
 
 Variable and function names should be full words, using camel case with a lowercase first letter. This is an area where this standard differs from the [WordPress PHP coding standards](https://make.wordpress.org/core/handbook/coding-standards/php/#naming-conventions).
 
@@ -363,11 +363,11 @@ function foo( types, selector, data, fn, /* INTERNAL */ one ) {
 }
 [/javascript]
 
- ## Equality
+## Equality
 
 Strict equality checks (`===`) must be used in favor of abstract equality checks (`==`).
 
- ## Type Checks
+## Type Checks
 
 These are the preferred ways of checking the type of an object:
 
@@ -388,7 +388,7 @@ These are the preferred ways of checking the type of an object:
 
 Anywhere Backbone or Underscore are already used, you are encouraged to use [Underscore.js](http://underscorejs.org/#isElement)'s type checking methods over jQuery's.
 
- ## Strings
+## Strings
 
 Use single-quotes for string literals:
 
@@ -403,7 +403,7 @@ When a string contains single quotes, they need to be escaped with a backslash (
 'Note the backslash before the \'single quotes\'';
 [/javascript]
 
- ## Switch Statements
+## Switch Statements
 
 The usage of `switch` statements is generally discouraged, but can be useful when there are a large number of cases - especially when multiple cases can be handled by the same block, or fall-through logic (the `default` case) can be leveraged.
 
@@ -449,7 +449,7 @@ function getKeyCode( keyCode ) {
 }
 [/javascript]
 
- ## Best Practices
+## Best Practices
 
 ### Arrays
 
@@ -546,7 +546,7 @@ $tabs.each( function( index, element ) {
 
 Never use jQuery to iterate over raw data or vanilla JavaScript objects.
 
- ## JSHint
+## JSHint
 
 [JSHint](https://jshint.com) is an automated code quality tool, designed to catch errors in your JavaScript code. JSHint is used in WordPress development to quickly verify that a patch has not introduced any logic or syntax errors to the front-end.
 
@@ -593,6 +593,6 @@ if ( typeof jQuery.fn.hoverIntent === 'undefined' ) {
 /* jshint ignore:end */
 [/javascript]
 
- ## Credits
+## Credits
 
 - The jQuery examples are adapted from the [jQuery JavaScript Style Guide](https://contribute.jquery.org/style-guide/js), which is made available under the MIT license.
