@@ -12,7 +12,9 @@
 ```
 Note: h1 - h4 items will be automatically added to the Table of Contents.
 
-## Italics
+## Emphasis
+
+### Italics
 
 Wrap text with a single `_` for _Italic_ text:
 
@@ -20,14 +22,14 @@ Wrap text with a single `_` for _Italic_ text:
 This is _italic text_.
 ```
 
-## Bold
+### Bold
 Wrap text with double `**` for **Bold** text:
 
 ```md
 This is **bold text**.
 ```
 
-## Strikethrough
+### Strikethrough
 Wrap text with double `~~` for ~~striketrhough~~ text:
 
 ```md
