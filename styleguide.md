@@ -55,6 +55,8 @@ Use `>` for blockquotes, double `>>` to further indent:
 
 ## Lists
 
+### Unordered Lists
+
 Use `-` for unordereed lists, and intent two spaces for list subitems:
 
 ```md
@@ -64,7 +66,7 @@ Use `-` for unordereed lists, and intent two spaces for list subitems:
 - List
 ```
 
-## Numbered Lists
+### Ordered Lists
 
 Use numbered items followed by a `.:
 
