@@ -30,7 +30,7 @@ For machines:
 For humans:
 
 [html]
-&lt;a href="http://example.com/" title="Description Here"&gt;Example.com</a&gt;
+&lt;a href="http://example.com/" title="Description Here"&gt;Example.com&lt;/a&gt;
 [/html]
 
 ### Quotes
@@ -63,9 +63,9 @@ Correct:
 [php]
 &lt;?php if ( ! have_posts() ) : ?&gt;
 &lt;div id="post-1" class="post"&gt;
-&lt;h1 class="entry-title"&gt;Not Found</h1&gt;
+&lt;h1 class="entry-title"&gt;Not Found&lt;/h1&gt;
 &lt;div class="entry-content"&gt;
-&lt;p&gt;Apologies, but no results were found.</p&gt;
+&lt;p&gt;Apologies, but no results were found.&lt;/p&gt;
 &lt;?php get_search_form(); ?&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -77,9 +77,9 @@ Incorrect:
 [php]
 &lt;?php if ( ! have_posts() ) : ?&gt;
 &lt;div id="post-0" class="post error404 not-found"&gt;
-&lt;h1 class="entry-title"&gt;Not Found</h1&gt;
+&lt;h1 class="entry-title"&gt;Not Found&lt;/h1&gt;
 &lt;div class="entry-content"&gt;
-&lt;p&gt;Apologies, but no results were found.</p&gt;
+&lt;p&gt;Apologies, but no results were found.&lt;/p&gt;
 &lt;?php get_search_form(); ?&gt;
 &lt;/div&gt;
 &lt;/div&gt;
