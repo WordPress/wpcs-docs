@@ -144,7 +144,7 @@ Indentation and line breaks add readability to complex statements.
 Tabs should be used for indentation. Even if the entire file is contained in a closure (i.e., an immediately invoked function), the contents of that function should be indented by one tab:
 
 [javascript]
-( function( $ ) {
+( function ( $ ) {
 	// Expressions indented
 
 	function doSomething() {
@@ -269,7 +269,7 @@ Backbone, jQuery, Underscore, and the global `wp` object are all registered as a
 Backbone and Underscore may be accessed directly at any time. jQuery should be accessed through `$` by passing the `jQuery` object into an anonymous function:
 
 [javascript]
-( function( $ ) {
+( function ( $ ) {
 	// Expressions
 } )( jQuery );
 [/javascript]
@@ -524,7 +524,7 @@ var obj = {
 
 var arr = _.chain( obj )
 	.keys()
-	.map( function( key ) {
+	.map( function ( key ) {
 		return key + ' comes ' + obj[ key ];
 	} )
 	// Exit the chain
@@ -537,7 +537,7 @@ var arr = _.chain( obj )
 The only time jQuery should be used for iteration is when iterating over a collection of jQuery objects:
 
 [javascript]
-$tabs.each( function( index, element ) {
+$tabs.each( function ( index, element ) {
 	var $element = $( element );
 
 	// Do stuff to $element
