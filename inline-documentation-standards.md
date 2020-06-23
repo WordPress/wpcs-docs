@@ -17,5 +17,5 @@ Inline documentation provides a good resource for core developers in future deve
 <h2>Resources</h2>
 
 <ul>
-	<li><a href="http://jaco.by/2012/06/04/inline-documentation/">Inline documentation</a> - why you should</li>
+	<li><a href="https://jjj.blog/2012/06/inline-documentation/">Inline documentation</a> - why you should</li>
 </ul>
