@@ -34,11 +34,13 @@ $query = new WP_Query( array( 'ID' => 123 ) );
 [/php]
 
 [php]
-$query = new WP_Query( array( 
+$args = array(
 [tab]'post_type'   => 'page',
 [tab]'post_author' => 123,
 [tab]'post_status' => 'publish',
-) );
+);
+ 
+$query = new WP_Query( $args );
 [/php]
 
 Note the comma after the last array item: this is recommended because it makes it easier to change the order of the array, and makes for cleaner diffs when new items are added.
@@ -118,6 +120,54 @@ Note that requiring the use of braces just means that <em>single-statement inlin
 
 <h3>Use <code>elseif</code>, not <code>else if</code></h3>
 <code>else if</code> is not compatible with the colon syntax for <code>if|elseif</code> blocks. For this reason, use <code>elseif</code> for conditionals.
+
+<h3>Declaring Arrays</h3>
+
+Using long array syntax ( <code>array( 1, 2, 3 )</code> ) for declaring arrays is generally more readable than short array syntax ( <code>[ 1, 2, 3 ]</code> ), particularly for those with vision difficulties. Additionally, it's much more descriptive for beginners.
+
+Arrays must be declared using long array syntax.
+
+<h3>Closures (Anonymous Functions)</h3>
+
+Where appropriate, closures may be used as an alternative to creating new functions to pass as callbacks. For example:
+
+[php]
+$caption = preg_replace_callback(
+    '/<[a-zA-Z0-9]+(?: [^<>]+>)*/',
+    function ( $matches ) {
+        return preg_replace( '/[\r\n\t]+/', ' ', $matches[0] );
+    },
+    $caption
+);
+[/php]
+
+Closures must not be passed as filter or action callbacks, as they cannot be removed by <code>remove_action()</code> / <code>remove_filter()</code> (see <a href="https://core.trac.wordpress.org/ticket/46635">#46635</a> for a proposal to address this).
+
+<h3>Multiline Function Calls</h3>
+
+When splitting a function call over multiple lines, each parameter must be on a seperate line. Single line inline comments can take up their own line.
+
+Each parameter must take up no more than a single line. Multi-line parameter values must be assigned to a variable and then that variable should be passed to the function call.
+
+[php]
+$bar = array(
+    'use_this' => true,
+    'meta_key' => 'field_name',
+);
+$baz = sprintf(
+    /* translators: %s: Friend's name */
+    esc_html__( 'Hello, %s!', 'yourtextdomain' ),
+    $friend_name
+);
+ 
+$a = foo(
+    $bar,
+    $baz,
+    /* translators: %s: cat */
+    sprintf( __( 'The best pet is a %s.' ), 'cat' )
+);
+[/php]
+
 <h3>Regular Expressions</h3>
 Perl compatible regular expressions (<a href="http://php.net/pcre">PCRE</a>, <code>preg_</code> functions) should be used in preference to their POSIX counterparts. Never use the <code>/e</code> switch, use <code>preg_replace_callback</code> instead.
 
@@ -181,7 +231,7 @@ Remove trailing whitespace at the end of each line of code. Omitting the closing
 Always put spaces after commas, and on both sides of logical, comparison, string and assignment operators.
 
 [php]
-x == 23
+x === 23
 foo && bar
 ! foo
 array( 1, 2, 3 )
@@ -216,12 +266,12 @@ When performing logical comparisons, do it like so:
 if ( ! $foo ) { ...
 [/php]
 
-When <a title="type casting" href="http://www.php.net/manual/en/language.types.type-juggling.php#language.types.typecasting" target="_blank">type casting</a>, do it like so:
+<a title="type casting" href="http://www.php.net/manual/en/language.types.type-juggling.php#language.types.typecasting" target="_blank">Type casts</a> must be lowercase. Always prefer the short form of type casts, <code>(int)</code> instead of <code>(integer)</code> and <code>(bool)</code> rather than <code>(boolean)</code>. For float casts use <code>(float)</code>.:
 
 [php]
 foreach ( (array) $foo as $bar ) { ...
 
-$foo = (boolean) $bar;
+$foo = (bool) $bar;
 [/php]
 
 When referring to array items, only include a space around the index if it is a variable, for example:
@@ -373,18 +423,20 @@ Where possible, dynamic values in tag names should also be as succinct and to th
 <h3>Ternary Operator</h3>
 <a title="Ternary" href="http://en.wikipedia.org/wiki/Ternary_operation" target="_blank">Ternary</a> operators are fine, but always have them test if the statement is true, not false. Otherwise, it just gets confusing. (An exception would be using <code>! empty()</code>, as testing for false here is generally more intuitive.)
 
+The short ternary operator must not be used.
+
 For example:
 
 [php]
 // (if statement is true) ? (do this) : (else, do this);
-$musictype = ( 'jazz' == $music ) ? 'cool' : 'blah';
+$musictype = ( 'jazz' === $music ) ? 'cool' : 'blah';
 // (if field is not empty ) ? (do this) : (else, do this);
 [/php]
 
 <h3>Yoda Conditions</h3>
 
 [php]
-if ( true == $the_force ) {
+if ( true === $the_force ) {
 	$victorious = you_will( $be );
 }
 [/php]
@@ -408,6 +460,43 @@ Although the above line is clever, it takes a while to grok if you're not famili
 [php]
 if ( ! isset( $var ) ) {
 	$var = some_function();
+}
+[/php]
+
+Unless absolutely necessary, loose comparisons should not be used, as their behaviour can be misleading.
+
+Correct:
+
+[php]
+if ( 0 === strpos( 'WordPress', 'foo' ) ) {
+	echo __( 'Yay WordPress!' );
+}
+[/php]
+
+Incorrect:
+
+[php]
+if ( 0 == strpos( 'WordPress', 'foo' ) ) {
+	echo __( 'Yay WordPress!' );
+}
+[/php]
+
+Assignments must not be placed in placed in conditionals.
+
+Correct:
+
+[php]
+$data = $wpdb->get_var( '...' );
+if ( $data ) {
+    // Use $data
+}
+[/php]
+
+Incorrect:
+
+[php]
+if ( $data = $wpdb->get_var( '...' ) ) {
+    // Use $data
 }
 [/php]
 
