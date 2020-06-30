@@ -486,8 +486,7 @@ replacement function name</td>
 </tr>
 <tr>
 <td><strong>@global</strong></td>
-<td>type global
-$varname
+<td>datatype $variable
 description</td>
 <td>Document global(s) used in the function/method. For boolean and integer types, use <code>bool</code> and <code>int</code>, respectively.</td>
 </tr>
@@ -545,6 +544,13 @@ description</td>
 <td>(standalone)</td>
 <td>Note: This tag has been used in the past, but should no longer be used.
 Just using the static keyword in your code is enough for PhpDocumentor on PHP5 to recognize static variables and methods, and PhpDocumentor will mark them as static.</td>
+</tr>
+<tr>
+<td><strong>@staticvar</strong></td>
+<td>datatype $variable
+description</td>
+<td>Note: This tag has been used in the past, but should no longer be used.
+Document a static variable's use in a function/method. For boolean and integer types, use <code>bool</code> and <code>int</code>, respectively.</td>
 </tr>
 <tr>
 <td><strong>@subpackage</strong></td>
