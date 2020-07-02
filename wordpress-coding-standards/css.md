@@ -163,15 +163,16 @@ We use <a href="https://github.com/postcss/autoprefixer">Autoprefixer</a> as a p
 <h2>Values</h2>
 There are numerous ways to input values for properties. Follow the guidelines below to help us retain a high degree of consistency.
 <ul>
- 	<li>Space before the value, after the colon</li>
- 	<li>Do not pad parentheses with spaces</li>
- 	<li>Always end in a semicolon</li>
- 	<li>Use double quotes rather than single quotes, and only when needed, such as when a font name has a space.</li>
+ 	<li>Space before the value, after the colon.</li>
+ 	<li>Do not pad parentheses with spaces.</li>
+ 	<li>Always end in a semicolon.</li>
+ 	<li>Use double quotes rather than single quotes, and only when needed, such as when a font name has a space or for the values of the <code>content</code> property.</li>
  	<li>Font weights should be defined using numeric values (e.g. <code>400</code> instead of <code>normal</code>, <code>700</code> rather than <code>bold</code>).</li>
  	<li>0 values should not have units unless necessary, such as with transition-duration.</li>
  	<li>Line height should also be unit-less, unless necessary to be defined as a specific pixel value. This is more than just a style convention, but is worth mentioning here. More information: <a href="http://meyerweb.com/eric/thoughts/2006/02/08/unitless-line-heights/">http://meyerweb.com/eric/thoughts/2006/02/08/unitless-line-heights/</a></li>
  	<li>Use a leading zero for decimal values, including in rgba().</li>
- 	<li>Multiple comma-separated values for one property should be separated by either a space or a newline, including within rgba(). Newlines should be used for lengthier multi-part values such as those for shorthand properties like box-shadow and text-shadow. Each subsequent value after the first should then be on a new line, indented to the same level as the selector and then spaced over to left-align with the previous value.</li>
+ 	<li>Multiple comma-separated values for one property should be separated by either a space or a newline. For better readability newlines should be used for lengthier multi-part values such as those for shorthand properties like box-shadow and text-shadow, including before the first value. Values should then be indented one level in from the property.</li>
+ 	<li>Lists of values within a value, like within rgba(), should be separated by a space.</li>
 </ul>
 Correct:
 
@@ -185,8 +186,17 @@ Correct:
 .class { /* Correct usage of zero values */
 	font-family: Georgia, serif;
 	line-height: 1.4;
-	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.5),
-				 0 1px 0 #fff;
+	text-shadow:
+		0 -1px 0 rgba(0, 0, 0, 0.5),
+		0 1px 0 #fff;
+}
+
+.class { /* Correct usage of short and lengthier multi-part values */
+	font-family: Consolas, Monaco, monospace;
+	transition-property: opacity, background, color;
+	box-shadow:
+		0 0 0 1px #5b9dd9,
+		0 0 2px 1px rgba(30, 140, 190, 0.8);
 }
 [/css]
 
@@ -205,6 +215,14 @@ Incorrect:
 	font-family: Times New Roman, serif; /* Quote font names when required */
 	font-weight: bold; /* Avoid named font weights */
 	line-height: 1.4em;
+}
+
+.class { /* Incorrect usage of multi-part values */
+	text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5),
+                 0 1px 0 #fff;
+	box-shadow: 0 1px 0 rgba(0, 0,
+		0, 0.5),
+		0 1px 0 rgba(0,0,0,0.5);
 }
 [/css]
 
