@@ -52,7 +52,7 @@ Short descriptions should be a single sentence and contain no markup of any kind
 
 Markdown can be used, if needed, in a long description.
 
-<strong>@param and @returns tags:</strong>
+<strong>@param and @return tags:</strong>
 
 No HTML or markdown is permitted in the descriptions for these tags. HTML elements and tags should be written as "audio element" or "link tag".
 <h3>Line wrapping</h3>
@@ -75,7 +75,7 @@ Functions should be formatted as follows:
 	<li><strong>Summary:</strong> A brief, one line explanation of the purpose of the function. Use a period at the end.</li>
 	<li><strong>Description:</strong> A supplement to the summary, providing a more detailed description. Use a period at the end.</li>
 	<li><strong>@deprecated x.x.x:</strong> Only use for deprecated functions, and provide the version the function was deprecated which should always be 3-digit (e.g. @since 3.6.0), and the function to use instead.</li>
-	<li><strong>@since x.x.x:</strong> Should always be 3-digit (e.g. @since 3.6.0).</li>
+	<li><strong>@since x.x.x:</strong> Should be 3-digit for initial introduction (e.g. @since 3.6.0). If significant changes are made, additional @since tags, versions, and descriptions should be added to serve as a changelog.</li>
 	<li><strong>@access:</strong> Only use for functions if private. If the function is private, it is intended for internal use only, and there will be no documentation for it in the code reference.</li>
 	<li><strong>@class:</strong> Use for class constructors.</li>
 	<li><strong>@augments:</strong> For class constuctors, list direct parents.</li>
@@ -89,7 +89,8 @@ Functions should be formatted as follows:
 	<li><strong>@listens:</strong> Events this function listens for. An event must be prefixed with the event namespace. Events tied to a specific class should list the class name.</li>
 	<li><strong>@global:</strong> Marks this function as a global function to be included in the global namespace.</li>
 	<li><strong>@param:</strong> Give a brief description of the variable; denote particulars (e.g. if the variable is optional, its default) with <a href="http://usejsdoc.org/tags-param.html">JSDoc @param syntax</a>. Use a period at the end.</li>
-	<li><strong>@returns:</strong> Note the period after the description.</li>
+	<li><strong>@yield:</strong> For <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function*">generator functions</a>, a description of the values expected to be yielded from this function. As with other descriptions, include a period at the end.</li>
+	<li><strong>@return:</strong> Note the period after the description.</li>
 </ul>
 
 [js]
@@ -123,8 +124,10 @@ Functions should be formatted as follows:
  * @param {type}   [var=default] Description of optional variable with default variable.
  * @param {Object} objectVar     Description.
  * @param {type}   objectVar.key Description of a key in the objectVar parameter.
- * 
- * @returns {type} Description.
+ *
+ * @yield {type} Yielded value description.
+ *
+ * @return {type} Return value description.
  */
 [/js]
 
@@ -138,7 +141,7 @@ Backbone's <code>initialize</code> functions should be formatted as follows:
 	<li><strong>Summary:</strong> A brief, one line explanation of the purpose of the function. Use a period at the end.</li>
 	<li><strong>Description:</strong> A supplement to the summary, providing a more detailed description. Use a period at the end.</li>
 	<li><strong>@deprecated x.x.x:</strong> Only use for deprecated classes, and provide the version the class was deprecated which should always be 3-digit (e.g. @since 3.6.0), and the class to use instead.</li>
-	<li><strong>@since x.x.x:</strong> Should always be 3-digit (e.g. @since 3.6.0).</li>
+	<li><strong>@since x.x.x:</strong> Should be 3-digit for initial introduction (e.g. @since 3.6.0). If significant changes are made, additional @since tags, versions, and descriptions should be added to serve as a changelog.</li>
 	<li><strong>@constructs</strong> Marks this function as the constructor of this class.</li>
 	<li><strong>@augments:</strong> List direct parents.</li>
 	<li><strong>@mixes:</strong> List mixins that are mixed into the class.</li>
@@ -158,7 +161,7 @@ Backbone's <code>initialize</code> functions should be formatted as follows:
 </ul>
 
 [js]
-Class = Parent.extend(/** @lends namespace.Class.prototype */{
+Class = Parent.extend( /** @lends namespace.Class.prototype */{
 	/**
 	 * Summary. (use period)
 	 *
@@ -171,7 +174,7 @@ Class = Parent.extend(/** @lends namespace.Class.prototype */{
 	 * @constructs namespace.Class
 	 * @augments   Parent
 	 * @mixes      mixin
-	 * 
+	 *
 	 * @alias    realName
 	 * @memberof namespace
 	 *
@@ -187,7 +190,7 @@ Class = Parent.extend(/** @lends namespace.Class.prototype */{
 	initialize: function() {
 		//Do stuff.
 	}
-});
+} );
 [/js]
 
 If a Backbone class does not have an initialize function it should be documented by using @inheritDoc as follows:
@@ -207,46 +210,44 @@ If a Backbone class does not have an initialize function it should be documented
  * @augments   Parent
  * @mixes      mixin
  * @inheritDoc
- * 
+ *
  * @alias    realName
  * @memberof namespace
  *
  * @see   Function/class relied on
  * @link  URL
  */
-Class = Parent.extend(/** @lends namespace.Class.prototype */{
-	// Functions and properties.
-});
+Class = Parent.extend( /** @lends namespace.Class.prototype */{
+// Functions and properties.
+} );
 [/js]
 
 <blockquote>Note: This currently doesn't provide the expected functionality due to a bug with JSDoc's inheritDoc tag. See the issue <a href="https://github.com/jsdoc3/jsdoc/issues/1012">here</a></blockquote>
 <h2>Local functions</h2>
 At times functions will be assigned to a local variable before being assigned as a class member.
-
 Such functions should be marked as inner functions of the namespace that uses them using <code>~</code>.
-
 The functions should be formatted as follows:
 
 [js]
 /**
  * Function description, you can use any JSDoc here as long as the function remains private.
- * 
+ *
  * @alias namespace~doStuff
  */
 var doStuff = function () {
-	// Do stuff.
-}
+// Do stuff.
+};
 
-Class = Parent.extend(/** @lends namespace.Class.prototype */{
+Class = Parent.extend( /** @lends namespace.Class.prototype */{
 	/**
 	 * Class description
 	 *
 	 * @constructs namespace.Class
-	 * 
+	 *
 	 * @borrows namespace~doStuff as prototype.doStuff
 	 */
 	initialize: function() {
-		//Do stuff.
+	//Do stuff.
 	},
 
 	/*
@@ -255,18 +256,17 @@ Class = Parent.extend(/** @lends namespace.Class.prototype */{
 	 * noting that you're describing this function using @borrows.
 	 */
 	doStuff: doStuff,
-});
+} );
 [/js]
 
 <h2>Local ancestors</h2>
 At times classes will have Ancestors that are only assigned to a local variable. Such classes should be assigned to the namespace their children are and be made inner classes using <code>~</code>.
-
 These should be documented as follows:
 <h2>Class members</h2>
 Class members should be formatted as follows:
 <ul>
 	<li><strong>Short description:</strong> Use a period at the end.</li>
-	<li><strong>@since x.x.x:</strong> Should always be 3-digit (e.g. @since 3.6.0).</li>
+	<li><strong>@since x.x.x:</strong> Should be 3-digit for initial introduction (e.g. @since 3.6.0). If significant changes are made, additional @since tags, versions, and descriptions should be added to serve as a changelog.</li>
 	<li><strong>@access:</strong> If the members is private, protected or public. Private members are intended for internal use only.</li>
 	<li><strong>@type:</strong> List the type of the class member.</li>
 	<li><strong>@property</strong> List all properties this object has in case it's an Object. Use a period at the end.</li>
@@ -294,7 +294,7 @@ Namespaces should be formatted as follows:
 <ul>
 	<li><strong>Short description:</strong> Use a period at the end.</li>
 	<li><strong>@namespace:</strong> Marks this symbol as a namespace, optionally provide a name as an override.</li>
-	<li><strong>@since x.x.x:</strong> Should always be 3-digit (e.g. @since 3.6.0).</li>
+	<li><strong>@since x.x.x:</strong> Should be 3-digit for initial introduction (e.g. @since 3.6.0). If significant changes are made, additional @since tags, versions, and descriptions should be added to serve as a changelog.</li>
 	<li><strong>@memberof:</strong> Namespace that this namespace is contained in.</li>
 	<li><strong>@property:</strong> Properties that this namespace exposes. Use a period at the end.</li>
 </ul>
@@ -305,7 +305,7 @@ Namespaces should be formatted as follows:
  *
  * @namespace realName
  * @memberof  parentNamespace
- * 
+ *
  * @since x.x.x
  *
  * @property {type} key Description.
@@ -543,7 +543,7 @@ WordPress uses JSHint for general code quality testing. Any inline configuration
 <td>This file requires a JavaScript module.</td>
 </tr>
 <tr>
-<td>@returns</td>
+<td>@return</td>
 <td>Document the return value of a function.</td>
 </tr>
 <tr>
@@ -552,7 +552,7 @@ WordPress uses JSHint for general code quality testing. Any inline configuration
 </tr>
 <tr>
 <td>@since</td>
-<td>When was this feature added?</td>
+<td>Documents the version at which the function was added, or when significant changes are made.</td>
 </tr>
 <tr>
 <td>@static</td>
@@ -589,6 +589,10 @@ WordPress uses JSHint for general code quality testing. Any inline configuration
 <tr>
 <td>@version</td>
 <td>Documents the version number of an item.</td>
+</tr>
+<tr>
+<td>@yield</td>
+<td>Document the yielded values of a generator function.</td>
 </tr>
 </tbody>
 </table>
@@ -674,8 +678,8 @@ WordPress uses JSHint for general code quality testing. Any inline configuration
 <td>An unsupported synonym. Use @property instead.</td>
 </tr>
 <tr>
-<td>@return</td>
-<td>An unsupported synonym. Use @returns instead.</td>
+<td>@returns</td>
+<td>An unsupported synonym. Use @return instead.</td>
 </tr>
 <tr>
 <td>@exception</td>
