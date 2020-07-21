@@ -214,15 +214,15 @@ if ( $a === $b ) { ?>
 Correct:
 
 [php]
-<?php ... ?>
-<?php echo $var; ?>
+<&quest;php ... &quest;>
+<&quest;php echo $var; &quest;>
 [/php]
 
 Incorrect:
 
 [php]
-<? ... ?>
-<?= $var ?>
+<&quest; ... &quest;>
+<&quest;= $var &quest;>
 [/php]
 
 <h3>Remove Trailing Spaces</h3>
