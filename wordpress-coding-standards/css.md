@@ -211,9 +211,11 @@ Incorrect:
 	margin: 0px 0px 20px 0px;
 }
 
-.class {
-	font-family: Times New Roman, serif; /* Quote font names when required */
-	font-weight: bold; /* Avoid named font weights */
+.class { /* Quote font names when required */
+	font-family: Times New Roman, serif;
+	/* Avoid named font weights */
+	font-weight: bold;
+	/* Avoid adding a unit for line height */
 	line-height: 1.4em;
 }
 
