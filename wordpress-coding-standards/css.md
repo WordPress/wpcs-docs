@@ -55,24 +55,24 @@ input[type="text"] {
 Incorrect:
 
 [css]
-#commentForm { /\* Avoid camelcase. \*/
+#commentForm { /&042; Avoid camelcase. &042;/
 	margin: 0;
 }
 
-#comment_form { /\* Avoid underscores. \*/
+#comment_form { /&042; Avoid underscores. &042;/
 	margin: 0;
 }
 
-div#comment_form { /\* Avoid over-qualification. \*/
+div#comment_form { /&042; Avoid over-qualification. &042;/
 	margin: 0;
 }
 
-#c1-xr { /\* What is a c1-xr?! Use a better name. \*/
+#c1-xr { /&042; What is a c1-xr?! Use a better name. &042;/
 	margin: 0;
 }
 
-input[type=text] { /\* Should be [type="text"] \*/
-	line-height: 110% /\* Also doubly incorrect \*/
+input[type=text] { /&042; Should be [type="text"] &042;/
+	line-height: 110% /&042; Also doubly incorrect &042;/
 }
 [/css]
 
@@ -177,13 +177,13 @@ There are numerous ways to input values for properties. Follow the guidelines be
 Correct:
 
 [css]
-.class { /\* Correct usage of quotes \*/
+.class { /&042; Correct usage of quotes &042;/
 	background-image: url(images/bg.png);
 	font-family: "Helvetica Neue", sans-serif;
 	font-weight: 700;
 }
 
-.class { /\* Correct usage of zero values \*/
+.class { /&042; Correct usage of zero values &042;/
 	font-family: Georgia, serif;
 	line-height: 1.4;
 	text-shadow:
@@ -191,7 +191,7 @@ Correct:
 		0 1px 0 #fff;
 }
 
-.class { /\* Correct usage of short and lengthier multi-part values \*/
+.class { /&042; Correct usage of short and lengthier multi-part values &042;/
 	font-family: Consolas, Monaco, monospace;
 	transition-property: opacity, background, color;
 	box-shadow:
@@ -203,21 +203,21 @@ Correct:
 Incorrect:
 
 [css]
-.class { /\* Avoid missing space and semicolon \*/
+.class { /&042; Avoid missing space and semicolon &042;/
 	background:#fff
 }
 
-.class { /\* Avoid adding a unit on a zero value \*/
+.class { /&042; Avoid adding a unit on a zero value &042;/
 	margin: 0px 0px 20px 0px;
 }
 
 .class {
-	font-family: Times New Roman, serif; /\* Quote font names when required \*/
-	font-weight: bold; /\* Avoid named font weights \*/
-	line-height: 1.4em; /\* Avoid adding a unit for line height \*/
+	font-family: Times New Roman, serif; /&042; Quote font names when required &042;/
+	font-weight: bold; /&042; Avoid named font weights &042;/
+	line-height: 1.4em; /&042; Avoid adding a unit for line height &042;/
 }
 
-.class { /\* Incorrect usage of multi-part values \*/
+.class { /&042; Incorrect usage of multi-part values &042;/
 	text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5),
                  0 1px 0 #fff;
 	box-shadow: 0 1px 0 rgba(0, 0,
@@ -240,7 +240,7 @@ Example:
 
 [css]
 @media all and (max-width: 699px) and (min-width: 520px) {
-        /\* Your selectors \*/
+        /&042; Your selectors &042;/
 }
 [/css]
 
@@ -253,11 +253,11 @@ Example:
 For sections and subsections:
 
 [css]
-/\*\*
-\* #.# Section title
-\*
-\* Description of section, whether or not it has media queries, etc.
-\*/
+/&042;&042;
+&042; #.# Section title
+&042;
+&042; Description of section, whether or not it has media queries, etc.
+&042;/
 
 .selector {
 	float: left;
@@ -267,10 +267,10 @@ For sections and subsections:
 For inline:
 
 [css]
-/\* This is a comment about this selector \*/
+/&042; This is a comment about this selector &042;/
 .another-selector {
 	position: absolute;
-	top: 0 !important; /\* I should explain why this is so !important \*/
+	top: 0 !important; /&042; I should explain why this is so !important &042;/
 }
 [/css]
 
