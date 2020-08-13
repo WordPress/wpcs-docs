@@ -2,7 +2,7 @@
 
 Some parts of the WordPress code structure for PHP markup are inconsistent in their style. WordPress is working to gradually improve this by helping users maintain a consistent style so the code can become clean and easy to read at a glance.
 
-Keep the following points in mind when writing PHP code for WordPress, whether for core programming code, plugins, or themes. The guidelines are similar to <a href="http://pear.php.net/manual/en/standards.php">Pear standards</a> in many ways, but differ in some key respects.
+Keep the following points in mind when writing PHP code for WordPress, whether for core programming code, plugins, or themes. The guidelines are similar to <a href="http://pear.php.net/manual/en/standards.php" rel="nofollow" target="_blank">Pear standards</a> in many ways, but differ in some key respects.
 
 See also: <a href="https://developer.wordpress.org/coding-standards/inline-documentation-standards/php/">PHP Documentation Standards</a>.
 <h2>PHP</h2>
@@ -14,7 +14,7 @@ echo '<a href="/static/link" title="Yeah yeah!">Link name</a>';
 echo "<a href='$link' title='$linktitle'>$linkname</a>";
 [/php]
 
-Text that goes into attributes should be run through <code>esc_attr()</code> so that single or double quotes do not end the attribute value and invalidate the HTML and cause a security issue. See <a href="http://codex.wordpress.org/Data_Validation">Data Validation</a> in the Codex for further details.
+Text that goes into attributes should be run through <code>esc_attr()</code> so that single or double quotes do not end the attribute value and invalidate the HTML and cause a security issue. See <a href="http://codex.wordpress.org/Data_Validation" target="_blank">Data Validation</a> in the Codex for further details.
 <h3>Indentation</h3>
 Your indentation should always reflect logical structure. Use <strong>real tabs</strong> and <strong>not spaces</strong>, as this allows the most flexibility across clients.
 
@@ -39,7 +39,7 @@ $args = array(
 [tab]'post_author' => 123,
 [tab]'post_status' => 'publish',
 );
- 
+
 $query = new WP_Query( $args );
 [/php]
 
@@ -104,7 +104,7 @@ foreach ( $items as $item ) {
 }
 [/php]
 
-Note that requiring the use of braces just means that <em>single-statement inline control structures</em> are prohibited. You are free to use the <a href="http://php.net/manual/en/control-structures.alternative-syntax.php" rel="nofollow">alternative syntax for control structures</a> (e.g. <code>if</code>/<code>endif</code>, <code>while</code>/<code>endwhile</code>)—especially in your templates where PHP code is embedded within HTML, for instance:
+Note that requiring the use of braces just means that <em>single-statement inline control structures</em> are prohibited. You are free to use the <a href="http://php.net/manual/en/control-structures.alternative-syntax.php" rel="nofollow" target="_blank">alternative syntax for control structures</a> (e.g. <code>if</code>/<code>endif</code>, <code>while</code>/<code>endwhile</code>)—especially in your templates where PHP code is embedded within HTML, for instance:
 
 [php]
 <?php if ( have_posts() ) : ?>
@@ -141,7 +141,7 @@ $caption = preg_replace_callback(
 );
 [/php]
 
-Closures must not be passed as filter or action callbacks, as they cannot be removed by <code>remove_action()</code> / <code>remove_filter()</code> (see <a href="https://core.trac.wordpress.org/ticket/46635">#46635</a> for a proposal to address this).
+Closures must not be passed as filter or action callbacks, as they cannot be removed by <code>remove_action()</code> / <code>remove_filter()</code> (see <a href="https://core.trac.wordpress.org/ticket/46635" target="_blank">#46635</a> for a proposal to address this).
 
 <h3>Multiline Function Calls</h3>
 
@@ -159,7 +159,7 @@ $baz = sprintf(
     esc_html__( 'Hello, %s!', 'yourtextdomain' ),
     $friend_name
 );
- 
+
 $a = foo(
     $bar,
     $baz,
@@ -169,7 +169,7 @@ $a = foo(
 [/php]
 
 <h3>Regular Expressions</h3>
-Perl compatible regular expressions (<a href="http://php.net/pcre">PCRE</a>, <code>preg_</code> functions) should be used in preference to their POSIX counterparts. Never use the <code>/e</code> switch, use <code>preg_replace_callback</code> instead.
+Perl compatible regular expressions (<a href="http://php.net/pcre" rel="nofollow" target="_blank">PCRE</a>, <code>preg_</code> functions) should be used in preference to their POSIX counterparts. Never use the <code>/e</code> switch, use <code>preg_replace_callback</code> instead.
 
 It's most convenient to use single-quoted strings for regular expressions since, contrary to double-quoted strings, they have only two metasequences: <code>\'</code> and <code>\\</code>.
 
@@ -266,7 +266,7 @@ When performing logical comparisons, do it like so:
 if ( ! $foo ) { ...
 [/php]
 
-<a title="type casting" href="http://www.php.net/manual/en/language.types.type-juggling.php#language.types.typecasting" target="_blank">Type casts</a> must be lowercase. Always prefer the short form of type casts, <code>(int)</code> instead of <code>(integer)</code> and <code>(bool)</code> rather than <code>(boolean)</code>. For float casts use <code>(float)</code>.:
+<a title="type casting" href="http://www.php.net/manual/en/language.types.type-juggling.php#language.types.typecasting" rel="nofollow" target="_blank">Type casts</a> must be lowercase. Always prefer the short form of type casts, <code>(int)</code> instead of <code>(integer)</code> and <code>(bool)</code> rather than <code>(boolean)</code>. For float casts use <code>(float)</code>.:
 
 [php]
 foreach ( (array) $foo as $bar ) { ...
@@ -441,7 +441,7 @@ if ( true === $the_force ) {
 }
 [/php]
 
-When doing logical comparisons involving variables, always put the variable on the right side and put constants, literals, or function calls on the left side. If neither side is a variable, the order is not important. (In <a href="https://en.wikipedia.org/wiki/Value_(computer_science)#Assignment:_l-values_and_r-values">computer science terms</a>, in comparisons always try to put l-values on the right and r-values on the left.)
+When doing logical comparisons involving variables, always put the variable on the right side and put constants, literals, or function calls on the left side. If neither side is a variable, the order is not important. (In <a href="https://en.wikipedia.org/wiki/Value_(computer_science)#Assignment:_l-values_and_r-values" rel="nofollow" target="_blank">computer science terms</a>, in comparisons always try to put l-values on the right and r-values on the left.)
 
 In the above example, if you omit an equals sign (admit it, it happens even to the most seasoned of us), you'll get a parse error, because you can't assign to a constant like <code>true</code>. If the statement were the other way around <code>( $the_force = true )</code>, the assignment would be perfectly valid, returning <code>1</code>, causing the if statement to evaluate to <code>true</code>, and you could be chasing that bug for a while.
 
@@ -524,23 +524,23 @@ The <code>goto</code> statement must never be used.
 The <code>eval()</code> construct is <em>very dangerous</em>, and is impossible to secure. Additionally, the <code>create_function()</code> function, which internally performs an <code>eval()</code>, is deprecated in PHP 7.2. Both of these must not be used.
 
 <h3>Error Control Operator <code>@</code></h3>
-As noted in the <a href="http://www.php.net//manual/en/language.operators.errorcontrol.php">PHP docs</a>:
+As noted in the <a href="http://www.php.net//manual/en/language.operators.errorcontrol.php" rel="nofollow" target="_blank">PHP docs</a>:
 <blockquote>PHP supports one error control operator: the at sign (@). When prepended to an expression in PHP, any error messages that might be generated by that expression will be ignored.</blockquote>
 While this operator does exist in Core, it is often used lazily instead of doing proper error checking. Its use is highly discouraged, as even the PHP docs also state:
 <blockquote>Warning: Currently the "@" error-control operator prefix will even disable error reporting for critical errors that will terminate script execution. Among other things, this means that if you use "@" to suppress errors from a certain function and either it isn't available or has been mistyped, the script will die right there with no indication as to why.</blockquote>
 <h3>Don't <code>extract()</code></h3>
-Per <a title="Remove all, or at least most, uses of extract() within WordPress" href="https://core.trac.wordpress.org/ticket/22400">#22400</a>:
+Per <a title="Remove all, or at least most, uses of extract() within WordPress" href="https://core.trac.wordpress.org/ticket/22400" target="_blank">#22400</a>:
 <blockquote><code>extract()</code> is a terrible function that makes code harder to debug and harder to understand. We should discourage it's [sic] use and remove all of our uses of it.
 
-Joseph Scott has <a class="ext-link" href="https://blog.josephscott.org/archives/2009/02/i-dont-like-phps-extract-function/">a good write-up of why it's bad</a>.</blockquote>
+Joseph Scott has <a class="ext-link" href="https://blog.josephscott.org/archives/2009/02/i-dont-like-phps-extract-function/" rel="nofollow" target="_blank">a good write-up of why it's bad</a>.</blockquote>
 <h2>Credits</h2>
 <ul>
- 	<li>PHP standards: <a href="http://pear.php.net/manual/en/standards.php" target="_blank">Pear standards</a></li>
+ 	<li>PHP standards: <a href="http://pear.php.net/manual/en/standards.php" rel="nofollow" target="_blank">Pear standards</a></li>
 </ul>
 <h3>Major Changes</h3>
 <ul>
  	<li>November 13, 2013: <a href="http://make.wordpress.org/core/2013/11/13/proposed-coding-standards-change-always-require-braces/">Braces should always be used, even when they are optional</a></li>
- 	<li>June 20, 2014: Add <a href="#error-control-operator">section</a> to discourage use of the <a href="http://www.php.net//manual/en/language.operators.errorcontrol.php">error control operator</a> (<code>@</code>). See <a href="https://irclogs.wordpress.org/chanlog.php?channel=wordpress-dev&amp;day=2014-06-20&amp;sort=asc#m873356">#wordpress-dev</a>.</li>
+ 	<li>June 20, 2014: Add <a href="#error-control-operator">section</a> to discourage use of the <a href="http://www.php.net//manual/en/language.operators.errorcontrol.php" rel="nofollow" target="_blank">error control operator</a> (<code>@</code>). See <a href="https://irclogs.wordpress.org/chanlog.php?channel=wordpress-dev&amp;day=2014-06-20&amp;sort=asc#m873356">#wordpress-dev</a>.</li>
  	<li>October 20, 2014: Update brace usage to indicate that the alternate syntax for control structures is allowed, even encouraged. It is single-line inline control structures that are forbidden.</li>
  	<li>January 21, 2014: Add section to forbid extract().</li>
 </ul>
