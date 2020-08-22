@@ -115,8 +115,20 @@ var foo = function (bar) {
 console.log(foo(5));
 ```
 
-#### CSS & SCSS
+#### CSS
 ```css
+foo {
+  padding: 5px;
+  margin-right: 3px;
+}
+
+.bar {
+  background-color: #f00;
+}
+```
+
+#### SCSS
+```scss
 foo {
   padding: 5px;
   margin-right: 3px;
@@ -135,6 +147,7 @@ $array = array(
 );
 ```
 
+#### Markdown
 ```md
 This is _italic text_. This is **bold text**.
 ```
