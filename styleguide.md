@@ -142,8 +142,8 @@ foo {
 #### PHP
 ```php
 $array = array(
-    \"foo\" => \"bar\",
-    \"bar\" => \"foo\",
+    "foo" => "bar",
+    "bar" => "foo",
 );
 ```
 
