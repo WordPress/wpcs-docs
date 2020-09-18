@@ -1,6 +1,8 @@
 # Accessibility Coding Standards
 
-These are standards that WordPress features should meet for accessibility in order to be merged into core. All new or updated code released in WordPress must conform with the WCAG 2.0 guidelines at level AA. These basic guidelines are intended for easy reference during development, but do not cover all possible accessibility issues.
+These are standards that WordPress features should meet for accessibility in order to be merged into core. All new or updated code released in WordPress must conform with the WCAG 2.1 guidelines at level AA. These basic guidelines are intended for easy reference during development, but do not cover all possible accessibility issues.
+
+Note: further documentation for meeting WCAG 2.1 accessibility guidelines is in development, with expected publication prior to the release of WordPress 5.6.
 
 In the [Accessibility Handbook](https://make.wordpress.org/accessibility/handbook/best-practices/) there are pages about best practices, including code examples and resources.
 
