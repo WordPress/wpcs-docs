@@ -90,7 +90,7 @@ HTML markup should never be used outside of code examples, though Markdown can b
 
 Use a hyphen (-) to create an unordered list, with a blank line before and after.
 
-[php]
+```php
  * Description which includes an unordered list:
  *
  * - This is item 1.
@@ -98,11 +98,11 @@ Use a hyphen (-) to create an unordered list, with a blank line before and after
  * - This is item 3.
  *
  * The description continues on ...
-[/php]
+```
 
 Use numbers to create an ordered list, with a blank line before and after.
 
-[php]
+```php
  * Description which includes an ordered list:
  *
  * 1. This is item 1.
@@ -110,11 +110,11 @@ Use numbers to create an ordered list, with a blank line before and after.
  * 3. This is item 3.
  *
  * The description continues on ...
-[/php]
+```
 
 2. Code samples would be created by indenting every line of the code by 4 spaces, with a blank line before and after. Blank lines in code samples also need to be indented by four spaces. Note that examples added in this way will be output in &lt;pre&gt; tags and <em>not</em> syntax-highlighted.
 
-[php]
+```php
  * Description including a code sample:
  *
  *    $status = array(
@@ -125,15 +125,15 @@ Use numbers to create an ordered list, with a blank line before and after.
  *    );
  *
  * The description continues on ...
-[/php]
+```
 
 3. Links in the form of URLs, such as related Trac tickets or other documentation, should be added in the appropriate place in the DocBlock using the <code>@link</code> tag:
 
-[php]
+```php
  * Description text.
  *
  * @link https://core.trac.wordpress.org/ticket/20000
-[/php]
+```
 
 <h4><code>@since</code> Section (Changelogs)</h4>
 Every function, hook, class, and method should have a corresponding <code>@since</code> version associated with it (more on that below).
@@ -142,9 +142,9 @@ No HTML should be used in the descriptions for <code>@since</code> tags, though 
 
 Versions should be expressed in the 3-digit <code>x.x.x</code> style:
 
-[php]
+```php
  * @since 4.4.0
-[/php]
+```
 
 If significant changes have been made to a function, hook, class, or method, additional <code>@since</code> tags, versions, and descriptions should be added to provide a changelog for that function.
 
@@ -157,11 +157,11 @@ If significant changes have been made to a function, hook, class, or method, add
 </ul>
 PHPDoc supports multiple <code>@since</code> versions in DocBlocks for this explicit reason. When adding changelog entries to the <code>@since</code> block, a version should be cited, and a description should be added in sentence case and form and end with a period:
 
-[php]
+```php
  * @since 3.0.0
  * @since 3.8.0 Added the `post__in` argument.
  * @since 4.1.0 The `$force` parameter is now optional.
-[/php]
+```
 
 <h4>Other Descriptions</h4>
 <code>@param</code>, <code>@type</code>, <code>@return</code>: No HTML should be used in the descriptions for these tags, though limited Markdown can be used as necessary, such as for adding backticks around variables, e.g. <code>`$variable`</code>.
@@ -194,7 +194,7 @@ Functions and class methods should be formatted as follows:
  	<li><strong>@return:</strong> Should contain all possible return types, and a description for each. Use a period at the end. Note: <code>@return</code> void should not be used outside of the default bundled themes.</li>
 </ul>
 
-[php]
+```php
 /**
  * Summary.
  *
@@ -211,21 +211,21 @@ Functions and class methods should be formatted as follows:
  * @param type $var Optional. Description. Default.
  * @return type Description.
  */
-[/php]
+```
 
 <h4>1.1 Parameters That Are Arrays</h4>
 Parameters that are an array of arguments should be documented in the "originating" function only, and cross-referenced via an <code>@see</code> tag in corresponding DocBlocks.
 
 Array values should be documented using WordPress' flavor of hash notation style similar to how <a href="http://make.wordpress.org/core/handbook/inline-documentation-standards/php-documentation-standards/#4-hooks-actions-and-filters">Hooks</a> can be documented, each array value beginning with the <code>@type</code> tag, and taking the form of:
 
-[php]
+```php
 *     @type type $key Description. Default 'value'. Accepts 'value', 'value'.
 *                     (aligned with Description, if wraps to a new line)
-[/php]
+```
 
 An example of an "originating" function and re-use of an argument array is <a href="https://core.trac.wordpress.org/browser/branches/4.0/src/wp-includes/http.php#L115"><code>wp_remote_request|post|get|head()</code></a>.
 
-[php]
+```php
 /**
  * Summary.
  *
@@ -244,13 +244,13 @@ An example of an "originating" function and re-use of an argument array is <a hr
  * @param type  $var Description.
  * @return type Description.
  */
-[/php]
+```
 
 In most cases, there is no need to mark individual arguments in a hash notation as <em>optional</em>, as the entire array is usually optional. Specifying "Optional." in the hash notation description should suffice. In the case where the array is NOT optional, individual key/value pairs may be optional and should be marked as such as necessary.
 <h4>1.2 Deprecated Functions</h4>
 If the function is deprecated and should not be used any longer, the <code>@deprecated</code> tag, along with the version and description of what to use instead, should be added. Note the additional use of an <code>@see</code> tag – the Code Reference uses this information to attempt to link to the replacement function.
 
-[php]
+```php
 /**
  * Summary.
  *
@@ -264,7 +264,7 @@ If the function is deprecated and should not be used any longer, the <code>@depr
  * @param type $var Description.
  * @return type Description.
  */
-[/php]
+```
 
 <h3>2. Classes</h3>
 Class DocBlocks should be formatted as follows:
@@ -274,7 +274,7 @@ Class DocBlocks should be formatted as follows:
  	<li><strong>@since x.x.x:</strong> Should always be 3-digit (e.g. <code>@since 3.9.0</code>). Exception is <code>@since MU (3.0.0)</code>.</li>
 </ul>
 
-[php]
+```php
 /**
  * Summary.
  *
@@ -282,11 +282,11 @@ Class DocBlocks should be formatted as follows:
  *
  * @since x.x.x
  */
-[/php]
+```
 
 If documenting a sub-class, it's also helpful to include an `@see` tag reference to the super class:
 
-[php]
+```php
 /**
  * Summary.
  *
@@ -296,7 +296,7 @@ If documenting a sub-class, it's also helpful to include an `@see` tag reference
  *
  * @see Super_Class
  */
-[/php]
+```
 
 <h4>2.1 Class Members</h4>
 <h5>2.1.1 Properties</h5>
@@ -307,14 +307,14 @@ Class properties should be formatted as follows:
  	<li><strong>@var:</strong> Formatted the same way as <code>@param</code>, though the description may be omitted.</li>
 </ul>
 
-[php]
+```php
 /**
  * Summary.
  *
  * @since x.x.x
  * @var type $var Description.
  */
-[/php]
+```
 
 <h5>2.1.2 Constants</h5>
 <ul>
@@ -323,7 +323,7 @@ Class properties should be formatted as follows:
  	<li><strong>@var:</strong> Formatted the same way as <code>@param</code>, though the description may be omitted.</li>
 </ul>
 
-[php]
+```php
 /**
  * Summary.
  *
@@ -331,17 +331,17 @@ Class properties should be formatted as follows:
  * @var type $var Description.
  */
 const NAME = value;
-[/php]
+```
 
 <h3>3. Requires and Includes</h3>
 Files required or included should be documented with a summary description DocBlock. Optionally, this may apply to inline <code>get_template_part()</code> calls as needed for clarity.
 
-[php]
+```php
 /**
  * Summary.
  */
 require_once( ABSPATH . WPINC . '/filename.php' );
-[/php]
+```
 
 <h3>4. Hooks (Actions and Filters)</h3>
 Both action and filter hooks should be documented on the line immediately preceding the call to <code>do_action()</code> or <code>do_action_ref_array()</code>, or <code>apply_filters()</code> or <code>apply_filters_ref_array()</code>, and formatted as follows:
@@ -354,7 +354,7 @@ Both action and filter hooks should be documented on the line immediately preced
 </ul>
 Note that <code>@return</code> is <em>not</em> used for hook documentation, because action hooks return nothing, and filter hooks always return their first parameter.
 
-[php]
+```php
 /**
  * Summary.
  *
@@ -371,7 +371,7 @@ Note that <code>@return</code> is <em>not</em> used for hook documentation, beca
  * }
  * @param type  $var Description.
  */
-[/php]
+```
 
 If a hook is in the middle of a block of HTML or a long conditional, the DocBlock should be placed on the line immediately before the start of the HTML block or conditional, even if it means forcing line-breaks/PHP tags in a continuous line of HTML.
 
@@ -381,34 +381,34 @@ Occasionally, hooks will be used multiple times in the same or separate core fil
 
 For actions:
 
-[php]
+```php
 /** This action is documented in path/to/filename.php */ 
-[/php]
+```
 
 For filters:
 
-[php]
+```php
 /** This filter is documented in path/to/filename.php */
-[/php]
+```
 
 To determine which instance should be documented, search for multiples of the same hook tag, then use <a href="http://make.wordpress.org/core/handbook/svn/code-history/#using-subversion-annotate">svn blame</a> to find the first use of the hook in terms of the earliest revision. If multiple instances of the hook were added in the same release, document the one most logically-placed as the "primary".
 <h3>5. Inline Comments</h3>
 Inline comments inside methods and functions should be formatted as follows:
 <h4>5.1 Single line comments</h4>
 
-[php]
+```php
 // Allow plugins to filter an array.
-[/php]
+```
 
 <h4>5.2 Multi-line comments</h4>
 
-[php]
+```php
 /* 
  * This is a comment that is long enough to warrant being stretched over
  * the span of multiple lines. You'll notice this follows basically
  * the same format as the PHPDoc wrapping and comment block style.
  */
-[/php]
+```
 
 <strong>Important note:</strong> Multi-line comments must not begin with <code>/**</code> (double asterisk) as the parser might mistake it for a DocBlock. Use <code>/*</code> (single asterisk) instead.
 <h3>6. File Headers</h3>
@@ -416,7 +416,7 @@ The file header DocBlock is used to give an overview of what is contained in the
 
 Whenever possible, <strong>all</strong> WordPress files should contain a header DocBlock, regardless of the file's contents – this includes files containing classes.
 
-[php]
+```php
 /**
  * Summary (no period for file headers)
  *
@@ -428,7 +428,7 @@ Whenever possible, <strong>all</strong> WordPress files should contain a header 
  * @subpackage Component
  * @since x.x.x (when the file was introduced)
  */
-[/php]
+```
 
 The <em>Summary</em> section is meant to serve as a succinct description of <strong>what</strong> specific purpose the file serves.
 
@@ -453,14 +453,14 @@ Constants should be formatted as follows:
  	<li><strong>@var:</strong> Formatted the same way as <code>@param</code>. The description is optional.</li>
 </ul>
 
-[php]
+```php
 /**
  * Summary.
  *
  * @since x.x.x (if available)
  * @var type $var Description.
  */
-[/php]
+```
 
 <h2>PHPDoc Tags</h2>
 Common PHPDoc tags used in WordPress include <code>@since</code>, <code>@see</code>, <code>@global</code> <code>@param</code>, and <code>@return</code> (see table below for full list).

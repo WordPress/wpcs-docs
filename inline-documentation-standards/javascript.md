@@ -62,12 +62,12 @@ Related comments should be spaced so that they align to make them more easily re
 
 For example:
 
-[js]
+```javascript
 /**
  * @param {very_long_type} name           Description.
  * @param {type}           very_long_name Description.
  */
-[/js]
+```
 
 <h2>Functions</h2>
 Functions should be formatted as follows:
@@ -93,7 +93,7 @@ Functions should be formatted as follows:
 	<li><strong>@return:</strong> Note the period after the description.</li>
 </ul>
 
-[js]
+```javascript
 /**
  * Summary. (use period)
  *
@@ -129,7 +129,7 @@ Functions should be formatted as follows:
  *
  * @return {type} Return value description.
  */
-[/js]
+```
 
 <h2>Backbone classes</h2>
 Backbone's <code>extend</code> calls should be formatted as follows:
@@ -160,7 +160,7 @@ Backbone's <code>initialize</code> functions should be formatted as follows:
 </li>
 </ul>
 
-[js]
+```javascript
 Class = Parent.extend( /** @lends namespace.Class.prototype */{
 	/**
 	 * Summary. (use period)
@@ -191,11 +191,11 @@ Class = Parent.extend( /** @lends namespace.Class.prototype */{
 		//Do stuff.
 	}
 } );
-[/js]
+```
 
 If a Backbone class does not have an initialize function it should be documented by using @inheritDoc as follows:
 
-[js]
+```javascript
 /**
  * Summary. (use period)
  *
@@ -220,7 +220,7 @@ If a Backbone class does not have an initialize function it should be documented
 Class = Parent.extend( /** @lends namespace.Class.prototype */{
 // Functions and properties.
 } );
-[/js]
+```
 
 <blockquote>Note: This currently doesn't provide the expected functionality due to a bug with JSDoc's inheritDoc tag. See the issue <a href="https://github.com/jsdoc3/jsdoc/issues/1012">here</a></blockquote>
 <h2>Local functions</h2>
@@ -228,7 +228,7 @@ At times functions will be assigned to a local variable before being assigned as
 Such functions should be marked as inner functions of the namespace that uses them using <code>~</code>.
 The functions should be formatted as follows:
 
-[js]
+```javascript
 /**
  * Function description, you can use any JSDoc here as long as the function remains private.
  *
@@ -257,7 +257,7 @@ Class = Parent.extend( /** @lends namespace.Class.prototype */{
 	 */
 	doStuff: doStuff,
 } );
-[/js]
+```
 
 <h2>Local ancestors</h2>
 At times classes will have Ancestors that are only assigned to a local variable. Such classes should be assigned to the namespace their children are and be made inner classes using <code>~</code>.
@@ -274,7 +274,7 @@ Class members should be formatted as follows:
 	<li><strong>@memberof:</strong> Optionally use this to override what class this is a member of.</li>
 </ul>
 
-[js]
+```javascript
 /**
  * Short description. (use period)
  *
@@ -287,7 +287,7 @@ Class members should be formatted as follows:
  * @member   {type} realName
  * @memberof className
  */
-[/js]
+```
 
 <h2>Namespaces</h2>
 Namespaces should be formatted as follows:
@@ -299,7 +299,7 @@ Namespaces should be formatted as follows:
 	<li><strong>@property:</strong> Properties that this namespace exposes. Use a period at the end.</li>
 </ul>
 
-[js]
+```javascript
 /**
  * Short description. (use period)
  *
@@ -310,25 +310,25 @@ Namespaces should be formatted as follows:
  *
  * @property {type} key Description.
  */
-[/js]
+```
 
 <h2>Inline Comments</h2>
 Inline comments inside methods and functions should be formatted as follows:
 <h3>Single line comments</h3>
 
-[js]
+```javascript
 // Extract the array values.
-[/js]
+```
 
 <h3>Multi-line comments</h3>
 
-[js]
+```javascript
 /*
  * This is a comment that is long enough to warrant being stretched over
  * the span of multiple lines. You'll notice this follows basically
  * the same format as the JSDoc wrapping and comment block style.
  */
-[/js]
+```
 
 <strong>Important note:</strong> Multi-line comments must not begin with <code>/**</code> (double asterisk). Use <code>/*</code> (single asterisk) instead.
 <h2>File Headers</h2>
@@ -338,7 +338,7 @@ Whenever possible, all WordPress JavaScript files should contain a header block.
 
 WordPress uses JSHint for general code quality testing. Any inline configuration options should be placed at the end of the header block.
 
-[js]
+```javascript
 /**
  * Summary. (use period)
  *
@@ -351,7 +351,7 @@ WordPress uses JSHint for general code quality testing. Any inline configuration
  */
  
 /** jshint {inline configuration here} */
-[/js]
+```
 
 <h2>Supported JSDoc Tags</h2>
 <table>

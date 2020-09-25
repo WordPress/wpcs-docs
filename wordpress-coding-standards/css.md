@@ -12,25 +12,25 @@ There are plenty of different methods for structuring a stylesheet. With the CSS
 </ul>
 Correct:
 
-[css]
+```css
 #selector-1,
 #selector-2,
 #selector-3 {
 	background: #fff;
 	color: #000;
 }
-[/css]
+```
 
 Incorrect:
 
-[css]
+```css
 #selector-1, #selector-2, #selector-3 {
 	background: #fff;
 	color: #000;
 	}
 
 #selector-1 { background: #fff; color: #000; }
-[/css]
+```
 
 <h2>Selectors</h2>
 With specificity, comes great responsibility. Broad selectors allow us to be efficient, yet can have adverse consequences if not tested. Location-specific selectors can save us time, but will quickly lead to a cluttered stylesheet. Exercise your best judgement to create selectors that find the right balance between contributing to the overall style and layout of the DOM.
@@ -42,7 +42,7 @@ With specificity, comes great responsibility. Broad selectors allow us to be eff
 </ul>
 Correct:
 
-[css]
+```css
 #comment-form {
 	margin: 1em 0;
 }
@@ -50,11 +50,11 @@ Correct:
 input[type="text"] {
 	line-height: 1.1;
 }
-[/css]
+```
 
 Incorrect:
 
-[css]
+```css
 #commentForm { /&042; Avoid camelcase. &042;/
 	margin: 0;
 }
@@ -74,7 +74,7 @@ div#comment_form { /&042; Avoid over-qualification. &042;/
 input[type=text] { /&042; Should be [type="text"] &042;/
 	line-height: 110% /&042; Also doubly incorrect &042;/
 }
-[/css]
+```
 
 <h2>Properties</h2>
 Similar to selectors, properties that are too specific will hinder the flexibility of the design. Less is more. Make sure you are not repeating styling or introducing fixed dimensions (when a fluid solution is more acceptable).
@@ -86,25 +86,25 @@ Similar to selectors, properties that are too specific will hinder the flexibili
 </ul>
 Correct:
 
-[css]
+```css
 #selector-1 {
 	background: #fff;
 	display: block;
 	margin: 0;
 	margin-left: 20px;
 }
-[/css]
+```
 
 Incorrect:
 
-[css]
+```css
 #selector-1 {
 	background:#FFFFFF;
 	display: BLOCK;
 	margin-left: 20PX;
 	margin: 0;
 }
-[/css]
+```
 
 <h3>Property Ordering</h3>
 <blockquote>"Group like properties together, especially if you have a lot of them."
@@ -123,7 +123,7 @@ Top/Right/Bottom/Left (TRBL/trouble) should be the order for any relevant proper
 
 Example:
 
-[css]
+```css
 #overlay {
 	position: absolute;
 	z-index: 1;
@@ -131,13 +131,13 @@ Example:
 	background: #fff;
 	color: #777;
 }
-[/css]
+```
 
 Another method that is often used, including by the Automattic/WordPress.com Themes Team, is to order properties alphabetically, with or without certain exceptions.
 
 Example:
 
-[css]
+```css
 #overlay {
 	background: #fff;
 	color: #777;
@@ -145,20 +145,20 @@ Example:
 	position: absolute;
 	z-index: 1;
 }
-[/css]
+```
 
 <h3>Vendor Prefixes</h3>
 Updated on 2/13/2014, after <a href="https://core.trac.wordpress.org/changeset/27174">[27174]</a>:
 
 We use <a href="https://github.com/postcss/autoprefixer">Autoprefixer</a> as a pre-commit tool to easily manage necessary browser prefixes, thus making the majority of this section moot. For those interested in following that output without using Grunt, vendor prefixes should go longest (-webkit-) to shortest (unprefixed). All other spacing remains as per the rest of standards.
 
-[css]
+```css
 .sample-output {
 	-webkit-box-shadow: inset 0 0 1px 1px #eee;
 	-moz-box-shadow: inset 0 0 1px 1px #eee;
 	box-shadow: inset 0 0 1px 1px #eee;
 }
-[/css]
+```
 
 <h2>Values</h2>
 There are numerous ways to input values for properties. Follow the guidelines below to help us retain a high degree of consistency.
@@ -176,7 +176,7 @@ There are numerous ways to input values for properties. Follow the guidelines be
 </ul>
 Correct:
 
-[css]
+```css
 .class { /&042; Correct usage of quotes &042;/
 	background-image: url(images/bg.png);
 	font-family: "Helvetica Neue", sans-serif;
@@ -198,11 +198,11 @@ Correct:
 		0 0 0 1px #5b9dd9,
 		0 0 2px 1px rgba(30, 140, 190, 0.8);
 }
-[/css]
+```
 
 Incorrect:
 
-[css]
+```css
 .class { /&042; Avoid missing space and semicolon &042;/
 	background:#fff
 }
@@ -224,7 +224,7 @@ Incorrect:
 		0, 0.5),
 		0 1px 0 rgba(0,0,0,0.5);
 }
-[/css]
+```
 
 <h2>Media Queries</h2>
 Media queries allow us to gracefully degrade the DOM for different screen sizes. If you are adding any, be sure to test above and below the break-point you are targeting.
@@ -238,11 +238,11 @@ Media queries allow us to gracefully degrade the DOM for different screen sizes.
 </ul>
 Example:
 
-[css]
+```css
 @media all and (max-width: 699px) and (min-width: 520px) {
         /&042; Your selectors &042;/
 }
-[/css]
+```
 
 <h2>Commenting</h2>
 <ul>
@@ -252,27 +252,27 @@ Example:
 </ul>
 For sections and subsections:
 
-[css]
-/&042;&042;
-&042; #.# Section title
-&042;
-&042; Description of section, whether or not it has media queries, etc.
-&042;/
+```css
+/**
+* #.# Section title
+*
+* Description of section, whether or not it has media queries, etc.
+*/
 
 .selector {
 	float: left;
 }
-[/css]
+```
 
 For inline:
 
-[css]
-/&042; This is a comment about this selector &042;/
+```css
+/* This is a comment about this selector */
 .another-selector {
 	position: absolute;
-	top: 0 !important; /&042; I should explain why this is so !important &042;/
+	top: 0 !important; /* I should explain why this is so !important */
 }
-[/css]
+```
 
 <h2>Best Practices</h2>
 Stylesheets tend to get long in length. Focus slowly gets lost whilst intended goals start repeating and overlapping. Writing smart code from the outset helps us retain the overview whilst remaining flexible throughout change.

@@ -9,11 +9,15 @@ All HTML pages should be verified against [the W3C validator](https://validator.
 
 All tags must be properly closed. For tags that can wrap nodes such as text or other elements, termination is a trivial enough task. For tags that are self-closing, the forward slash should have exactly one space preceding it:
 
-[html]&lt;br /&gt;[/html]
+```html
+<br />
+```
 
 rather than the compact but incorrect:
 
-[html]&lt;br/&gt;[/html]
+```html
+<br/>
+```
 
 The W3C specifies that a single space should precede the self-closing slash ([source](https://w3.org/TR/xhtml1/#C_2)).
 
@@ -23,15 +27,15 @@ All tags and attributes must be written in lowercase. Additionally, attribute va
 
 For machines:
 
-[html]
-&lt;meta http-equiv="content-type" content="text/html; charset=utf-8" /&gt;
-[/html]
+```html
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+```
 
 For humans:
 
-[html]
-&lt;a href="http://example.com/" title="Description Here"&gt;Example.com&lt;/a&gt;
-[/html]
+```html
+<a href="http://example.com/" title="Description Here">Example.com</a>
+```
 
 ### Quotes
 
@@ -39,16 +43,16 @@ According to the W3C specifications for XHTML, all attributes must have a value,
 
 Correct:
 
-[html]
-&lt;input type="text" name="email" disabled="disabled" /&gt;
-&lt;input type='text' name='email' disabled='disabled' /&gt;
-[/html]
+```html
+<input type="text" name="email" disabled="disabled" />
+<input type='text' name='email' disabled='disabled' />
+```
 
 Incorrect:
 
-[html]
-&lt;input type=text name=email disabled&gt;
-[/html]
+```html
+<input type=text name=email disabled>
+```
 
 In HTML, attributes do not all have to have values, and attribute values do not always have to be quoted. While all of the examples above are valid HTML, _failing to quote attributes can lead to security vulnerabilities_. Always quote attributes.
 
@@ -60,31 +64,31 @@ When mixing PHP and HTML together, indent PHP blocks to match the surrounding HT
 
 Correct:
 
-[php]
-&lt;?php if ( ! have_posts() ) : ?&gt;
-&lt;div id="post-1" class="post"&gt;
-&lt;h1 class="entry-title"&gt;Not Found&lt;/h1&gt;
-&lt;div class="entry-content"&gt;
-&lt;p&gt;Apologies, but no results were found.&lt;/p&gt;
-&lt;?php get_search_form(); ?&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;?php endif; ?&gt;
-[/php]
+```php
+<?php if ( ! have_posts() ) : ?>
+<div id="post-1" class="post">
+<h1 class="entry-title">Not Found</h1>
+<div class="entry-content">
+<p>Apologies, but no results were found.</p>
+<?php get_search_form(); ?>
+</div>
+</div>
+<?php endif; ?>
+```
 
 Incorrect:
 
-[php]
-&lt;?php if ( ! have_posts() ) : ?&gt;
-&lt;div id="post-0" class="post error404 not-found"&gt;
-&lt;h1 class="entry-title"&gt;Not Found&lt;/h1&gt;
-&lt;div class="entry-content"&gt;
-&lt;p&gt;Apologies, but no results were found.&lt;/p&gt;
-&lt;?php get_search_form(); ?&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;?php endif; ?&gt;
-[/php]
+```php
+<?php if ( ! have_posts() ) : ?>
+<div id="post-0" class="post error404 not-found">
+<h1 class="entry-title">Not Found</h1>
+<div class="entry-content">
+<p>Apologies, but no results were found.</p>
+<?php get_search_form(); ?>
+</div>
+</div>
+<?php endif; ?>
+```
 
 ## Credits
 
