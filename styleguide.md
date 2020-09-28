@@ -108,7 +108,7 @@ When documenting an example, use the markdown <code>`\``</code> code block to de
 
 #### Javascript
 ````
-```js
+```javascript
 var foo = function (bar) {
   return bar++;
 };

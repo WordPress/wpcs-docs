@@ -21,10 +21,10 @@ Your indentation should always reflect logical structure. Use <strong>real tabs<
 Exception: if you have a block of code that would be more readable if things are aligned, use spaces:
 
 ```php
-	$foo   = 'somevalue';
-	$foo2  = 'somevalue2';
-	$foo34 = 'somevalue3';
-	$foo5  = 'somevalue4';
+[tab]$foo   = 'somevalue';
+[tab]$foo2  = 'somevalue2';
+[tab]$foo34 = 'somevalue3';
+[tab]$foo5  = 'somevalue4';
 ```
 
 For associative arrays, <em>each item</em> should start on a new line when the array contains more than one item:
@@ -35,9 +35,9 @@ $query = new WP_Query( array( 'ID' => 123 ) );
 
 ```php
 $args = array(
-	'post_type'   => 'page',
-	'post_author' => 123,
-	'post_status' => 'publish',
+[tab]'post_type'   => 'page',
+[tab]'post_author' => 123,
+[tab]'post_status' => 'publish',
 );
  
 $query = new WP_Query( $args );
@@ -58,12 +58,12 @@ For <code>switch</code> structures <code>case</code> should indent one tab from 
 
 ```php
 switch ( $type ) {
-	case 'foo':
-		some_function();
-		break;
-	case 'bar':
-		some_function();
-		break;
+[tab]case 'foo':
+[tab][tab]some_function();
+[tab][tab]break;
+[tab]case 'bar':
+[tab][tab]some_function();
+[tab][tab]break;
 }
 ```
 

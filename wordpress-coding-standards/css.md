@@ -254,10 +254,10 @@ For sections and subsections:
 
 ```css
 /**
-* #.# Section title
-*
-* Description of section, whether or not it has media queries, etc.
-*/
+ * #.# Section title
+ *
+ * Description of section, whether or not it has media queries, etc.
+ */
 
 .selector {
 	float: left;

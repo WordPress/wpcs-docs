@@ -218,7 +218,7 @@ elements
 		.html( 'hello' )
 	.end()
 	.appendTo( 'body' );
-	```
+```
 
 ## Assignments and Globals
 
@@ -530,7 +530,8 @@ var arr = _.chain( obj )
 	// Exit the chain
 	.value();
 
-// arr === [ 'first comes thing 1', 'second comes thing 2', 'third comes lox' ]```
+// arr === [ 'first comes thing 1', 'second comes thing 2', 'third comes lox' ]
+```
 
 ### Iterating Over jQuery Collections
 
