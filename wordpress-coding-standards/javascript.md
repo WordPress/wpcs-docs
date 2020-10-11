@@ -55,7 +55,7 @@ Object declarations can be made on a single line if they are short (remember the
 
 Objects and arrays can be declared on a single line if they are short (remember the line length guidelines). When an object or array is too long to fit on one line, each member must be placed on its own line and each line ended by a comma.
 
-[javascript]
+```javascript
 // Preferred
 var obj = {
 	ready: 9,
@@ -77,13 +77,13 @@ var obj = { ready: 9,
 	when: 4, 'you are': 15 };
 var arr = [ 9,
 	4, 15 ];
-[/javascript]
+```
 
 ### Arrays and Function Calls
 
 Always include extra spaces around elements and arguments:
 
-[javascript]
+```javascript
 array = [ a, b ];
  
 foo( arg );
@@ -97,11 +97,11 @@ foo( node, 'property', 2 );
 prop = object[ 'default' ];
  
 firstArrayElement = arr[ 0 ];
-[/javascript]
+```
 
 ### Examples of Good Spacing
 
-[javascript]
+```javascript
 var i;
 
 if ( condition ) {
@@ -131,7 +131,7 @@ try {
 } catch ( e ) {
 	// Expressions
 }
-[/javascript]
+```
 
 ## Semicolons
 
@@ -143,7 +143,7 @@ Indentation and line breaks add readability to complex statements.
 
 Tabs should be used for indentation. Even if the entire file is contained in a closure (i.e., an immediately invoked function), the contents of that function should be indented by one tab:
 
-[javascript]
+```javascript
 ( function ( $ ) {
 	// Expressions indented
 
@@ -151,13 +151,13 @@ Tabs should be used for indentation. Even if the entire file is contained in a c
 		// Expressions indented
 	}
 } )( jQuery );
-[/javascript]
+```
 
 ### Blocks and Curly Braces
 
 `if`, `else`, `for`, `while`, and `try` blocks should always use braces, and always go on multiple lines. The opening brace should be on the same line as the function definition, the conditional, or the loop. The closing brace should be on the line directly following the last statement of the block.
 
-[javascript]
+```javascript
 var a, b, c;
 
 if ( myFunction() ) {
@@ -167,13 +167,13 @@ if ( myFunction() ) {
 } else {
 	// Expressions
 }
-[/javascript]
+```
 
 ### Multi-line Statements
 
 When a statement is too long to fit on one line, line breaks must occur after an operator.
 
-[javascript]
+```javascript
 // Bad
 var html = '&lt;p>The sum of ' + a + ' and ' + b + ' plus ' + c
 	+ ' is ' + ( a + b + c ) + '&lt;/p>';
@@ -181,11 +181,11 @@ var html = '&lt;p>The sum of ' + a + ' and ' + b + ' plus ' + c
 // Good
 var html = '&lt;p>The sum of ' + a + ' and ' + b + ' plus ' + c +
 	' is ' + ( a + b + c ) + '&lt;/p>';
-[/javascript]
+```
 
 Lines should be broken into logical groups if it improves readability, such as splitting each expression of a ternary operator onto its own line, even if both will fit on a single line.
 
-[javascript]
+```javascript
 // Acceptable
 var baz = ( true === conditionalStatement() ) ? 'thing 1' : 'thing 2';
 
@@ -193,11 +193,11 @@ var baz = ( true === conditionalStatement() ) ? 'thing 1' : 'thing 2';
 var baz = firstCondition( foo ) &amp;&amp; secondCondition( bar ) ?
 	qux( foo, bar ) :
 	foo;
-[/javascript]
+```
 
 When a conditional is too long to fit on one line, each operand of a logical operator in the boolean expression must appear on its own line, indented one extra level from the opening and closing parentheses.
 
-[javascript]
+```javascript
 if (
 	firstCondition() &amp;&amp;
 	secondCondition() &amp;&amp;
@@ -205,20 +205,20 @@ if (
 ) {
     doStuff();
 }
-[/javascript]
+```
 
 ### Chained Method Calls
 
 When a chain of method calls is too long to fit on one line, there must be one call per line, with the first call on a separate line from the object the methods are called on. If the method changes the context, an extra level of indentation must be used.
 
-[javascript]
+```javascript
 elements
 	.addClass( 'foo' )
 	.children()
 		.html( 'hello' )
 	.end()
 	.appendTo( 'body' );
-	[/javascript]
+```
 
 ## Assignments and Globals
 
@@ -234,7 +234,7 @@ Each function should begin with a single comma-delimited `var` statement that de
 
 Assignments within the `var` statement should be listed on individual lines, while declarations can be grouped on a single line. Any additional lines should be indented with an additional tab. Objects and functions that occupy more than a handful of lines should be assigned outside of the `var` statement, to avoid over-indentation.
 
-[javascript]
+```javascript
 // Good
 var k, m, length,
 	// Indent subsequent lines by one tab
@@ -246,7 +246,7 @@ var bar = false;
 var a;
 var b;
 var c;
-[/javascript]
+```
 
 ### Globals
 
@@ -256,9 +256,9 @@ All globals used within a file should be documented at the top of that file. Mul
 
 This example would make `passwordStrength` an allowed global variable within that file:
 
-[javascript]
+```javascript
 /* global passwordStrength:true */
-[/javascript]
+```
 
 The "true" after `passwordStrength` means that this global is being defined within this file. If you are accessing a global which is defined elsewhere, omit `:true` to designate the global as read-only.
 
@@ -268,20 +268,20 @@ Backbone, jQuery, Underscore, and the global `wp` object are all registered as a
 
 Backbone and Underscore may be accessed directly at any time. jQuery should be accessed through `$` by passing the `jQuery` object into an anonymous function:
 
-[javascript]
+```javascript
 ( function ( $ ) {
 	// Expressions
 } )( jQuery );
-[/javascript]
+```
 
 This will negate the need to call `.noConflict()`, or to set `$` using another variable.
 
 Files which add to, or modify, the `wp` object must safely access the global to avoid overwriting previously set properties:
 
-[javascript]
+```javascript
 // At the top of the file, set "wp" to its existing value (if present)
 window.wp = window.wp || {};
-[/javascript]
+```
 
 ## Naming Conventions
 
@@ -297,7 +297,7 @@ All other [abbreviations](https://en.wikipedia.org/wiki/Abbreviation) must be wr
 
 If an abbreviation or an acronym occurs at the start of a variable name, it must be written to respect the camelcase naming rules covering the first letter of a variable or class definition. For variable assignment, this means writing the abbreviation entirely as lowercase. For class definitions, its initial letter should be capitalized.
 
-[javascript]
+```javascript
 // "Id" is an abbreviation of "Identifier":
 const userId = 1;
  
@@ -309,7 +309,7 @@ const currentDOMDocument = window.document;
 const domDocument = window.document;
 class DOMDocument {}
 class IdCollection {}
-[/javascript]
+```
 
 ### Class Definitions
 
@@ -317,7 +317,7 @@ Constructors intended for use with `new` should have a capital first letter (Upp
 
 A [`class` definition](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes) must use the UpperCamelCase convention, regardless of whether it is intended to be used with `new` construction.
 
-[javascript]
+```javascript
 class Earth {
 	static addHuman( human ) {
 		Earth.humans.push( human );
@@ -329,7 +329,7 @@ class Earth {
 }
  
 Earth.humans = [];
-[/javascript]
+```
 
 All [`@wordpress/element`](https://www.npmjs.com/package/@wordpress/element) Components, including stateless function components, should be named using Class Definition naming rules, both for consistency and to reflect the fact that a component may need to be transitioned from a function to a class without breaking compatibility.
 
@@ -343,7 +343,7 @@ In almost all cases, a constant should be defined in the top-most scope of a fil
 
 Comments come before the code to which they refer, and should always be preceded by a blank line. Capitalize the first letter of the comment, and include a period at the end when writing full sentences. There must be a single space between the comment token (`//`) and the comment text.
 
-[javascript]
+```javascript
 someStatement();
  
 // Explanation of something complex on the next line
@@ -351,17 +351,17 @@ $( 'p' ).doSomething();
  
 // This is a comment that is long enough to warrant being stretched
 // over the span of multiple lines.
-[/javascript]
+```
 
 JSDoc comments should use the `/**` multi-line comment opening. Refer to the [JavaScript Documentation Standards](https://make.wordpress.org/core/handbook/best-practices/inline-documentation-standards/javascript/#multi-line-comments) for more information.
 
 Inline comments are allowed as an exception when used to annotate special arguments in formal parameter lists:
 
-[javascript]
+```javascript
 function foo( types, selector, data, fn, /* INTERNAL */ one ) {
 	// Do stuff
 }
-[/javascript]
+```
 
 ## Equality
 
@@ -392,16 +392,16 @@ Anywhere Backbone or Underscore are already used, you are encouraged to use [Und
 
 Use single-quotes for string literals:
 
-[javascript]
+```javascript
 var myStr = 'strings should be contained in single quotes';
-[/javascript]
+```
 
 When a string contains single quotes, they need to be escaped with a backslash (`\`):
 
-[javascript]
+```javascript
 // Escape single quotes within strings:
 'Note the backslash before the \'single quotes\'';
-[/javascript]
+```
 
 ## Switch Statements
 
@@ -412,7 +412,7 @@ When using `switch` statements:
 - Use a `break` for each case other than `default`. When allowing statements to "fall through," note that explicitly.
 - Indent `case` statements one tab within the `switch`.
 
-[javascript]
+```javascript
 switch ( event.keyCode ) {
 	// ENTER and SPACE both trigger x()
 	case $.ui.keyCode.ENTER:
@@ -425,11 +425,11 @@ switch ( event.keyCode ) {
 	default:
 		z();
 }
-[/javascript]
+```
 
 It is not recommended to return a value from within a switch statement: use the `case` blocks to set values, then `return` those values at the end.
 
-[javascript]
+```javascript
 function getKeyCode( keyCode ) {
 	var result;
 
@@ -447,7 +447,7 @@ function getKeyCode( keyCode ) {
 
 	return result;
 }
-[/javascript]
+```
 
 ## Best Practices
 
@@ -455,15 +455,15 @@ function getKeyCode( keyCode ) {
 
 Creating arrays in JavaScript should be done using the shorthand `[]` constructor rather than the `new Array()` notation.
 
-[javascript]
+```javascript
 var myArray = [];
-[/javascript]
+```
 
 You can initialize an array during construction:
 
-[javascript]
+```javascript
 var myArray = [ 1, 'WordPress', 2, 'Blog' ];
-[/javascript]
+```
 
 In JavaScript, associative arrays are defined as objects.
 
@@ -471,29 +471,29 @@ In JavaScript, associative arrays are defined as objects.
 
 There are many ways to create objects in JavaScript. Object literal notation, `{}`, is both the most performant, and also the easiest to read.
 
-[javascript]
+```javascript
 var myObj = {};
-[/javascript]
+```
 
 Object literal notation should be used unless the object requires a specific prototype, in which case the object should be created by calling a constructor function with `new`.
 
-[javascript]
+```javascript
 var myObj = new ConstructorMethod();
-[/javascript]
+```
 
 Object properties should be accessed via dot notation, unless the key is a variable or a string that would not be a valid identifier:
 
-[javascript]
+```javascript
 prop = object.propertyName;
 prop = object[ variableKey ];
 prop = object['key-with-hyphens'];
-[/javascript]
+```
 
 ### Iteration
 
 When iterating over a large collection using a `for` loop, it is recommended to store the loop's max value as a variable rather than re-computing the maximum every time:
 
-[javascript]
+```javascript
 // Good &amp; Efficient
 var i, max;
 
@@ -507,7 +507,7 @@ for ( i = 0, max = getItemCount(); i &lt; max; i++ ) {
 for ( i = 0; i &lt; getItemCount(); i++ ) {
 	// Do stuff
 }
-[/javascript]
+```
 
 ### Underscore.js Collection Functions
 
@@ -515,7 +515,7 @@ Learn and understand Underscore's [collection and array methods](http://undersco
 
 Underscore also permits jQuery-style chaining with regular JavaScript objects:
 
-[javascript]
+```javascript
 var obj = {
 	first: 'thing 1',
 	second: 'thing 2',
@@ -530,19 +530,20 @@ var arr = _.chain( obj )
 	// Exit the chain
 	.value();
 
-// arr === [ 'first comes thing 1', 'second comes thing 2', 'third comes lox' ][/javascript]
+// arr === [ 'first comes thing 1', 'second comes thing 2', 'third comes lox' ]
+```
 
 ### Iterating Over jQuery Collections
 
 The only time jQuery should be used for iteration is when iterating over a collection of jQuery objects:
 
-[javascript]
+```javascript
 $tabs.each( function ( index, element ) {
 	var $element = $( element );
 
 	// Do stuff to $element
 } );
-[/javascript]
+```
 
 Never use jQuery to iterate over raw data or vanilla JavaScript objects.
 
@@ -584,14 +585,14 @@ In some situations, parts of a file should be excluded from JSHint. As an exampl
 
 To exclude a specific file region from being processed by JSHint, enclose it in JSHint directive comments:
 
-[javascript]
+```javascript
 /* jshint ignore:start */
 if ( typeof jQuery.fn.hoverIntent === 'undefined' ) {
 	// hoverIntent r6 - Copy of wp-includes/js/hoverIntent.min.js
 	(function(a){a.fn.hoverIntent=...............
 }
 /* jshint ignore:end */
-[/javascript]
+```
 
 ## Credits
 

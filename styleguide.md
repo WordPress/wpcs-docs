@@ -95,27 +95,30 @@ Use `---` for a horizontal rules:
 
 ### Inline Code
 
-Wrap inline code with `\`` backticks:
-```md
+Wrap inline code with <code>`\``</code> backticks:
+````
+```
 This is `inline code` wrapped with backticks
 ```
+````
 
-When documenting an example, use the markdown ``\`\`` code block to demarcate the beginning and end of the code sample:
-
-**Note:** Full support for _fenced code blocks_ is not yet implemented for the handbooks, to workaround this see the shortcodes section below:
+When documenting an example, use the markdown <code>`\``</code> code block to demarcate the beginning and end of the code sample:
 
 ### Fenced Code Blocks
 
 #### Javascript
-```js
+````
+```javascript
 var foo = function (bar) {
   return bar++;
 };
 
 console.log(foo(5));
 ```
+````
 
 #### JSON
+````
 ```json
 {
   "firstName": "John",
@@ -140,8 +143,10 @@ console.log(foo(5));
   "spouse": null
 }
 ```
+````
 
 #### CSS
+````
 ```css
 foo {
   padding: 5px;
@@ -152,8 +157,10 @@ foo {
   background-color: #f00;
 }
 ```
+````
 
 #### SCSS
+````
 ```scss
 foo {
   padding: 5px;
@@ -164,32 +171,28 @@ foo {
   background-color: #f00;
 }
 ```
+````
+
+#### HTML
+````
+```html
+<span class="my-class">Example</span>
+```
+````
 
 #### PHP
+````
 ```php
 $array = array(
     "foo" => "bar",
     "bar" => "foo",
 );
 ```
+````
 
 #### Markdown
+````
 ```md
 This is _italic text_. This is **bold text**.
 ```
-
-### Shortcodes
-
-#### Javascript
-Wrap multiline Javascript code in <code>[</code><code>javascript</code><code>]</code> and <code>[/javascript]</code> each on their own line.
-
-#### CSS & SCSS
-Wrap multiline CSS & SCSS code in <code>[</code><code>css</code><code>]</code> and <code>[/css]</code> each on their own line.
-
-#### PHP
-Wrap multiline PHP code in <code>[</code><code>php</code><code>]</code> and <code>[/php]</code> each on their own line.
-
-#### Markdown
-Wrap multiline Markdown code in <code>[</code><code>md</code><code>]</code> and <code>[/md]</code> each on their own line.
-
-**Note:** The <code>[md]</code> shortcode is also not currently supported.
+````
