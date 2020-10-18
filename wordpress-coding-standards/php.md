@@ -481,7 +481,7 @@ if ( 0 == strpos( 'WordPress', 'foo' ) ) {
 }
 ```
 
-Assignments must not be placed in placed in conditionals.
+Assignments must not be placed in conditionals.
 
 Correct:
 
