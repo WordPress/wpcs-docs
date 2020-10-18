@@ -3,76 +3,76 @@
 		"title": "Coding Standards",
 		"slug": "index",
 		"parent": null,
-		"markdown_source": "https://github.com/WordPress-Coding-Standards/docs/blob/master/index.md"
+		"markdown_source": "https://github.com/WordPress/wpcs-docs/blob/master/index.md"
 	},
 	"wordpress-coding-standards": {
 		"title": "WordPress Coding Standards",
 		"slug": "wordpress-coding-standards",
 		"parent": null,
 		"order": 1,
-		"markdown_source": "https://github.com/WordPress-Coding-Standards/docs/blob/master/wordpress-coding-standards.md"
+		"markdown_source": "https://github.com/WordPress/wpcs-docs/blob/master/wordpress-coding-standards.md"
 	},
 	"wordpress-coding-standards/accessibility": {
 		"title": "Accessibility Coding Standards",
 		"slug": "accessibility",
 		"parent": "wordpress-coding-standards",
-		"markdown_source": "https://github.com/WordPress-Coding-Standards/docs/blob/master/wordpress-coding-standards/accessibility.md"
+		"markdown_source": "https://github.com/WordPress/wpcs-docs/blob/master/wordpress-coding-standards/accessibility.md"
 	},
 	"wordpress-coding-standards/css": {
 		"title": "CSS Coding Standards",
 		"slug": "css",
 		"parent": "wordpress-coding-standards",
-		"markdown_source": "https://github.com/WordPress-Coding-Standards/docs/blob/master/wordpress-coding-standards/css.md"
+		"markdown_source": "https://github.com/WordPress/wpcs-docs/blob/master/wordpress-coding-standards/css.md"
 	},
 	"wordpress-coding-standards/html": {
 		"title": "HTML Coding Standards",
 		"slug": "html",
 		"parent": "wordpress-coding-standards",
-		"markdown_source": "https://github.com/WordPress-Coding-Standards/docs/blob/master/wordpress-coding-standards/html.md"
+		"markdown_source": "https://github.com/WordPress/wpcs-docs/blob/master/wordpress-coding-standards/html.md"
 	},
 	"wordpress-coding-standards/javascript": {
 		"title": "JavaScript Coding Standards",
 		"slug": "javascript",
 		"parent": "wordpress-coding-standards",
-		"markdown_source": "https://github.com/WordPress-Coding-Standards/docs/blob/master/wordpress-coding-standards/javascript.md"
+		"markdown_source": "https://github.com/WordPress/wpcs-docs/blob/master/wordpress-coding-standards/javascript.md"
 	},
 	"wordpress-coding-standards/php": {
 		"title": "PHP Coding Standards",
 		"slug": "php",
 		"parent": "wordpress-coding-standards",
-		"markdown_source": "https://github.com/WordPress-Coding-Standards/docs/blob/master/wordpress-coding-standards/php.md"
+		"markdown_source": "https://github.com/WordPress/wpcs-docs/blob/master/wordpress-coding-standards/php.md"
 	},
 	"inline-documentation-standards": {
 		"title": "Inline Documentation Standards",
 		"slug": "inline-documentation-standards",
 		"parent": null,
 		"order": 2,
-		"markdown_source": "https://github.com/WordPress-Coding-Standards/docs/blob/master/inline-documentation-standards.md"
+		"markdown_source": "https://github.com/WordPress/wpcs-docs/blob/master/inline-documentation-standards.md"
 	},
 	"inline-documentation-standards/javascript": {
 		"title": "JavaScript Documentation Standards",
 		"slug": "javascript",
 		"parent": "inline-documentation-standards",
-		"markdown_source": "https://github.com/WordPress-Coding-Standards/docs/blob/master/inline-documentation-standards/javascript.md"
+		"markdown_source": "https://github.com/WordPress/wpcs-docs/blob/master/inline-documentation-standards/javascript.md"
 	},
 	"inline-documentation-standards/php": {
 		"title": "PHP Documentation Standards",
 		"slug": "php",
 		"parent": "inline-documentation-standards",
-		"markdown_source": "https://github.com/WordPress-Coding-Standards/docs/blob/master/inline-documentation-standards/php.md"
+		"markdown_source": "https://github.com/WordPress/wpcs-docs/blob/master/inline-documentation-standards/php.md"
 	},
 	"changelog": {
 		"title": "Changelog",
 		"slug": "changelog",
 		"parent": null,
 		"order": 3,
-		"markdown_source": "https://github.com/WordPress-Coding-Standards/docs/blob/master/changelog.md"
+		"markdown_source": "https://github.com/WordPress/wpcs-docs/blob/master/changelog.md"
 	},
 	"styleguide": {
 		"title": "Markdown Style Guide",
 		"slug": "styleguide",
 		"parent": null,
 		"order": 4,
-		"markdown_source": "https://github.com/WordPress-Coding-Standards/docs/blob/master/styleguide.md"
+		"markdown_source": "https://github.com/WordPress/wpcs-docs/blob/master/styleguide.md"
 	}
 }
