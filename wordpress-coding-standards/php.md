@@ -175,7 +175,7 @@ It's most convenient to use single-quoted strings for regular expressions since,
 
 
 <h3>Opening and Closing PHP Tags</h3>
-When embedding multi-line PHP snippets within a HTML block, the PHP open and close tags must be on a line by themselves.
+When embedding multi-line PHP snippets within an HTML block, the PHP open and close tags must be on a line by themselves.
 
 Correct (Multiline):
 
