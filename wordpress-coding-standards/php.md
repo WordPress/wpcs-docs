@@ -373,6 +373,29 @@ Files containing template tags in <code>wp-includes</code> should have <code>-te
 general-template.php
 ```
 
+Only one object structure (class/interface/trait) should be declared per file.
+
+For instance, if we have a file called `class-example-class.php` it can only contain one class in that file
+
+```php
+// Incorrect: file class-example-class.php
+class Example_Class { [...] }
+
+class Example_Class_Extended { [...] }
+```
+
+The second class should be in it's own file called `class-example-class-extended.php`
+
+```php
+// Correct: file class-example-class.php
+class Example_Class { [...] }
+```
+
+```php
+// Correct: file class-example-class-extended.php
+class Example_Class_Extended { [...] }
+```
+
 <h3>Self-Explanatory Flag Values for Function Arguments</h3>
 Prefer string values to just <code>true</code> and <code>false</code> when calling functions.
 
