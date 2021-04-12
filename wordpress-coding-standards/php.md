@@ -378,7 +378,7 @@ general-template.php
 For instance, if we have a file called `class-example-class.php` it can only contain one class in that file.
 
 ```php
-// Incorrect: file class-example-class.php
+// Incorrect: file class-example-class.php.
 class Example_Class { [...] }
 
 class Example_Class_Extended { [...] }
