@@ -375,7 +375,7 @@ general-template.php
 
 <h3>Only one object structure (class/interface/trait) should be declared per file<h3>
 
-For instance, if we have a file called `class-example-class.php` it can only contain one class in that file
+For instance, if we have a file called `class-example-class.php` it can only contain one class in that file.
 
 ```php
 // Incorrect: file class-example-class.php
