@@ -392,7 +392,7 @@ class Example_Class { [...] }
 ```
 
 ```php
-// Correct: file class-example-class-extended.php
+// Correct: file class-example-class-extended.php.
 class Example_Class_Extended { [...] }
 ```
 
