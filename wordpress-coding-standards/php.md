@@ -384,7 +384,7 @@ class Example_Class { [...] }
 class Example_Class_Extended { [...] }
 ```
 
-The second class should be in it's own file called `class-example-class-extended.php`.
+The second class should be in its own file called `class-example-class-extended.php`.
 
 ```php
 // Correct: file class-example-class.php.
