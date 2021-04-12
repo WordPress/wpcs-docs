@@ -373,7 +373,7 @@ Files containing template tags in <code>wp-includes</code> should have <code>-te
 general-template.php
 ```
 
-Only one object structure (class/interface/trait) should be declared per file.
+<h3>Only one object structure (class/interface/trait) should be declared per file<h3>
 
 For instance, if we have a file called `class-example-class.php` it can only contain one class in that file
 
