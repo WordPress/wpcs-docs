@@ -94,7 +94,7 @@ Maximize compatibility with current and future user agents, including assistive 
 Each guidance has a [specific list requirements that must be met for your content to be accessible](https://www.w3.org/WAI/WCAG21/quickref/). These tests can be carried out using automated software and or human testers. You can find more information on how to meet the success criteria in [Understanding Levels of Conformance](https://www.w3.org/WAI/WCAG21/Understanding/conformance#levels). Whilst these criteria are important, usability testing is still important and should be carried out alongside any accessibility testing.
 
 ### Techniques: Sufficient, Advisory, and Failures
-Techniques (code examples, resources, and tests) for guidance and success criteria that can help in making content more accessible, they are divided into three categories:
+Techniques (code examples, resources, and tests) for guidance and success criteria that can help in making content more accessible, are divided into three categories:
 - Sufficient - required and help meet the success criteria
 - Advisory - suggestions and go beyond what is required
 - Failures - cause problems and fail to meet the success criteria
