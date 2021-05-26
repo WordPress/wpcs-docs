@@ -1,79 +1,129 @@
 # Accessibility Coding Standards
 
-These are standards that WordPress features should meet for accessibility in order to be merged into core. All new or updated code released in WordPress must conform with the WCAG 2.1 guidelines at level AA. These basic guidelines are intended for easy reference during development, but do not cover all possible accessibility issues.
+Code integrated into the WordPress ecosystem - including WordPress core, WordPress.org websites, and official plugins, is expected to conform to the Web Content Accessibility Guidelines (WCAG), version 2.1, at level AA. 
 
-Note: further documentation for meeting WCAG 2.1 accessibility guidelines is in development, with expected publication prior to the release of WordPress 5.6.
+New or updated interfaces are encouraged to incorporate the Authoring Tool Accessibility Guidelines (ATAG) 2.0. The most significant way that ATAG 2.0 guidelines can be incorporated is by emphasizing choices that help people make more accessible content: encouraging alternative text, captions, and semantic structures, for example. 
 
-In the [Accessibility Handbook](https://make.wordpress.org/accessibility/handbook/best-practices/) there are pages about best practices, including code examples and resources.
+Official information about web accessibility standards can be divided into two groups: "normative" and "informative" documents. Only the guidelines themselves are normative, and establish the actual requirements for conforming to WCAG 2.1. Other documents should be considered to be informational, and offer help in interpreting the guidelines, but are not definitive.
 
-## HTML Semantics
-Take a pragmatic approach to HTML semantics. Don't add semantics purely for the sake of semantics; but if there is an HTML structure that clearly matches the content, use that element. For example, if you have a group of links, it should most likely use a list element.
+The WordPress A11y team is in the process of developing a library of recommended accessibility patterns to help describe the WordPress recommended way to accomplish a variety of interfaces. These may not be the only reasonable way to create an accessible example of the pattern, but are preferred for the sake of consistency across WordPress.
 
-### Heading structure
-The H1 is the main heading representing the page title on every core page. For subsections, use a reasonable HTML heading structure — including the use of heading elements for page subsections. Heading markup should not be used for presentational purposes.
+Normative Documents:
+- [W3C WCAG 2.1](https://www.w3.org/TR/WCAG21)
+- [W3C ATAG 2.0](https://www.w3.org/TR/ATAG20/) 
+- [W3C WAI ARIA 1.1](https://www.w3.org/TR/wai-aria/) 
 
-- Use H2 through H6 to give internal structure to the page.
-- Don’t skip heading levels.
-- Don’t add extra functionality inside a heading, like links or buttons.
+Informative Documents:
+- [W3C Understanding WCAG 2.1](https://www.w3.org/WAI/WCAG21/Understanding/) 
+- [W3C Using ARIA](https://www.w3.org/TR/using-aria/) 
+- [W3C WAI-ARIA Authoring Practices 1.1 (accessible design patterns)](https://www.w3.org/TR/wai-aria-practices-1.1/) 
+- [W3C Introduction to ATAG](https://www.w3.org/WAI/standards-guidelines/atag)
 
-### Semantics for Controls
-Controls with a native keyboard interaction (buttons or links) are always preferred. If there is a valid target link for the control, either an in-page reference or a link, then the control should use an `<a href="{your-valid-target}">`. If there isn't, it should use a `<button>`.
+## About WCAG A, AA, and AAA Conformance Levels 
+The WordPress commitment is to conform to all WCAG 2.1 Level A and Level AA guidelines. Conformance to level AAA success criteria is encouraged where relevant, as is exceeding the accessibility of any of these guidelines.
 
-If you're updating an existing control, button or link decision logic:
-| Scenario | Choice |
-| ---------| ------ |
-| Anchors with null or meaningless HREF values: href='#', no href, href='#something' where #something does not exist | `button` |
-| Anchors with meaningful on-page HREF values href='#something' where #something does existAnchors with meaningful on-page HREF values href='#something' where #something does exist | `button` or `a href='#target'` | 
-| Anchors with meaningful off-page HREF values that are renderable (but actual behavior is AJAX) | Link when JS not available, button the rest of the time. |
-| Anchors with meaningful off-page HREF values that are **not** renderable | Should be a button, but perhaps the target should be made renderable |
-| Buttons that direct to new locations on the same page | Could be either a button or a link. |
-| Buttons that direct to new locations on different pages. | Should be a link. |
+**Level A** success criteria address concerns considered to be accessibility barriers on a very wide scale that will prevent many people from accessing the site and the minimum set of accomplished goals required for the majority of web-based interfaces.
 
-### Dynamic Content
-When there are dynamic changes within a page without a page reload you must provide audible feedback with ARIA for important changes, like a successful save event, for example.
+**Level AA** success criteria address concerns that are generally somewhat more complicated to address and may impact smaller groups of people, but are still common needs with broad reach.
 
-Use `wp.a11y.speak()` for all simple AJAX responses. If you are doing a complex interaction, `wp.a11y.speak()` may not be the best choice. In that case, discuss your usage with the Accessibility team to determine whether extending `wp.a11y.speak()` or coding your own ARIA live regions is the best choice.
+**Level AAA** success criteria are mostly targeted at very specific needs and may be quite difficult to implement effectively. 
 
-- [Let WordPress Speak: introduction to `wp.a11y.speak()`](https://make.wordpress.org/accessibility/2015/04/15/let-wordpress-speak-new-in-wordpress-4-2/)
-- [Mozilla developer documentation on ARIA Live Regions](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions)
+[W3C Quick Reference to WCAG 2.1 Level A and Level AA Requirements](https://www.w3.org/WAI/WCAG21/quickref/?versions=2.1&currentsidebar=%23col_overview&levels=aaa)
 
-## Color Contrast
-In most cases, feature plug-ins are not expected to add or modify colors in core. However, if a feature plug-in needs to add new color combinations, those combinations must meet minimum contrast requirements. Minimum contrast requirements are 4.5:1 for font sizes rendering smaller than 24px or smaller and 3.0:1 for font sizes larger than 24px or 19px and bold.
+## Applying WCAG Conformance Levels 
+WCAG 2.1 consists of 4 layers:
+- Principles
+- Guidance
+- Success criteria
+- Sufficient and advisory techniques
 
-- [WordPress Accessibility Quick Start: Color Contrast](https://make.wordpress.org/accessibility/handbook/quick-start-guide/#color-contrast)
+### Principles
+When applying WCAG 2.1, the guidance and success criteria are organized around 4 principles. These principles place emphasis on how people interact with content and must be:
+- **Perceivable** - interacting with the content using the medium that they are familiar with. For example, providing text alternatives for those who are blind.  
+- **Operable** - finding and using content is accessible. For example, being able to use a keyboard or a screen reader.  
+- **Understandable** - content uses clear language and is understandable. For example, use meaningful labels, explain all abbreviations.
+- **Robust** - content can be interpreted in a range of ways. For example, assistive technologies are able to interpret and parse content.
 
-## Links: underline or no underline?
-When links can be identified as such by the context, for example because they're part of a menu, or a set of links clearly identified as user interface controls, they don't necessarily need to be underlined. In all the other cases, especially for links surrounded by other text (in a line or block of text), links need to be always underlined.
+### Guidance
+Each principle is supported by a list of guidelines to ensure that content is more accessible and presentable across the different devices that meet a user’s disability. The guidelines are listed below, the full detail can be found in the WCAG 2.1.
 
-## Keyboard Accessibility
-Users must be able to reach and successfully interact with all elements on the page that are actionable, including all form inputs, buttons and links by using the keyboard. They must be able to see a visual indicator of keyboard focus. You should be aware that keyboard events may operate differently when a screen reader is running.
+#### Principle: Perceivable
+**Guideline 1.1 Text Alternatives**
+Provide text alternatives for any non-text content so that it can be changed into other forms people need, such as large print, braille, speech, symbols or simpler language.
 
-If you can complete an action with a mouse, you must also be able to complete that action using the keyboard.
+**Guideline 1.2 Time-based Media**
+Provide alternatives for time-based media. For example, include captions and transcripts for audio or video clips.
 
-## Images and Icons
-Any image resource must include an accessible name. In some cases, the accessible name should be an empty string. An image can be represented by an actual `<img>` element, an icon font, or an svg element; but any graphical representation is considered an image for these purposes. Different types of elements use different types of accessible names.
+**Guideline 1.3 Adaptable**
+Create content that can be presented in different ways (for example simpler layout) without losing information or structure.
 
-For `<img>` elements, the accessible name should be in the alt attribute. If the img is ornamental, the alt attribute should still be included, but left empty.
+**Guideline 1.4 Distinguishable**
+Make it easier for users to see and hear content including separating foreground from background.
 
-For icon fonts, the font icon itself should have the aria-hidden attribute, with screen-reader-text in a neighbor element. If the icon is ornamental, the font icon should still have the `aria-hidden` attribute, but the screen reader text should be omitted.
+#### Principle: Operable
+**Guideline 2.1 Keyboard Accessible**
+Make all functionality available from a keyboard.
 
-```html
-<a href="this.html">
-<span class="dashicons dashicon-thumbs-up" aria-hidden="true"></span>
-<span class="screen-reader-text">Something</span>
-</a>
-```
+**Guideline 2.2 Enough Time**
+Provide users enough time to read and use content.
 
-For SVG, the SVG should be inline, so that accessible information isn't hidden from assistive technology. SVG elements should contain a `<title>` element with the accessible name of the image. For cross-technology support, the title element should be associated with the svg element via `aria-labelledby`. For maximum compatibility, all SVG elements used to represent an image should carry the role attribute with a value of 'img'.
+**Guideline 2.3 Seizures and Physical Reactions**
+Do not design content in a way that is known to cause seizures or physical reactions.
 
-If the SVG element is ornamental, then the title element should be omitted and no aria-labelledby attribute should be present. The SVG element should also carry the `aria-hidden` attribute.
+**Guideline 2.4 Navigable**
+Provide ways to help users navigate, find content, and determine where they are.
 
-- [More information on SVG Accessibility](http://www.sitepoint.com/tips-accessible-svg/)
+**Guideline 2.5 Input Modalities**
+Make it easier for users to operate functionality through various inputs beyond keyboard.
 
-## Labeling
+#### Principle: Understandable
+**Guideline 3.1 Readable**
+Make text content readable and understandable.
 
-Existing code uses a mixture of explicitly and implicitly labeled fields, but all new code must use an explicitly associated `<label>` element (using for/id attributes and _not_ wrapping the form control). Labels are not required to be visible, but must use the .screen-reader-text class when hidden. Placeholders are fine, but are not a substitute for labels. For all labels, clicking on the field label should cause the associated field to receive focus or, for checkboxes and radio selectors, select that choice.
+**Guideline 3.2 Predictable**
+Make Web pages appear and operate in predictable ways.
 
-Don't introduce new title attributes to convey information. Use aria-label when you need to provide an alternate label and `.screen-reader-text` if you're appending additional data.
+**Guideline 3.3 Input Assistance**
+Help users avoid and correct mistakes.
 
-When creating forms, use `<fieldset>` and `<legend>` to group logically related form elements inside complex forms or to group radio buttons and checkboxes under a heading.
+#### Principle: Robust
+**Guideline 4.1 Compatible**
+Maximize compatibility with current and future user agents, including assistive technologies.
+
+### Success Criteria
+Each guidance has a [specific list requirements that must be met for your content to be accessible](https://www.w3.org/WAI/WCAG21/quickref/). These tests can be carried out using automated software and or human testers. You can find more information on how to meet the success criteria in [Understanding Levels of Conformance](https://www.w3.org/WAI/WCAG21/Understanding/conformance#levels). Whilst these criteria are important, usability testing is still important and should be carried out alongside any accessibility testing.
+
+### Techniques: Sufficient, Advisory, and Failures
+Techniques (code examples, resources, and tests) for guidance and success criteria that can help in making content more accessible, are divided into three categories:
+- Sufficient - required and help meet the success criteria
+- Advisory - suggestions and go beyond what is required
+- Failures - cause problems and fail to meet the success criteria
+For more information on techniques, visit [Understanding Techniques for WCAG Success Criteria](https://www.w3.org/WAI/WCAG21/Understanding/understanding-techniques).
+
+## Authoritative Resources
+- [WebAIM: Web Accessibility In Mind](https://webaim.org/) (see Articles and Resources)
+- [Government Digital Service](https://gds.blog.gov.uk)
+- [Accessibility in government](https://accessibility.blog.gov.uk/) 
+- [Blog | TPG – The Accessibility Experts](https://developer.paciellogroup.com/blog/)
+- [Web Accessibility Blog (Deque)](https://www.deque.com/blog/)
+- [Tink - Léonie Watson](https://tink.uk) (Léonie Watson)
+- [Adrian Roselli](https://adrianroselli.com)
+- [Scott O'Hara](https://www.scottohara.me)
+- [Joe Dolson](https://www.joedolson.com/blog)
+- [Sarah Higley](https://sarahmhigley.com/) 
+- [Marco's Accessibility Blog](https://www.marcozehe.de/) 
+- [Karl Groves](https://karlgroves.com/) 
+- [Inclusive Components](https://inclusive-components.design) (Heydon Pickering)
+- [Accessibility London (London, United Kingdom)](https://www.meetup.com/London-Accessibility-Meetup/) (London accessibility meetup: they live stream meetups on youtube)
+- [24 Accessibility](https://www.24a11y.com/)
+- [Mozilla Accessibility - Users first, no matter their abilities](https://blog.mozilla.org/accessibility/)
+
+### Technical and / or specific topics:
+- [Accessibility Support](https://a11ysupport.io/) (Will your code work with assistive technologies?)
+- [Accessibility APIs: A Key To Web Accessibility](https://www.smashingmagazine.com/2015/03/web-accessibility-with-accessibility-api/) (by Léonie Watson)  
+- [How accessibility trees inform assistive tech](https://hacks.mozilla.org/2019/06/how-accessibility-trees-inform-assistive-tech/) (by Hidde de Vries) 
+- [What is this thing and what does it do?](https://www.youtube.com/watch?v=YLihNhn_MO4 ) (presentation by Karl Groves)
+- [The Browser Accessibility Tree](https://developer.paciellogroup.com/blog/2015/01/the-browser-accessibility-tree/) (by Steve Faulkner)
+- [Brief history of browser accessibility support](https://www.paciellogroup.com/blog/2011/10/brief-history-of-browser-accessibility-support/) (by Steve Faulkner) 
+- [ARIA Landmarks Example: General Principles](https://www.w3.org/TR/wai-aria-practices/examples/landmarks/)
+- [ARIA Landmarks Example: HTML Sectioning Elements](https://www.w3.org/TR/wai-aria-practices/examples/landmarks/HTML5.html) 
