@@ -182,14 +182,14 @@ Correct (Multiline):
 ```php
 function foo() {
     ?>
-        <div>
+    <div>
         <?php
         echo bar(
             $baz,
             $bat
         );
         ?>
-        </div>
+    </div>
     <?php
 }
 ```
