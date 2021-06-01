@@ -67,11 +67,11 @@ Correct:
 ```php
 <?php if ( ! have_posts() ) : ?>
 <div id="post-1" class="post">
-<h1 class="entry-title">Not Found</h1>
-<div class="entry-content">
-<p>Apologies, but no results were found.</p>
-<?php get_search_form(); ?>
-</div>
+	<h1 class="entry-title">Not Found</h1>
+	<div class="entry-content">
+		<p>Apologies, but no results were found.</p>
+		<?php get_search_form(); ?>
+	</div>
 </div>
 <?php endif; ?>
 ```
