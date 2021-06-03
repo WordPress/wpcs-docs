@@ -283,6 +283,9 @@ Stylesheets tend to get long in length. Focus slowly gets lost whilst intended g
  	<li>Know when to use the height property. It should be used when you are including outside elements (such as images). Otherwise use line-height for more flexibility.</li>
  	<li>Do not restate default property &amp; value combinations (for instance <code>display: block;</code> on block-level elements).</li>
 </ul>
+
+<h3>WP Admin CSS</h3>
+Check out the <a href="https://wordpress.github.io/css-audit/public/wp-admin">WP Admin CSS Audit</a>, a report generated to document the health of the WP Admin CSS code. Read more in <a href="https://github.com/WordPress/css-audit/blob/trunk/README.md">the repository's README</a>.
 <h2>Related Links</h2>
 <ul>
  	<li>Principles of writing consistent, idiomatic CSS: <a href="https://github.com/necolas/idiomatic-css">https://github.com/necolas/idiomatic-css</a></li>
