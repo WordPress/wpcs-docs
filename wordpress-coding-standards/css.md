@@ -275,7 +275,7 @@ For inline:
 ```
 
 <h2>Best Practices</h2>
-Stylesheets tend to grow in length &amp; complexity, and as they grow the chance of redundancy increases. By following some simple best practices we can help our CSS maintain focus and flexibility as it evolves:
+Stylesheets tend to grow in length &amp; complexity, and as they grow the chance of redundancy increases. By following some best practices we can help our CSS maintain focus and flexibility as it evolves:
 <ul>
  	<li>If you are attempting to fix an issue, attempt to remove code before adding more.</li>
  	<li>Magic Numbers are unlucky. These are numbers that are used as quick fixes on a one-off basis. Example: <code>.box { margin-top: 37px }</code>.</li>
