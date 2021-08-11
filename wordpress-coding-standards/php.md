@@ -145,7 +145,7 @@ Closures must not be passed as filter or action callbacks, as they cannot be rem
 
 <h3>Multiline Function Calls</h3>
 
-When splitting a function call over multiple lines, each parameter must be on a seperate line. Single line inline comments can take up their own line.
+When splitting a function call over multiple lines, each parameter must be on a separate line. Single line inline comments can take up their own line.
 
 Each parameter must take up no more than a single line. Multi-line parameter values must be assigned to a variable and then that variable should be passed to the function call.
 
