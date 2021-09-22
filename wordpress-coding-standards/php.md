@@ -555,7 +555,7 @@ While this operator does exist in Core, it is often used lazily instead of doing
 Per <a title="Remove all, or at least most, uses of extract() within WordPress" href="https://core.trac.wordpress.org/ticket/22400">#22400</a>:
 <blockquote><code>extract()</code> is a terrible function that makes code harder to debug and harder to understand. We should discourage it's [sic] use and remove all of our uses of it.
 
-Joseph Scott has <a class="ext-link" href="https://blog.josephscott.org/archives/2009/02/i-dont-like-phps-extract-function/">a good write-up of why it's bad</a>.</blockquote>
+Joseph Scott has <a class="ext-link" href="https://blog.josephscott.org/2009/02/05/i-dont-like-phps-extract-function/">a good write-up of why it's bad</a>.</blockquote>
 <h2>Credits</h2>
 <ul>
  	<li>PHP standards: <a href="http://pear.php.net/manual/en/standards.php" target="_blank">Pear standards</a></li>
