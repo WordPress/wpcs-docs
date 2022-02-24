@@ -1,6 +1,6 @@
 # JavaScript Documentation Standards
 
-WordPress follows the <a href="http://usejsdoc.org/" target="_blank" rel="noopener">JSDoc 3 standard</a> for inline JavaScript documentation.
+WordPress follows the <a href="http://jsdoc.app/" target="_blank" rel="noopener">JSDoc 3 standard</a> for inline JavaScript documentation.
 <h2>What Should Be Documented</h2>
 JavaScript documentation in WordPress takes the form of either formatted blocks of documentation or inline comments.
 
@@ -88,7 +88,7 @@ Functions should be formatted as follows:
 	<li><strong>@fires:</strong> Event fired by the function. Events tied to a specific class should list the class name.</li>
 	<li><strong>@listens:</strong> Events this function listens for. An event must be prefixed with the event namespace. Events tied to a specific class should list the class name.</li>
 	<li><strong>@global:</strong> Marks this function as a global function to be included in the global namespace.</li>
-	<li><strong>@param:</strong> Give a brief description of the variable; denote particulars (e.g. if the variable is optional, its default) with <a href="http://usejsdoc.org/tags-param.html">JSDoc @param syntax</a>. Use a period at the end.</li>
+	<li><strong>@param:</strong> Give a brief description of the variable; denote particulars (e.g. if the variable is optional, its default) with <a href="http://jsdoc.app/tags-param.html">JSDoc @param syntax</a>. Use a period at the end.</li>
 	<li><strong>@yield:</strong> For <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function*">generator functions</a>, a description of the values expected to be yielded from this function. As with other descriptions, include a period at the end.</li>
 	<li><strong>@return:</strong> Note the period after the description.</li>
 </ul>
