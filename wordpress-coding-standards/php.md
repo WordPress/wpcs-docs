@@ -49,6 +49,29 @@ Files containing template tags in `wp-includes` should have `-template` appended
 general-template.php
 ```
 
+### Only one object structure (class/interface/trait) should be declared per file
+
+For instance, if we have a file called `class-example-class.php` it can only contain one class in that file.
+
+```php
+// Incorrect: file class-example-class.php.
+class Example_Class { [...] }
+
+class Example_Class_Extended { [...] }
+```
+
+The second class should be in its own file called `class-example-class-extended.php`.
+
+```php
+// Correct: file class-example-class.php.
+class Example_Class { [...] }
+```
+
+```php
+// Correct: file class-example-class-extended.php.
+class Example_Class_Extended { [...] }
+```
+
 ### Single and Double Quotes
 
 Use single and double quotes when appropriate. If you're not evaluating anything in the string, use single quotes. You should almost never have to escape quotes in a string, because you can just alternate your quoting style, like so:
@@ -390,29 +413,6 @@ See [Data Validation](https://developer.wordpress.org/plugins/security/data-vali
 Avoid touching the database directly. If there is a defined function that can get the data you need, use it. Database abstraction (using functions instead of queries) helps keep your code forward-compatible and, in cases where results are cached in memory, it can be many times faster.
 
 If you must touch the database, get in touch with some developers by posting a message to the [wp-hackers mailing list](https://codex.wordpress.org/Mailing_Lists#Hackers). They may want to consider creating a function for the next WordPress version to cover the functionality you wanted.
-
-### Only one object structure (class/interface/trait) should be declared per file
-
-For instance, if we have a file called `class-example-class.php` it can only contain one class in that file.
-
-```php
-// Incorrect: file class-example-class.php.
-class Example_Class { [...] }
-
-class Example_Class_Extended { [...] }
-```
-
-The second class should be in its own file called `class-example-class-extended.php`.
-
-```php
-// Correct: file class-example-class.php.
-class Example_Class { [...] }
-```
-
-```php
-// Correct: file class-example-class-extended.php.
-class Example_Class_Extended { [...] }
-```
 
 ### Self-Explanatory Flag Values for Function Arguments
 
