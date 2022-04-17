@@ -428,7 +428,14 @@ eat( 'mushrooms', true ); // what does true mean?
 eat( 'dogfood', false ); // what does false mean? The opposite of true?
 ```
 
-Since PHP doesn't support named arguments, the values of the flags are meaningless, and each time we come across a function call like the examples above, we have to search for the function definition. The code can be made more readable by using descriptive string values, instead of booleans.
+Even thought since PHP 8 there is a support for named arguments, if we don't use the named argument, the values of the flags are meaningless. Each time we come across a function call like the examples above, we'd have to search for the function definition.
+
+```php
+// Only works in PHP 8+
+eat( what: 'mushrooms', slowly: true );
+```
+
+The code can be made more readable by using descriptive string values, instead of booleans, like in the following examples:
 
 ```php
 // Correct
