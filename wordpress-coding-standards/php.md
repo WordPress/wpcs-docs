@@ -72,17 +72,6 @@ class Example_Class { [...] }
 class Example_Class_Extended { [...] }
 ```
 
-### Single and Double Quotes
-
-Use single and double quotes when appropriate. If you're not evaluating anything in the string, use single quotes. You should almost never have to escape quotes in a string, because you can just alternate your quoting style, like so:
-
-```php
-echo '<a href="/static/link" title="Yeah yeah!">Link name</a>';
-echo "<a href='$link' title='$linktitle'>$linkname</a>";
-```
-
-Text that goes into attributes should be run through `esc_attr()` so that single or double quotes do not end the attribute value and invalidate the HTML and cause a security issue. See [Data Validation](https://developer.wordpress.org/plugins/security/data-validation/) in the Plugin Handbook for further details.
-
 ### Indentation
 
 Your indentation should always reflect logical structure. Use **real tabs** and **not spaces**, as this allows the most flexibility across clients.
@@ -188,6 +177,17 @@ Note that requiring the use of braces just means that _single-statement inline c
 	</div>
 <?php endif; ?>
 ```
+
+### Single and Double Quotes
+
+Use single and double quotes when appropriate. If you're not evaluating anything in the string, use single quotes. You should almost never have to escape quotes in a string, because you can just alternate your quoting style, like so:
+
+```php
+echo '<a href="/static/link" title="Yeah yeah!">Link name</a>';
+echo "<a href='$link' title='$linktitle'>$linkname</a>";
+```
+
+Text that goes into attributes should be run through `esc_attr()` so that single or double quotes do not end the attribute value and invalidate the HTML and cause a security issue. See [Data Validation](https://developer.wordpress.org/plugins/security/data-validation/) in the Plugin Handbook for further details.
 
 ### Use `elseif`, not `else if`
 
