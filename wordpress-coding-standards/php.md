@@ -17,7 +17,7 @@ echo '<a href="/static/link" title="Yeah yeah!">Link name</a>';
 echo "<a href='$link' title='$linktitle'>$linkname</a>";
 ```
 
-Text that goes into attributes should be run through <code>esc_attr()</code> so that single or double quotes do not end the attribute value and invalidate the HTML and cause a security issue. See <a href="http://codex.wordpress.org/Data_Validation">Data Validation</a> in the Codex for further details.
+Text that goes into attributes should be run through `esc_attr()` so that single or double quotes do not end the attribute value and invalidate the HTML and cause a security issue. See <a href="http://codex.wordpress.org/Data_Validation">Data Validation</a> in the Codex for further details.
 
 ### Indentation
 
@@ -59,7 +59,7 @@ $my_array = array(
 );
 ```
 
-For <code>switch</code> structures <code>case</code> should indent one tab from the <code>switch</code> statement and <code>break</code> one tab from the <code>case</code> statement.
+For `switch` structures `case` should indent one tab from the `switch` statement and `break` one tab from the `case` statement.
 
 ```php
 switch ( $type ) {
@@ -111,7 +111,7 @@ foreach ( $items as $item ) {
 }
 ```
 
-Note that requiring the use of braces just means that <em>single-statement inline control structures</em> are prohibited. You are free to use the <a href="http://php.net/manual/en/control-structures.alternative-syntax.php" rel="nofollow">alternative syntax for control structures</a> (e.g. <code>if</code>/<code>endif</code>, <code>while</code>/<code>endwhile</code>)—especially in your templates where PHP code is embedded within HTML, for instance:
+Note that requiring the use of braces just means that <em>single-statement inline control structures</em> are prohibited. You are free to use the <a href="http://php.net/manual/en/control-structures.alternative-syntax.php" rel="nofollow">alternative syntax for control structures</a> (e.g. `if`/`endif`, `while`/`endwhile`)—especially in your templates where PHP code is embedded within HTML, for instance:
 
 ```php
 <?php if ( have_posts() ) : ?>
@@ -125,13 +125,13 @@ Note that requiring the use of braces just means that <em>single-statement inlin
 <?php endif; ?>
 ```
 
-### Use <code>elseif</code>, not <code>else if</code>
+### Use `elseif`, not `else if`
 
-<code>else if</code> is not compatible with the colon syntax for <code>if|elseif</code> blocks. For this reason, use <code>elseif</code> for conditionals.
+`else if` is not compatible with the colon syntax for `if|elseif` blocks. For this reason, use `elseif` for conditionals.
 
 ### Declaring Arrays
 
-Using long array syntax ( <code>array( 1, 2, 3 )</code> ) for declaring arrays is generally more readable than short array syntax ( <code>[ 1, 2, 3 ]</code> ), particularly for those with vision difficulties. Additionally, it's much more descriptive for beginners.
+Using long array syntax ( `array( 1, 2, 3 )` ) for declaring arrays is generally more readable than short array syntax ( `[ 1, 2, 3 ]` ), particularly for those with vision difficulties. Additionally, it's much more descriptive for beginners.
 
 Arrays must be declared using long array syntax.
 
@@ -149,7 +149,7 @@ $caption = preg_replace_callback(
 );
 ```
 
-Closures must not be passed as filter or action callbacks, as they cannot be removed by <code>remove_action()</code> / <code>remove_filter()</code> (see <a href="https://core.trac.wordpress.org/ticket/46635">#46635</a> for a proposal to address this).
+Closures must not be passed as filter or action callbacks, as they cannot be removed by `remove_action()` / `remove_filter()` (see <a href="https://core.trac.wordpress.org/ticket/46635">#46635</a> for a proposal to address this).
 
 ### Multiline Function Calls
 
@@ -178,9 +178,9 @@ $a = foo(
 
 ### Regular Expressions
 
-Perl compatible regular expressions (<a href="http://php.net/pcre">PCRE</a>, <code>preg_</code> functions) should be used in preference to their POSIX counterparts. Never use the <code>/e</code> switch, use <code>preg_replace_callback</code> instead.
+Perl compatible regular expressions (<a href="http://php.net/pcre">PCRE</a>, `preg_` functions) should be used in preference to their POSIX counterparts. Never use the `/e` switch, use `preg_replace_callback` instead.
 
-It's most convenient to use single-quoted strings for regular expressions since, contrary to double-quoted strings, they have only two metasequences: <code>\'</code> and <code>\\</code>.
+It's most convenient to use single-quoted strings for regular expressions since, contrary to double-quoted strings, they have only two metasequences: `\'` and `\\`.
 
 ### Opening and Closing PHP Tags
 
@@ -252,7 +252,7 @@ $baz . '-5'
 $term .= 'X'
 ```
 
-Put spaces on both sides of the opening and closing parentheses of <code>if</code>, <code>elseif</code>, <code>foreach</code>, <code>for</code>, and <code>switch</code> blocks.
+Put spaces on both sides of the opening and closing parentheses of `if`, `elseif`, `foreach`, `for`, and `switch` blocks.
 
 ```php
 foreach ( $foo as $bar ) { ...
@@ -279,7 +279,7 @@ When performing logical comparisons, do it like so:
 if ( ! $foo ) { ...
 ```
 
-<a title="type casting" href="http://www.php.net/manual/en/language.types.type-juggling.php#language.types.typecasting" target="_blank">Type casts</a> must be lowercase. Always prefer the short form of type casts, <code>(int)</code> instead of <code>(integer)</code> and <code>(bool)</code> rather than <code>(boolean)</code>. For float casts use <code>(float)</code>.:
+<a title="type casting" href="http://www.php.net/manual/en/language.types.type-juggling.php#language.types.typecasting" target="_blank">Type casts</a> must be lowercase. Always prefer the short form of type casts, `(int)` instead of `(integer)` and `(bool)` rather than `(boolean)`. For float casts use `(float)`.:
 
 ```php
 foreach ( (array) $foo as $bar ) { ...
@@ -300,7 +300,7 @@ $x = $foo[ $bar ]; // correct
 $x = $foo[$bar]; // incorrect
 ```
 
-In a <code>switch</code> block, there must be no space before the colon for a case statement.
+In a `switch` block, there must be no space before the colon for a case statement.
 
 ```php
 switch ( $foo ) {
@@ -327,11 +327,11 @@ my_function( ( $x - 1 ) * 5, $y );
 
 ### Formatting SQL statements
 
-When formatting SQL statements you may break it into several lines and indent if it is sufficiently complex to warrant it. Most statements work well as one line though. Always capitalize the SQL parts of the statement like <code>UPDATE</code> or <code>WHERE</code>.
+When formatting SQL statements you may break it into several lines and indent if it is sufficiently complex to warrant it. Most statements work well as one line though. Always capitalize the SQL parts of the statement like `UPDATE` or `WHERE`.
 
-Functions that update the database should expect their parameters to lack SQL slash escaping when passed. Escaping should be done as close to the time of the query as possible, preferably by using <code>$wpdb-&gt;prepare()</code>
+Functions that update the database should expect their parameters to lack SQL slash escaping when passed. Escaping should be done as close to the time of the query as possible, preferably by using `$wpdb-&gt;prepare()`
 
-<code>$wpdb-&gt;prepare()</code> is a method that handles escaping, quoting, and int-casting for SQL queries. It uses a subset of the <code>sprintf()</code> style of formatting. Example :
+`$wpdb-&gt;prepare()` is a method that handles escaping, quoting, and int-casting for SQL queries. It uses a subset of the `sprintf()` style of formatting. Example :
 
 ```php
 $var = "dangerous'"; // raw data that may or may not need to be escaped
@@ -340,7 +340,7 @@ $id = some_foo_number(); // data we expect to be an integer, but we're not certa
 $wpdb->query( $wpdb->prepare( "UPDATE $wpdb->posts SET post_title = %s WHERE ID = %d", $var, $id ) );
 ```
 
-<code>%s</code> is used for string placeholders and <code>%d</code> is used for integer placeholders. Note that they are not 'quoted'! <code>$wpdb-&gt;prepare()</code> will take care of escaping and quoting for us. The benefit of this is that we don't have to remember to manually use <code><a href="https://developer.wordpress.org/reference/functions/esc_sql/">esc_sql</a>()</code>, and also that it is easy to see at a glance whether something has been escaped or not, because it happens right when the query happens.
+`%s` is used for string placeholders and `%d` is used for integer placeholders. Note that they are not 'quoted'! `$wpdb-&gt;prepare()` will take care of escaping and quoting for us. The benefit of this is that we don't have to remember to manually use `<a href="https://developer.wordpress.org/reference/functions/esc_sql/">esc_sql</a>()`, and also that it is easy to see at a glance whether something has been escaped or not, because it happens right when the query happens.
 
 See <a title="Data Validation" href="http://codex.wordpress.org/Data_Validation" target="_blank">Data Validation</a> in the Codex for more information.
 
@@ -352,7 +352,7 @@ If you must touch the database, get in touch with some developers by posting a m
 
 ### Naming Conventions
 
-Use lowercase letters in variable, action/filter, and function names (never <code>camelCase</code>). Separate words via underscores. Don't abbreviate variable names unnecessarily; let the code be unambiguous and self-documenting.
+Use lowercase letters in variable, action/filter, and function names (never `camelCase`). Separate words via underscores. Don't abbreviate variable names unnecessarily; let the code be unambiguous and self-documenting.
 
 ```php
 function some_name( $some_variable ) { [...] }
@@ -377,15 +377,15 @@ Files should be named descriptively using lowercase letters. Hyphens should sepa
 my-plugin-name.php
 ```
 
-Class file names should be based on the class name with <code>class-</code> prepended and the underscores in the class name replaced with hyphens, for example <code>WP_Error</code> becomes:
+Class file names should be based on the class name with `class-` prepended and the underscores in the class name replaced with hyphens, for example `WP_Error` becomes:
 
 ```php
 class-wp-error.php
 ```
 
-This file-naming standard is for all current and new files with classes. There is one exception for three files that contain code that got ported into BackPress: class.wp-dependencies.php, class.wp-scripts.php, class.wp-styles.php. Those files are prepended with <code>class.</code>, a dot after the word class instead of a hyphen.
+This file-naming standard is for all current and new files with classes. There is one exception for three files that contain code that got ported into BackPress: class.wp-dependencies.php, class.wp-scripts.php, class.wp-styles.php. Those files are prepended with `class.`, a dot after the word class instead of a hyphen.
 
-Files containing template tags in <code>wp-includes</code> should have <code>-template</code> appended to the end of the name so that they are obvious.
+Files containing template tags in `wp-includes` should have `-template` appended to the end of the name so that they are obvious.
 
 ```php
 general-template.php
@@ -416,7 +416,7 @@ class Example_Class_Extended { [...] }
 
 ### Self-Explanatory Flag Values for Function Arguments
 
-Prefer string values to just <code>true</code> and <code>false</code> when calling functions.
+Prefer string values to just `true` and `false` when calling functions.
 
 ```php
 // Incorrect
@@ -440,7 +440,7 @@ eat( 'mushrooms', 'slowly' );
 eat( 'dogfood', 'quickly' );
 ```
 
-When more words are needed to describe the function parameters, an <code>$args</code> array may be a better pattern.
+When more words are needed to describe the function parameters, an `$args` array may be a better pattern.
 
 ```php
 // Even Better
@@ -454,19 +454,19 @@ eat ( 'noodles', array( 'speed' => 'moderate' ) );
 
 Dynamic hooks should be named using interpolation rather than concatenation for readability and discoverability purposes.
 
-Dynamic hooks are hooks that include dynamic values in their tag name, e.g. <code>{$new_status}_{$post-&gt;post_type}</code> (publish_post).
+Dynamic hooks are hooks that include dynamic values in their tag name, e.g. `{$new_status}_{$post-&gt;post_type}` (publish_post).
 
-Variables used in hook tags should be wrapped in curly braces <code>{</code> and <code>}</code>, with the complete outer tag name wrapped in double quotes. This is to ensure PHP can correctly parse the given variables' types within the interpolated string.
+Variables used in hook tags should be wrapped in curly braces `{` and `}`, with the complete outer tag name wrapped in double quotes. This is to ensure PHP can correctly parse the given variables' types within the interpolated string.
 
 ```php
 do_action( "{$new_status}_{$post->post_type}", $post->ID, $post );
 ```
 
-Where possible, dynamic values in tag names should also be as succinct and to the point as possible. <code>$user_id</code> is much more self-documenting than, say, <code>$this-&gt;id</code>.
+Where possible, dynamic values in tag names should also be as succinct and to the point as possible. `$user_id` is much more self-documenting than, say, `$this-&gt;id`.
 
 ### Ternary Operator
 
-<a title="Ternary" href="http://en.wikipedia.org/wiki/Ternary_operation" target="_blank">Ternary</a> operators are fine, but always have them test if the statement is true, not false. Otherwise, it just gets confusing. (An exception would be using <code>! empty()</code>, as testing for false here is generally more intuitive.)
+<a title="Ternary" href="http://en.wikipedia.org/wiki/Ternary_operation" target="_blank">Ternary</a> operators are fine, but always have them test if the statement is true, not false. Otherwise, it just gets confusing. (An exception would be using `! empty()`, as testing for false here is generally more intuitive.)
 
 The short ternary operator must not be used.
 
@@ -488,7 +488,7 @@ if ( true === $the_force ) {
 
 When doing logical comparisons involving variables, always put the variable on the right side and put constants, literals, or function calls on the left side. If neither side is a variable, the order is not important. (In <a href="https://en.wikipedia.org/wiki/Value_(computer_science)#Assignment:_l-values_and_r-values">computer science terms</a>, in comparisons always try to put l-values on the right and r-values on the left.)
 
-In the above example, if you omit an equals sign (admit it, it happens even to the most seasoned of us), you'll get a parse error, because you can't assign to a constant like <code>true</code>. If the statement were the other way around <code>( $the_force = true )</code>, the assignment would be perfectly valid, returning <code>1</code>, causing the if statement to evaluate to <code>true</code>, and you could be chasing that bug for a while.
+In the above example, if you omit an equals sign (admit it, it happens even to the most seasoned of us), you'll get a parse error, because you can't assign to a constant like `true`. If the statement were the other way around `( $the_force = true )`, the assignment would be perfectly valid, returning `1`, causing the if statement to evaluate to `true`, and you could be chasing that bug for a while.
 
 A little bizarre, it is, to read. Get used to it, you will.
 
@@ -547,7 +547,7 @@ if ( $data = $wpdb->get_var( '...' ) ) {
 }
 ```
 
-In a <code>switch</code> statement, it's okay to have multiple empty cases fall through to a common block. If a case contains a block, then falls through to the next block, however, this must be explicitly commented.
+In a `switch` statement, it's okay to have multiple empty cases fall through to a common block. If a case contains a block, then falls through to the next block, however, this must be explicitly commented.
 
 ```php
 switch ( $foo ) {
@@ -566,21 +566,21 @@ switch ( $foo ) {
 }
 ```
 
-The <code>goto</code> statement must never be used.
+The `goto` statement must never be used.
 
-The <code>eval()</code> construct is <em>very dangerous</em>, and is impossible to secure. Additionally, the <code>create_function()</code> function, which internally performs an <code>eval()</code>, is deprecated in PHP 7.2. Both of these must not be used.
+The `eval()` construct is <em>very dangerous</em>, and is impossible to secure. Additionally, the `create_function()` function, which internally performs an `eval()`, is deprecated in PHP 7.2. Both of these must not be used.
 
-### Error Control Operator <code>@</code>
+### Error Control Operator `@`
 
 As noted in the <a href="http://www.php.net//manual/en/language.operators.errorcontrol.php">PHP docs</a>:
 <blockquote>PHP supports one error control operator: the at sign (@). When prepended to an expression in PHP, any error messages that might be generated by that expression will be ignored.</blockquote>
 While this operator does exist in Core, it is often used lazily instead of doing proper error checking. Its use is highly discouraged, as even the PHP docs also state:
 <blockquote>Warning: Currently the "@" error-control operator prefix will even disable error reporting for critical errors that will terminate script execution. Among other things, this means that if you use "@" to suppress errors from a certain function and either it isn't available or has been mistyped, the script will die right there with no indication as to why.</blockquote>
 
-### Don't <code>extract()</code>
+### Don't `extract()`
 
 Per <a title="Remove all, or at least most, uses of extract() within WordPress" href="https://core.trac.wordpress.org/ticket/22400">#22400</a>:
-<blockquote><code>extract()</code> is a terrible function that makes code harder to debug and harder to understand. We should discourage it's [sic] use and remove all of our uses of it.
+<blockquote>`extract()` is a terrible function that makes code harder to debug and harder to understand. We should discourage it's [sic] use and remove all of our uses of it.
 
 Joseph Scott has <a class="ext-link" href="https://blog.josephscott.org/2009/02/05/i-dont-like-phps-extract-function/">a good write-up of why it's bad</a>.</blockquote>
 
@@ -594,7 +594,7 @@ Joseph Scott has <a class="ext-link" href="https://blog.josephscott.org/2009/02/
 
 <ul>
  	<li>November 13, 2013: <a href="http://make.wordpress.org/core/2013/11/13/proposed-coding-standards-change-always-require-braces/">Braces should always be used, even when they are optional</a></li>
- 	<li>June 20, 2014: Add <a href="#error-control-operator">section</a> to discourage use of the <a href="http://www.php.net//manual/en/language.operators.errorcontrol.php">error control operator</a> (<code>@</code>). See <a href="https://irclogs.wordpress.org/chanlog.php?channel=wordpress-dev&amp;day=2014-06-20&amp;sort=asc#m873356">#wordpress-dev</a>.</li>
+ 	<li>June 20, 2014: Add <a href="#error-control-operator">section</a> to discourage use of the <a href="http://www.php.net//manual/en/language.operators.errorcontrol.php">error control operator</a> (`@`). See <a href="https://irclogs.wordpress.org/chanlog.php?channel=wordpress-dev&amp;day=2014-06-20&amp;sort=asc#m873356">#wordpress-dev</a>.</li>
  	<li>October 20, 2014: Update brace usage to indicate that the alternate syntax for control structures is allowed, even encouraged. It is single-line inline control structures that are forbidden.</li>
  	<li>January 21, 2014: Add section to forbid extract().</li>
 </ul>
