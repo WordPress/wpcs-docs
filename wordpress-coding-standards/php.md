@@ -5,8 +5,11 @@ Some parts of the WordPress code structure for PHP markup are inconsistent in th
 Keep the following points in mind when writing PHP code for WordPress, whether for core programming code, plugins, or themes. The guidelines are similar to <a href="http://pear.php.net/manual/en/standards.php">Pear standards</a> in many ways, but differ in some key respects.
 
 See also: <a href="https://developer.wordpress.org/coding-standards/inline-documentation-standards/php/">PHP Documentation Standards</a>.
+
 <h2>PHP</h2>
+
 <h3>Single and Double Quotes</h3>
+
 Use single and double quotes when appropriate. If you're not evaluating anything in the string, use single quotes. You should almost never have to escape quotes in a string, because you can just alternate your quoting style, like so:
 
 ```php
@@ -15,7 +18,9 @@ echo "<a href='$link' title='$linktitle'>$linkname</a>";
 ```
 
 Text that goes into attributes should be run through <code>esc_attr()</code> so that single or double quotes do not end the attribute value and invalidate the HTML and cause a security issue. See <a href="http://codex.wordpress.org/Data_Validation">Data Validation</a> in the Codex for further details.
+
 <h3>Indentation</h3>
+
 Your indentation should always reflect logical structure. Use <strong>real tabs</strong> and <strong>not spaces</strong>, as this allows the most flexibility across clients.
 
 Exception: if you have a block of code that would be more readable if things are aligned, use spaces:
@@ -68,7 +73,9 @@ switch ( $type ) {
 ```
 
 <strong>Rule of thumb:</strong> Tabs should be used at the beginning of the line for indentation, while spaces can be used mid-line for alignment.
+
 <h3>Brace Style</h3>
+
 Braces shall be used for all blocks in the style shown here:
 
 ```php
@@ -119,6 +126,7 @@ Note that requiring the use of braces just means that <em>single-statement inlin
 ```
 
 <h3>Use <code>elseif</code>, not <code>else if</code></h3>
+
 <code>else if</code> is not compatible with the colon syntax for <code>if|elseif</code> blocks. For this reason, use <code>elseif</code> for conditionals.
 
 <h3>Declaring Arrays</h3>
@@ -169,12 +177,13 @@ $a = foo(
 ```
 
 <h3>Regular Expressions</h3>
+
 Perl compatible regular expressions (<a href="http://php.net/pcre">PCRE</a>, <code>preg_</code> functions) should be used in preference to their POSIX counterparts. Never use the <code>/e</code> switch, use <code>preg_replace_callback</code> instead.
 
 It's most convenient to use single-quoted strings for regular expressions since, contrary to double-quoted strings, they have only two metasequences: <code>\'</code> and <code>\\</code>.
 
-
 <h3>Opening and Closing PHP Tags</h3>
+
 When embedding multi-line PHP snippets within an HTML block, the PHP open and close tags must be on a line by themselves.
 
 Correct (Multiline):
@@ -209,6 +218,7 @@ if ( $a === $b ) { ?>
 ```
 
 <h3>No Shorthand PHP Tags</h3>
+
 <strong>Important:</strong> Never use shorthand PHP start tags. Always use full PHP tags.
 
 Correct:
@@ -226,8 +236,11 @@ Incorrect:
 ```
 
 <h3>Remove Trailing Spaces</h3>
+
 Remove trailing whitespace at the end of each line of code. Omitting the closing PHP tag at the end of a file is preferred. If you use the tag, make sure you remove trailing whitespace.
+
 <h3>Space Usage</h3>
+
 Always put spaces after commas, and on both sides of logical, comparison, string and assignment operators.
 
 ```php
@@ -313,6 +326,7 @@ my_function( ( $x - 1 ) * 5, $y );
 ```
 
 <h3>Formatting SQL statements</h3>
+
 When formatting SQL statements you may break it into several lines and indent if it is sufficiently complex to warrant it. Most statements work well as one line though. Always capitalize the SQL parts of the statement like <code>UPDATE</code> or <code>WHERE</code>.
 
 Functions that update the database should expect their parameters to lack SQL slash escaping when passed. Escaping should be done as close to the time of the query as possible, preferably by using <code>$wpdb-&gt;prepare()</code>
@@ -329,11 +343,15 @@ $wpdb->query( $wpdb->prepare( "UPDATE $wpdb->posts SET post_title = %s WHERE ID 
 <code>%s</code> is used for string placeholders and <code>%d</code> is used for integer placeholders. Note that they are not 'quoted'! <code>$wpdb-&gt;prepare()</code> will take care of escaping and quoting for us. The benefit of this is that we don't have to remember to manually use <code><a href="https://developer.wordpress.org/reference/functions/esc_sql/">esc_sql</a>()</code>, and also that it is easy to see at a glance whether something has been escaped or not, because it happens right when the query happens.
 
 See <a title="Data Validation" href="http://codex.wordpress.org/Data_Validation" target="_blank">Data Validation</a> in the Codex for more information.
+
 <h3>Database Queries</h3>
+
 Avoid touching the database directly. If there is a defined function that can get the data you need, use it. Database abstraction (using functions instead of queries) helps keep your code forward-compatible and, in cases where results are cached in memory, it can be many times faster.
 
 If you must touch the database, get in touch with some developers by posting a message to the <a title="wp-hackers mailing list" href="http://codex.wordpress.org/Mailing_Lists#Hackers" target="_blank">wp-hackers mailing list</a>. They may want to consider creating a function for the next WordPress version to cover the functionality you wanted.
+
 <h3>Naming Conventions</h3>
+
 Use lowercase letters in variable, action/filter, and function names (never <code>camelCase</code>). Separate words via underscores. Don't abbreviate variable names unnecessarily; let the code be unambiguous and self-documenting.
 
 ```php
@@ -397,6 +415,7 @@ class Example_Class_Extended { [...] }
 ```
 
 <h3>Self-Explanatory Flag Values for Function Arguments</h3>
+
 Prefer string values to just <code>true</code> and <code>false</code> when calling functions.
 
 ```php
@@ -432,6 +451,7 @@ eat ( 'noodles', array( 'speed' => 'moderate' ) );
 ```
 
 <h3>Interpolation for Naming Dynamic Hooks</h3>
+
 Dynamic hooks should be named using interpolation rather than concatenation for readability and discoverability purposes.
 
 Dynamic hooks are hooks that include dynamic values in their tag name, e.g. <code>{$new_status}_{$post-&gt;post_type}</code> (publish_post).
@@ -443,7 +463,9 @@ do_action( "{$new_status}_{$post->post_type}", $post->ID, $post );
 ```
 
 Where possible, dynamic values in tag names should also be as succinct and to the point as possible. <code>$user_id</code> is much more self-documenting than, say, <code>$this-&gt;id</code>.
+
 <h3>Ternary Operator</h3>
+
 <a title="Ternary" href="http://en.wikipedia.org/wiki/Ternary_operation" target="_blank">Ternary</a> operators are fine, but always have them test if the statement is true, not false. Otherwise, it just gets confusing. (An exception would be using <code>! empty()</code>, as testing for false here is generally more intuitive.)
 
 The short ternary operator must not be used.
@@ -471,7 +493,9 @@ In the above example, if you omit an equals sign (admit it, it happens even to t
 A little bizarre, it is, to read. Get used to it, you will.
 
 This applies to ==, !=, ===, and !==. Yoda conditions for &lt;, &gt;, &lt;= or &gt;= are significantly more difficult to read and are best avoided.
+
 <h3>Clever Code</h3>
+
 In general, readability is more important than cleverness or brevity.
 
 ```php
@@ -547,20 +571,27 @@ The <code>goto</code> statement must never be used.
 The <code>eval()</code> construct is <em>very dangerous</em>, and is impossible to secure. Additionally, the <code>create_function()</code> function, which internally performs an <code>eval()</code>, is deprecated in PHP 7.2. Both of these must not be used.
 
 <h3>Error Control Operator <code>@</code></h3>
+
 As noted in the <a href="http://www.php.net//manual/en/language.operators.errorcontrol.php">PHP docs</a>:
 <blockquote>PHP supports one error control operator: the at sign (@). When prepended to an expression in PHP, any error messages that might be generated by that expression will be ignored.</blockquote>
 While this operator does exist in Core, it is often used lazily instead of doing proper error checking. Its use is highly discouraged, as even the PHP docs also state:
 <blockquote>Warning: Currently the "@" error-control operator prefix will even disable error reporting for critical errors that will terminate script execution. Among other things, this means that if you use "@" to suppress errors from a certain function and either it isn't available or has been mistyped, the script will die right there with no indication as to why.</blockquote>
+
 <h3>Don't <code>extract()</code></h3>
+
 Per <a title="Remove all, or at least most, uses of extract() within WordPress" href="https://core.trac.wordpress.org/ticket/22400">#22400</a>:
 <blockquote><code>extract()</code> is a terrible function that makes code harder to debug and harder to understand. We should discourage it's [sic] use and remove all of our uses of it.
 
 Joseph Scott has <a class="ext-link" href="https://blog.josephscott.org/2009/02/05/i-dont-like-phps-extract-function/">a good write-up of why it's bad</a>.</blockquote>
+
 <h2>Credits</h2>
+
 <ul>
  	<li>PHP standards: <a href="http://pear.php.net/manual/en/standards.php" target="_blank">Pear standards</a></li>
 </ul>
+
 <h3>Major Changes</h3>
+
 <ul>
  	<li>November 13, 2013: <a href="http://make.wordpress.org/core/2013/11/13/proposed-coding-standards-change-always-require-braces/">Braces should always be used, even when they are optional</a></li>
  	<li>June 20, 2014: Add <a href="#error-control-operator">section</a> to discourage use of the <a href="http://www.php.net//manual/en/language.operators.errorcontrol.php">error control operator</a> (<code>@</code>). See <a href="https://irclogs.wordpress.org/chanlog.php?channel=wordpress-dev&amp;day=2014-06-20&amp;sort=asc#m873356">#wordpress-dev</a>.</li>
