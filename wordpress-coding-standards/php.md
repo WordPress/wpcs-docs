@@ -329,9 +329,9 @@ my_function( ( $x - 1 ) * 5, $y );
 
 When formatting SQL statements you may break it into several lines and indent if it is sufficiently complex to warrant it. Most statements work well as one line though. Always capitalize the SQL parts of the statement like `UPDATE` or `WHERE`.
 
-Functions that update the database should expect their parameters to lack SQL slash escaping when passed. Escaping should be done as close to the time of the query as possible, preferably by using `$wpdb-&gt;prepare()`
+Functions that update the database should expect their parameters to lack SQL slash escaping when passed. Escaping should be done as close to the time of the query as possible, preferably by using `$wpdb->prepare()`
 
-`$wpdb-&gt;prepare()` is a method that handles escaping, quoting, and int-casting for SQL queries. It uses a subset of the `sprintf()` style of formatting. Example :
+`$wpdb->prepare()` is a method that handles escaping, quoting, and int-casting for SQL queries. It uses a subset of the `sprintf()` style of formatting. Example :
 
 ```php
 $var = "dangerous'"; // raw data that may or may not need to be escaped
@@ -340,7 +340,7 @@ $id = some_foo_number(); // data we expect to be an integer, but we're not certa
 $wpdb->query( $wpdb->prepare( "UPDATE $wpdb->posts SET post_title = %s WHERE ID = %d", $var, $id ) );
 ```
 
-`%s` is used for string placeholders and `%d` is used for integer placeholders. Note that they are not 'quoted'! `$wpdb-&gt;prepare()` will take care of escaping and quoting for us. The benefit of this is that we don't have to remember to manually use [`esc_sql()`](https://developer.wordpress.org/reference/functions/esc_sql/), and also that it is easy to see at a glance whether something has been escaped or not, because it happens right when the query happens.
+`%s` is used for string placeholders and `%d` is used for integer placeholders. Note that they are not 'quoted'! `$wpdb->prepare()` will take care of escaping and quoting for us. The benefit of this is that we don't have to remember to manually use [`esc_sql()`](https://developer.wordpress.org/reference/functions/esc_sql/), and also that it is easy to see at a glance whether something has been escaped or not, because it happens right when the query happens.
 
 See [Data Validation](https://developer.wordpress.org/plugins/security/data-validation/) in the Plugin Handbook for further details.
 
@@ -454,7 +454,7 @@ eat ( 'noodles', array( 'speed' => 'moderate' ) );
 
 Dynamic hooks should be named using interpolation rather than concatenation for readability and discoverability purposes.
 
-Dynamic hooks are hooks that include dynamic values in their tag name, e.g. `{$new_status}_{$post-&gt;post_type}` (publish_post).
+Dynamic hooks are hooks that include dynamic values in their tag name, e.g. `{$new_status}_{$post->post_type}` (publish_post).
 
 Variables used in hook tags should be wrapped in curly braces `{` and `}`, with the complete outer tag name wrapped in double quotes. This is to ensure PHP can correctly parse the given variables' types within the interpolated string.
 
@@ -462,7 +462,7 @@ Variables used in hook tags should be wrapped in curly braces `{` and `}`, with 
 do_action( "{$new_status}_{$post->post_type}", $post->ID, $post );
 ```
 
-Where possible, dynamic values in tag names should also be as succinct and to the point as possible. `$user_id` is much more self-documenting than, say, `$this-&gt;id`.
+Where possible, dynamic values in tag names should also be as succinct and to the point as possible. `$user_id` is much more self-documenting than, say, `$this->id`.
 
 ### Ternary Operator
 
@@ -492,7 +492,7 @@ In the above example, if you omit an equals sign (admit it, it happens even to t
 
 A little bizarre, it is, to read. Get used to it, you will.
 
-This applies to ==, !=, ===, and !==. Yoda conditions for &lt;, &gt;, &lt;= or &gt;= are significantly more difficult to read and are best avoided.
+This applies to ==, !=, ===, and !==. Yoda conditions for `<`, `>`, `<=` or `>=` are significantly more difficult to read and are best avoided.
 
 ### Clever Code
 
