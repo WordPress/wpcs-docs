@@ -127,6 +127,96 @@ switch ( $type ) {
 
 **Rule of thumb:** Tabs should be used at the beginning of the line for indentation, while spaces can be used mid-line for alignment.
 
+### Space Usage
+
+Always put spaces after commas, and on both sides of logical, comparison, string and assignment operators.
+
+```php
+x === 23
+foo && bar
+! foo
+array( 1, 2, 3 )
+$baz . '-5'
+$term .= 'X'
+```
+
+Put spaces on both sides of the opening and closing parentheses of `if`, `elseif`, `foreach`, `for`, and `switch` blocks.
+
+```php
+foreach ( $foo as $bar ) { ...
+```
+
+When defining a function, do it like so:
+
+```php
+function my_function( $param1 = 'foo', $param2 = 'bar' ) { ...
+
+function my_other_function() { ...
+```
+
+When calling a function, do it like so:
+
+```php
+my_function( $param1, func_param( $param2 ) );
+my_other_function();
+```
+
+When performing logical comparisons, do it like so:
+
+```php
+if ( ! $foo ) { ...
+```
+
+[Type casts](https://www.php.net/manual/en/language.types.type-juggling.php#language.types.typecasting) must be lowercase. Always prefer the short form of type casts, `(int)` instead of `(integer)` and `(bool)` rather than `(boolean)`. For float casts use `(float)`.:
+
+```php
+foreach ( (array) $foo as $bar ) { ...
+
+$foo = (bool) $bar;
+```
+
+When referring to array items, only include a space around the index if it is a variable, for example:
+
+```php
+$x = $foo['bar']; // correct
+$x = $foo[ 'bar' ]; // incorrect
+
+$x = $foo[0]; // correct
+$x = $foo[ 0 ]; // incorrect
+
+$x = $foo[ $bar ]; // correct
+$x = $foo[$bar]; // incorrect
+```
+
+In a `switch` block, there must be no space before the colon for a case statement.
+
+```php
+switch ( $foo ) {
+	case 'bar': // correct
+	case 'ba' : // incorrect
+}
+```
+
+Similarly, there should be no space before the colon on return type declarations.
+
+```php
+function sum( $a, $b ): float {
+	return $a + $b;
+}
+```
+
+Unless otherwise specified, parentheses should have spaces inside of them.
+
+```php
+if ( $foo && ( $bar || $baz ) ) { ...
+
+my_function( ( $x - 1 ) * 5, $y );
+```
+
+### Remove Trailing Spaces
+
+Remove trailing whitespace at the end of each line of code. Omitting the closing PHP tag at the end of a file is preferred. If you use the tag, make sure you remove trailing whitespace.
+
 ### Brace Style
 
 Braces shall be used for all blocks in the style shown here:
@@ -297,96 +387,6 @@ Incorrect:
 ```php
 <? ... ?>
 <?= $var ?>
-```
-
-### Remove Trailing Spaces
-
-Remove trailing whitespace at the end of each line of code. Omitting the closing PHP tag at the end of a file is preferred. If you use the tag, make sure you remove trailing whitespace.
-
-### Space Usage
-
-Always put spaces after commas, and on both sides of logical, comparison, string and assignment operators.
-
-```php
-x === 23
-foo && bar
-! foo
-array( 1, 2, 3 )
-$baz . '-5'
-$term .= 'X'
-```
-
-Put spaces on both sides of the opening and closing parentheses of `if`, `elseif`, `foreach`, `for`, and `switch` blocks.
-
-```php
-foreach ( $foo as $bar ) { ...
-```
-
-When defining a function, do it like so:
-
-```php
-function my_function( $param1 = 'foo', $param2 = 'bar' ) { ...
-
-function my_other_function() { ...
-```
-
-When calling a function, do it like so:
-
-```php
-my_function( $param1, func_param( $param2 ) );
-my_other_function();
-```
-
-When performing logical comparisons, do it like so:
-
-```php
-if ( ! $foo ) { ...
-```
-
-[Type casts](https://www.php.net/manual/en/language.types.type-juggling.php#language.types.typecasting) must be lowercase. Always prefer the short form of type casts, `(int)` instead of `(integer)` and `(bool)` rather than `(boolean)`. For float casts use `(float)`.:
-
-```php
-foreach ( (array) $foo as $bar ) { ...
-
-$foo = (bool) $bar;
-```
-
-When referring to array items, only include a space around the index if it is a variable, for example:
-
-```php
-$x = $foo['bar']; // correct
-$x = $foo[ 'bar' ]; // incorrect
-
-$x = $foo[0]; // correct
-$x = $foo[ 0 ]; // incorrect
-
-$x = $foo[ $bar ]; // correct
-$x = $foo[$bar]; // incorrect
-```
-
-In a `switch` block, there must be no space before the colon for a case statement.
-
-```php
-switch ( $foo ) {
-	case 'bar': // correct
-	case 'ba' : // incorrect
-}
-```
-
-Similarly, there should be no space before the colon on return type declarations.
-
-```php
-function sum( $a, $b ): float {
-	return $a + $b;
-}
-```
-
-Unless otherwise specified, parentheses should have spaces inside of them.
-
-```php
-if ( $foo && ( $bar || $baz ) ) { ...
-
-my_function( ( $x - 1 ) * 5, $y );
 ```
 
 ### Formatting SQL statements
