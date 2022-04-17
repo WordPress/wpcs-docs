@@ -2,9 +2,9 @@
 
 Some parts of the WordPress code structure for PHP markup are inconsistent in their style. WordPress is working to gradually improve this by helping users maintain a consistent style so the code can become clean and easy to read at a glance.
 
-Keep the following points in mind when writing PHP code for WordPress, whether for core programming code, plugins, or themes. The guidelines are similar to <a href="http://pear.php.net/manual/en/standards.php">Pear standards</a> in many ways, but differ in some key respects.
+Keep the following points in mind when writing PHP code for WordPress, whether for core programming code, plugins, or themes. The guidelines are similar to [Pear standards](https://pear.php.net/manual/en/standards.php) in many ways, but differ in some key respects.
 
-See also: <a href="https://developer.wordpress.org/coding-standards/inline-documentation-standards/php/">PHP Documentation Standards</a>.
+See also: [PHP Inline Documentation Standards](https://developer.wordpress.org/coding-standards/inline-documentation-standards/php/).
 
 ## PHP
 
@@ -17,7 +17,7 @@ echo '<a href="/static/link" title="Yeah yeah!">Link name</a>';
 echo "<a href='$link' title='$linktitle'>$linkname</a>";
 ```
 
-Text that goes into attributes should be run through `esc_attr()` so that single or double quotes do not end the attribute value and invalidate the HTML and cause a security issue. See <a href="http://codex.wordpress.org/Data_Validation">Data Validation</a> in the Codex for further details.
+Text that goes into attributes should be run through `esc_attr()` so that single or double quotes do not end the attribute value and invalidate the HTML and cause a security issue. See [Data Validation](https://developer.wordpress.org/plugins/security/data-validation/) in the Plugin Handbook for further details.
 
 ### Indentation
 
@@ -111,7 +111,7 @@ foreach ( $items as $item ) {
 }
 ```
 
-Note that requiring the use of braces just means that <em>single-statement inline control structures</em> are prohibited. You are free to use the <a href="http://php.net/manual/en/control-structures.alternative-syntax.php" rel="nofollow">alternative syntax for control structures</a> (e.g. `if`/`endif`, `while`/`endwhile`)—especially in your templates where PHP code is embedded within HTML, for instance:
+Note that requiring the use of braces just means that <em>single-statement inline control structures</em> are prohibited. You are free to use the [alternative syntax for control structures](https://www.php.net/manual/en/control-structures.alternative-syntax.php) (e.g. `if`/`endif`, `while`/`endwhile`)—especially in your templates where PHP code is embedded within HTML, for instance:
 
 ```php
 <?php if ( have_posts() ) : ?>
@@ -149,7 +149,7 @@ $caption = preg_replace_callback(
 );
 ```
 
-Closures must not be passed as filter or action callbacks, as they cannot be removed by `remove_action()` / `remove_filter()` (see <a href="https://core.trac.wordpress.org/ticket/46635">#46635</a> for a proposal to address this).
+Closures must not be passed as filter or action callbacks, as they cannot be removed by `remove_action()` / `remove_filter()` (see [#46635](https://core.trac.wordpress.org/ticket/46635 "Improve identifying of non–trivial callbacks in hooks") for a proposal to address this).
 
 ### Multiline Function Calls
 
@@ -178,7 +178,7 @@ $a = foo(
 
 ### Regular Expressions
 
-Perl compatible regular expressions (<a href="http://php.net/pcre">PCRE</a>, `preg_` functions) should be used in preference to their POSIX counterparts. Never use the `/e` switch, use `preg_replace_callback` instead.
+Perl compatible regular expressions ([PCRE](https://www.php.net/pcre), `preg_` functions) should be used in preference to their POSIX counterparts. Never use the `/e` switch, use `preg_replace_callback` instead.
 
 It's most convenient to use single-quoted strings for regular expressions since, contrary to double-quoted strings, they have only two metasequences: `\'` and `\\`.
 
@@ -279,7 +279,7 @@ When performing logical comparisons, do it like so:
 if ( ! $foo ) { ...
 ```
 
-<a title="type casting" href="http://www.php.net/manual/en/language.types.type-juggling.php#language.types.typecasting" target="_blank">Type casts</a> must be lowercase. Always prefer the short form of type casts, `(int)` instead of `(integer)` and `(bool)` rather than `(boolean)`. For float casts use `(float)`.:
+[Type casts](https://www.php.net/manual/en/language.types.type-juggling.php#language.types.typecasting) must be lowercase. Always prefer the short form of type casts, `(int)` instead of `(integer)` and `(bool)` rather than `(boolean)`. For float casts use `(float)`.:
 
 ```php
 foreach ( (array) $foo as $bar ) { ...
@@ -340,15 +340,15 @@ $id = some_foo_number(); // data we expect to be an integer, but we're not certa
 $wpdb->query( $wpdb->prepare( "UPDATE $wpdb->posts SET post_title = %s WHERE ID = %d", $var, $id ) );
 ```
 
-`%s` is used for string placeholders and `%d` is used for integer placeholders. Note that they are not 'quoted'! `$wpdb-&gt;prepare()` will take care of escaping and quoting for us. The benefit of this is that we don't have to remember to manually use `<a href="https://developer.wordpress.org/reference/functions/esc_sql/">esc_sql</a>()`, and also that it is easy to see at a glance whether something has been escaped or not, because it happens right when the query happens.
+`%s` is used for string placeholders and `%d` is used for integer placeholders. Note that they are not 'quoted'! `$wpdb-&gt;prepare()` will take care of escaping and quoting for us. The benefit of this is that we don't have to remember to manually use [`esc_sql()`](https://developer.wordpress.org/reference/functions/esc_sql/), and also that it is easy to see at a glance whether something has been escaped or not, because it happens right when the query happens.
 
-See <a title="Data Validation" href="http://codex.wordpress.org/Data_Validation" target="_blank">Data Validation</a> in the Codex for more information.
+See [Data Validation](https://developer.wordpress.org/plugins/security/data-validation/) in the Plugin Handbook for further details.
 
 ### Database Queries
 
 Avoid touching the database directly. If there is a defined function that can get the data you need, use it. Database abstraction (using functions instead of queries) helps keep your code forward-compatible and, in cases where results are cached in memory, it can be many times faster.
 
-If you must touch the database, get in touch with some developers by posting a message to the <a title="wp-hackers mailing list" href="http://codex.wordpress.org/Mailing_Lists#Hackers" target="_blank">wp-hackers mailing list</a>. They may want to consider creating a function for the next WordPress version to cover the functionality you wanted.
+If you must touch the database, get in touch with some developers by posting a message to the [wp-hackers mailing list](https://codex.wordpress.org/Mailing_Lists#Hackers). They may want to consider creating a function for the next WordPress version to cover the functionality you wanted.
 
 ### Naming Conventions
 
@@ -466,7 +466,7 @@ Where possible, dynamic values in tag names should also be as succinct and to th
 
 ### Ternary Operator
 
-<a title="Ternary" href="http://en.wikipedia.org/wiki/Ternary_operation" target="_blank">Ternary</a> operators are fine, but always have them test if the statement is true, not false. Otherwise, it just gets confusing. (An exception would be using `! empty()`, as testing for false here is generally more intuitive.)
+[Ternary operators](https://www.php.net/manual/en/language.operators.comparison.php#language.operators.comparison.ternary) are fine, but always have them test if the statement is true, not false. Otherwise, it just gets confusing. (An exception would be using `! empty()`, as testing for false here is generally more intuitive.)
 
 The short ternary operator must not be used.
 
@@ -486,7 +486,7 @@ if ( true === $the_force ) {
 }
 ```
 
-When doing logical comparisons involving variables, always put the variable on the right side and put constants, literals, or function calls on the left side. If neither side is a variable, the order is not important. (In <a href="https://en.wikipedia.org/wiki/Value_(computer_science)#Assignment:_l-values_and_r-values">computer science terms</a>, in comparisons always try to put l-values on the right and r-values on the left.)
+When doing logical comparisons involving variables, always put the variable on the right side and put constants, literals, or function calls on the left side. If neither side is a variable, the order is not important. (In [computer science terms](https://en.wikipedia.org/wiki/Value_(computer_science)#Assignment:_l-values_and_r-values), in comparisons always try to put l-values on the right and r-values on the left.)
 
 In the above example, if you omit an equals sign (admit it, it happens even to the most seasoned of us), you'll get a parse error, because you can't assign to a constant like `true`. If the statement were the other way around `( $the_force = true )`, the assignment would be perfectly valid, returning `1`, causing the if statement to evaluate to `true`, and you could be chasing that bug for a while.
 
@@ -572,29 +572,29 @@ The `eval()` construct is <em>very dangerous</em>, and is impossible to secure. 
 
 ### Error Control Operator `@`
 
-As noted in the <a href="http://www.php.net//manual/en/language.operators.errorcontrol.php">PHP docs</a>:
+As noted in the [PHP docs](https://www.php.net/manual/en/language.operators.errorcontrol.php):
+
 <blockquote>PHP supports one error control operator: the at sign (@). When prepended to an expression in PHP, any error messages that might be generated by that expression will be ignored.</blockquote>
+
 While this operator does exist in Core, it is often used lazily instead of doing proper error checking. Its use is highly discouraged, as even the PHP docs also state:
+
 <blockquote>Warning: Currently the "@" error-control operator prefix will even disable error reporting for critical errors that will terminate script execution. Among other things, this means that if you use "@" to suppress errors from a certain function and either it isn't available or has been mistyped, the script will die right there with no indication as to why.</blockquote>
 
 ### Don't `extract()`
 
-Per <a title="Remove all, or at least most, uses of extract() within WordPress" href="https://core.trac.wordpress.org/ticket/22400">#22400</a>:
+Per [#22400](https://core.trac.wordpress.org/ticket/22400 "Remove all, or at least most, uses of extract() within WordPress"):
 <blockquote>`extract()` is a terrible function that makes code harder to debug and harder to understand. We should discourage it's [sic] use and remove all of our uses of it.
+</blockquote>
 
-Joseph Scott has <a class="ext-link" href="https://blog.josephscott.org/2009/02/05/i-dont-like-phps-extract-function/">a good write-up of why it's bad</a>.</blockquote>
+Joseph Scott has [a good write-up of why it's bad](https://blog.josephscott.org/2009/02/05/i-dont-like-phps-extract-function/).
 
 ## Credits
 
-<ul>
- 	<li>PHP standards: <a href="http://pear.php.net/manual/en/standards.php" target="_blank">Pear standards</a></li>
-</ul>
+- PHP standards: [Pear standards](https://pear.php.net/manual/en/standards.php)
 
 ### Major Changes
 
-<ul>
- 	<li>November 13, 2013: <a href="http://make.wordpress.org/core/2013/11/13/proposed-coding-standards-change-always-require-braces/">Braces should always be used, even when they are optional</a></li>
- 	<li>June 20, 2014: Add <a href="#error-control-operator">section</a> to discourage use of the <a href="http://www.php.net//manual/en/language.operators.errorcontrol.php">error control operator</a> (`@`). See <a href="https://irclogs.wordpress.org/chanlog.php?channel=wordpress-dev&amp;day=2014-06-20&amp;sort=asc#m873356">#wordpress-dev</a>.</li>
- 	<li>October 20, 2014: Update brace usage to indicate that the alternate syntax for control structures is allowed, even encouraged. It is single-line inline control structures that are forbidden.</li>
- 	<li>January 21, 2014: Add section to forbid extract().</li>
-</ul>
+- November 13, 2013: [Braces should always be used, even when they are optional](https://make.wordpress.org/core/2013/11/13/proposed-coding-standards-change-always-require-braces/)
+- June 20, 2014: Add (#error-control-operator) to discourage use of the [error control operator]((https://www.php.net/manual/en/language.operators.errorcontrol.php)) (`@`). See [#wordpress-dev](https://irclogs.wordpress.org/chanlog.php?channel=wordpress-dev&amp;day=2014-06-20&amp;sort=asc#m873356).
+- October 20, 2014: Update brace usage to indicate that the alternate syntax for control structures is allowed, even encouraged. It is single-line inline control structures that are forbidden.
+- January 21, 2014: Add section to forbid extract().
