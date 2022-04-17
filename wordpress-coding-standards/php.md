@@ -8,6 +8,47 @@ See also: [PHP Inline Documentation Standards](https://developer.wordpress.org/c
 
 ## PHP
 
+### Naming Conventions
+
+Use lowercase letters in variable, action/filter, and function names (never `camelCase`). Separate words via underscores. Don't abbreviate variable names unnecessarily; let the code be unambiguous and self-documenting.
+
+```php
+function some_name( $some_variable ) { [...] }
+```
+
+Class names should use capitalized words separated by underscores. Any acronyms should be all upper case.
+
+```php
+class Walker_Category extends Walker { [...] }
+class WP_HTTP { [...] }
+```
+
+Constants should be in all upper-case with underscores separating words:
+
+```php
+define( 'DOING_AJAX', true );
+```
+
+Files should be named descriptively using lowercase letters. Hyphens should separate words.
+
+```php
+my-plugin-name.php
+```
+
+Class file names should be based on the class name with `class-` prepended and the underscores in the class name replaced with hyphens, for example `WP_Error` becomes:
+
+```php
+class-wp-error.php
+```
+
+This file-naming standard is for all current and new files with classes. There is one exception for three files that contain code that got ported into BackPress: class.wp-dependencies.php, class.wp-scripts.php, class.wp-styles.php. Those files are prepended with `class.`, a dot after the word class instead of a hyphen.
+
+Files containing template tags in `wp-includes` should have `-template` appended to the end of the name so that they are obvious.
+
+```php
+general-template.php
+```
+
 ### Single and Double Quotes
 
 Use single and double quotes when appropriate. If you're not evaluating anything in the string, use single quotes. You should almost never have to escape quotes in a string, because you can just alternate your quoting style, like so:
@@ -349,47 +390,6 @@ See [Data Validation](https://developer.wordpress.org/plugins/security/data-vali
 Avoid touching the database directly. If there is a defined function that can get the data you need, use it. Database abstraction (using functions instead of queries) helps keep your code forward-compatible and, in cases where results are cached in memory, it can be many times faster.
 
 If you must touch the database, get in touch with some developers by posting a message to the [wp-hackers mailing list](https://codex.wordpress.org/Mailing_Lists#Hackers). They may want to consider creating a function for the next WordPress version to cover the functionality you wanted.
-
-### Naming Conventions
-
-Use lowercase letters in variable, action/filter, and function names (never `camelCase`). Separate words via underscores. Don't abbreviate variable names unnecessarily; let the code be unambiguous and self-documenting.
-
-```php
-function some_name( $some_variable ) { [...] }
-```
-
-Class names should use capitalized words separated by underscores. Any acronyms should be all upper case.
-
-```php
-class Walker_Category extends Walker { [...] }
-class WP_HTTP { [...] }
-```
-
-Constants should be in all upper-case with underscores separating words:
-
-```php
-define( 'DOING_AJAX', true );
-```
-
-Files should be named descriptively using lowercase letters. Hyphens should separate words.
-
-```php
-my-plugin-name.php
-```
-
-Class file names should be based on the class name with `class-` prepended and the underscores in the class name replaced with hyphens, for example `WP_Error` becomes:
-
-```php
-class-wp-error.php
-```
-
-This file-naming standard is for all current and new files with classes. There is one exception for three files that contain code that got ported into BackPress: class.wp-dependencies.php, class.wp-scripts.php, class.wp-styles.php. Those files are prepended with `class.`, a dot after the word class instead of a hyphen.
-
-Files containing template tags in `wp-includes` should have `-template` appended to the end of the name so that they are obvious.
-
-```php
-general-template.php
-```
 
 ### Only one object structure (class/interface/trait) should be declared per file
 
