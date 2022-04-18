@@ -492,7 +492,7 @@ In the above example, if you omit an equals sign (admit it, it happens even to t
 
 A little bizarre, it is, to read. Get used to it, you will.
 
-This applies to ==, !=, ===, and !==. Yoda conditions for `<`, `>`, `<=` or `>=` are significantly more difficult to read and are best avoided.
+This applies to `==`, `!=`, `===`, and `!==`. Yoda conditions for `<`, `>`, `<=` or `>=` are significantly more difficult to read and are best avoided.
 
 ### Clever Code
 
