@@ -49,6 +49,63 @@ Files containing template tags in `wp-includes` should have `-template` appended
 general-template.php
 ```
 
+### Namespace declarations
+
+Similar to class names, namespace declarations should use capitalized words separated by underscores. There should be only one namespace declaration per file, which should be at the top of the file, only with a file docblock and an optional `declare` statement preceding it.
+Namespace declaration should not be defined using curly brace block syntax. Global namespace (namespace declaration without name) is not allowed.
+
+```php
+// Correct: one namespace in a file
+<?php
+/**
+ * File docblock.
+ */
+ 
+namespace Prefix\Admin\Domain_URL\Sub_Domain\Event;
+ 
+use ...
+```
+
+Example of invalid namespace declaration
+
+```php
+// Incorrect: comment inside a namespace declaration
+<?php
+/**
+ * File docblock.
+ */
+namespace Prefix \
+    /* Here comes the real namespace */ Admin\DomainURL\ SubDomain\Event;
+use ...
+```
+
+Multiple namespace declarations in one file is not allowed
+
+```php
+// Incorrect: multiple namespaces in a file
+<?php
+/**
+ * File docblock.
+ */
+namespace Foo {
+    // Code.
+}
+ 
+namespace {
+    // Code.
+}
+```
+
+When using namespaces in themes or plugins make sure you use unique and long enough namespace prefix to prevent conflicts. Using `wp` and `WordPress` namespace as a prefix is not allowed.
+
+```php
+// Correct.
+namespace My_Awesome_Plugin\Admin;
+ 
+// Incorrect.
+namespace MAP\Admin;
+```
+
 ### Only one object structure (class/interface/trait) should be declared per file
 
 For instance, if we have a file called `class-example-class.php` it can only contain one class in that file.
