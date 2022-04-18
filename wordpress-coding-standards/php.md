@@ -383,7 +383,7 @@ Class file names should be based on the class name with `class-` prepended and t
 class-wp-error.php
 ```
 
-This file-naming standard is for all current and new files with classes. There is one exception for three files that contain code that got ported into BackPress: class.wp-dependencies.php, class.wp-scripts.php, class.wp-styles.php. Those files are prepended with `class.`, a dot after the word class instead of a hyphen.
+This file-naming standard is for all current and new files with classes. There is one exception for three files that contain code that got ported into BackPress: `class.wp-dependencies.php`, `class.wp-scripts.php`, `class.wp-styles.php`. Those files are prepended with `class.`, a dot after the word class instead of a hyphen.
 
 Files containing template tags in `wp-includes` should have `-template` appended to the end of the name so that they are obvious.
 
