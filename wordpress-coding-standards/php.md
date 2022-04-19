@@ -13,8 +13,8 @@ Also see the [PHP Inline Documentation Standards](https://developer.wordpress.or
 Use single and double quotes when appropriate. If you're not evaluating anything in the string, use single quotes. You should almost never have to escape quotes in a string, because you can just alternate your quoting style, like so:
 
 ```php
-echo '<a href="/static/link" title="Yeah yeah!">Link name</a>';
-echo "<a href='$link' title='$linktitle'>$linkname</a>";
+echo '<a href="/static/link" class="button button-primary">Link name</a>';
+echo "<a href='$link' class='$classname'>$linkname</a>";
 ```
 
 Text that goes into HTML attributes should be run through `esc_attr()` so that single or double quotes do not end the attribute value and invalidate the HTML, causing a security issue. See [Data Validation](https://developer.wordpress.org/plugins/security/data-validation/) in the Plugin Handbook for further details.
