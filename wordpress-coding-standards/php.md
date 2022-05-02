@@ -127,7 +127,7 @@ Note that requiring the use of braces just means that _single-statement inline c
 
 ### Use `elseif`, not `else if`
 
-`else if` is not compatible with the colon syntax for `if|elseif` blocks. For this reason, use `elseif` for conditionals.
+`else if` is not compatible with the colon syntax for `if|elseif` blocks. For this reason, use `elseif` for conditionals.
 
 ### Declaring Arrays
 
@@ -582,9 +582,9 @@ While this operator does exist in Core, it is often used lazily instead of doing
 
 ### Don't `extract()`
 
-Per [#22400](https://core.trac.wordpress.org/ticket/22400 "Remove all, or at least most, uses of extract() within WordPress"):
+Per [#22400](https://core.trac.wordpress.org/ticket/22400 "Remove all, or at least most, uses of extract() within WordPress"):
 
-> `extract()` is a terrible function that makes code harder to debug and harder to understand. We should discourage it's [sic] use and remove all of our uses of it.
+> `extract()` is a terrible function that makes code harder to debug and harder to understand. We should discourage it's [sic] use and remove all of our uses of it.
 
 
 Joseph Scott has [a good write-up of why it's bad](https://blog.josephscott.org/2009/02/05/i-dont-like-phps-extract-function/).
@@ -598,4 +598,4 @@ Joseph Scott has [a good write-up of why it's bad](https://blog.josephscott.org/
 - November 13, 2013: [Braces should always be used, even when they are optional](https://make.wordpress.org/core/2013/11/13/proposed-coding-standards-change-always-require-braces/)
 - June 20, 2014: Add (#error-control-operator) to discourage use of the [error control operator]((https://www.php.net/manual/en/language.operators.errorcontrol.php)) (`@`). See [#wordpress-dev](https://irclogs.wordpress.org/chanlog.php?channel=wordpress-dev&amp;day=2014-06-20&amp;sort=asc#m873356).
 - October 20, 2014: Update brace usage to indicate that the alternate syntax for control structures is allowed, even encouraged. It is single-line inline control structures that are forbidden.
-- January 21, 2014: Add section to forbid extract().
+- January 21, 2014: Add section to forbid extract().
