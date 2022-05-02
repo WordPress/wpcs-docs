@@ -3,7 +3,9 @@
 Like any coding standard, the purpose of the WordPress CSS Coding Standards is to create a baseline for collaboration and review within various aspects of the WordPress open source project and community, from core code to themes to plugins. Files within a project should appear as though created by a single entity. Above all else, create code that is readable, meaningful, consistent, and beautiful.
 
 Within core stylesheets, inconsistencies will often be found. We are working on addressing these and make every effort to have patches and commits from this point forward follow the CSS coding standards. More information on the above and contributing to UI/front-end development will be forthcoming in a separate set of guidelines.
-<h2>Structure</h2>
+
+## Structure
+
 There are plenty of different methods for structuring a stylesheet. With the CSS in core, it is important to retain a high degree of legibility. This enables subsequent contributors to have a clear understanding of the flow of the document.
 <ul>
  	<li>Use tabs, not spaces, to indent each property.</li>
@@ -32,7 +34,8 @@ Incorrect:
 #selector-1 { background: #fff; color: #000; }
 ```
 
-<h2>Selectors</h2>
+## Selectors
+
 With specificity, comes great responsibility. Broad selectors allow us to be efficient, yet can have adverse consequences if not tested. Location-specific selectors can save us time, but will quickly lead to a cluttered stylesheet. Exercise your best judgement to create selectors that find the right balance between contributing to the overall style and layout of the DOM.
 <ul>
  	<li>Similar to the <a href="https://developer.wordpress.org/coding-standards/wordpress-coding-standards/php/#naming-conventions">WordPress PHP Coding Standards</a> for file names, use lowercase and separate words with hyphens when naming selectors. Avoid camelcase and underscores.</li>
@@ -76,7 +79,8 @@ input[type=text] { /&042; Should be [type="text"] &042;/
 }
 ```
 
-<h2>Properties</h2>
+## Properties
+
 Similar to selectors, properties that are too specific will hinder the flexibility of the design. Less is more. Make sure you are not repeating styling or introducing fixed dimensions (when a fluid solution is more acceptable).
 <ul>
  	<li>Properties should be followed by a colon and a space.</li>
@@ -106,7 +110,8 @@ Incorrect:
 }
 ```
 
-<h3>Property Ordering</h3>
+### Property Ordering
+
 <blockquote>"Group like properties together, especially if you have a lot of them."
 -- Nacin</blockquote>
 Above all else, choose something that is meaningful to you and semantic in some way. Random ordering is chaos, not poetry. In WordPress Core, our choice is logical or grouped ordering, wherein properties are grouped by meaning and ordered specifically within those groups. The properties within groups are also strategically ordered to create transitions between sections, such as background directly before color. The baseline for ordering is:
@@ -119,7 +124,7 @@ Above all else, choose something that is meaningful to you and semantic in some 
 </ul>
 Things that are not yet used in core itself, such as CSS3 animations, may not have a prescribed place above but likely would fit into one of the above in a logical manner. Just as CSS is evolving, so our standards will evolve with it.
 
-Top/Right/Bottom/Left (TRBL/trouble) should be the order for any relevant properties (e.g. `margin`), much as the order goes in values. Corner specifiers (e.g. `border-radius-*-*`) should be `top-left`, `top-right`, `bottom-right`, `bottom-left`. This is derived from how shorthand values would be ordered.
+Top/Right/Bottom/Left (TRBL/trouble) should be the order for any relevant properties (e.g. margin), much as the order goes in values. Corner specifiers (e.g. border-radius-*-*) should be top-left, top-right, bottom-right, bottom-left. This is derived from how shorthand values would be ordered.
 
 Example:
 
@@ -147,7 +152,8 @@ Example:
 }
 ```
 
-<h3>Vendor Prefixes</h3>
+### Vendor Prefixes
+
 Updated on 2014-02-13, after <a href="https://core.trac.wordpress.org/changeset/27174">[27174]</a>:
 
 We use <a href="https://github.com/postcss/autoprefixer">Autoprefixer</a> as a pre-commit tool to easily manage necessary browser prefixes, thus making the majority of this section moot. For those interested in following that output without using Grunt, vendor prefixes should go longest (-webkit-) to shortest (unprefixed). All other spacing remains as per the rest of standards.
@@ -160,7 +166,8 @@ We use <a href="https://github.com/postcss/autoprefixer">Autoprefixer</a> as a p
 }
 ```
 
-<h2>Values</h2>
+## Values
+
 There are numerous ways to input values for properties. Follow the guidelines below to help us retain a high degree of consistency.
 <ul>
  	<li>Space before the value, after the colon.</li>
@@ -226,7 +233,8 @@ Incorrect:
 }
 ```
 
-<h2>Media Queries</h2>
+## Media Queries
+
 Media queries allow us to gracefully degrade the DOM for different screen sizes. If you are adding any, be sure to test above and below the break-point you are targeting.
 <ul>
  	<li>It is generally advisable to keep media queries grouped by media at the bottom of the stylesheet.
@@ -244,7 +252,8 @@ Example:
 }
 ```
 
-<h2>Commenting</h2>
+## Commenting
+
 <ul>
  	<li>Comment, and comment liberally. If there are concerns about file size, utilize minified files and the SCRIPT_DEBUG constant. Long comments should manually break the line length at 80 characters.</li>
  	<li>A table of contents should be utilized for longer stylesheets, especially those that are highly sectioned. Using an index number (1.0, 1.1, 2.0, etc.) aids in searching and jumping to a location.</li>
@@ -274,7 +283,8 @@ For inline:
 }
 ```
 
-<h2>Best Practices</h2>
+## Best Practices
+
 Stylesheets tend to grow in length and complexity, and as they grow the chance of redundancy increases. By following some best practices we can help our CSS maintain focus and flexibility as it evolves:
 <ul>
  	<li>If you are attempting to fix an issue, attempt to remove code before adding more.</li>
@@ -284,9 +294,12 @@ Stylesheets tend to grow in length and complexity, and as they grow the chance o
  	<li>Do not restate default property &amp; value combinations (for instance <code>display: block;</code> on block-level elements).</li>
 </ul>
 
-<h3>WP Admin CSS</h3>
+### WP Admin CSS
+
 Check out the <a href="https://wordpress.github.io/css-audit/public/wp-admin">WP Admin CSS Audit</a>, a report generated to document the health of the WP Admin CSS code. Read more in <a href="https://github.com/WordPress/css-audit/blob/trunk/README.md">the repository's README</a>.
-<h2>Related Links</h2>
+
+## Related Links
+
 <ul>
  	<li>Principles of writing consistent, idiomatic CSS: <a href="https://github.com/necolas/idiomatic-css">https://github.com/necolas/idiomatic-css</a></li>
 </ul>
