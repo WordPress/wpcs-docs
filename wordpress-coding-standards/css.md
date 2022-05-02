@@ -41,7 +41,7 @@ With specificity, comes great responsibility. Broad selectors allow us to be eff
 - Similar to the <a href="https://developer.wordpress.org/coding-standards/wordpress-coding-standards/php/#naming-conventions">WordPress PHP Coding Standards</a> for file names, use lowercase and separate words with hyphens when naming selectors. Avoid camelcase and underscores.
 - Use human readable selectors that describe what element(s) they style.
 - Attribute selectors should use double quotes around values
-- Refrain from using over-qualified selectors, <code>div.container</code> can simply be stated as <code>.container</code>
+- Refrain from using over-qualified selectors, `div.container` can simply be stated as `.container`
 
 Correct:
 
@@ -85,7 +85,7 @@ Similar to selectors, properties that are too specific will hinder the flexibili
 
 - Properties should be followed by a colon and a space.
 - All properties and values should be lowercase, except for font names and vendor-specific properties.
-- Use hex code for colors, or rgba() if opacity is needed. Avoid RGB format and uppercase, and shorten values when possible: <code>#fff</code> instead of <code>#FFFFFF</code>.
+- Use hex code for colors, or rgba() if opacity is needed. Avoid RGB format and uppercase, and shorten values when possible: `#fff` instead of `#FFFFFF`.
 - Use shorthand (except when overriding styles) for background, border, font, list-style, margin, and padding values as much as possible. (For a shorthand reference, see <a href="https://codex.wordpress.org/CSS_Shorthand">CSS Shorthand</a>.)
 
 Correct:
@@ -174,8 +174,8 @@ There are numerous ways to input values for properties. Follow the guidelines be
 - Space before the value, after the colon.
 - Do not pad parentheses with spaces.
 - Always end in a semicolon.
-- Use double quotes rather than single quotes, and only when needed, such as when a font name has a space or for the values of the <code>content</code> property.
-- Font weights should be defined using numeric values (e.g. <code>400</code> instead of <code>normal</code>, <code>700</code> rather than <code>bold</code>).
+- Use double quotes rather than single quotes, and only when needed, such as when a font name has a space or for the values of the `content` property.
+- Font weights should be defined using numeric values (e.g. `400` instead of `normal`, `700` rather than `bold`).
 - 0 values should not have units unless necessary, such as with transition-duration.
 - Line height should also be unit-less, unless necessary to be defined as a specific pixel value. This is more than just a style convention, but is worth mentioning here. More information: <a href="http://meyerweb.com/eric/thoughts/2006/02/08/unitless-line-heights/">http://meyerweb.com/eric/thoughts/2006/02/08/unitless-line-heights/</a>
 - Use a leading zero for decimal values, including in rgba().
@@ -285,10 +285,10 @@ For inline:
 Stylesheets tend to grow in length and complexity, and as they grow the chance of redundancy increases. By following some best practices we can help our CSS maintain focus and flexibility as it evolves:
 
 - If you are attempting to fix an issue, attempt to remove code before adding more.
-- Magic Numbers are unlucky. These are numbers that are used as quick fixes on a one-off basis. Example: <code>.box { margin-top: 37px }</code>.
-- DOM will change over time, target the element you want to use as opposed to "finding it" through its parents. Example: Use <code>.highlight</code> on the element as opposed to <code>.highlight a</code> (where the selector is on the parent)
+- Magic Numbers are unlucky. These are numbers that are used as quick fixes on a one-off basis. Example: `.box { margin-top: 37px }`.
+- DOM will change over time, target the element you want to use as opposed to "finding it" through its parents. Example: Use `.highlight` on the element as opposed to `.highlight a` (where the selector is on the parent)
 - Know when to use the height property. It should be used when you are including outside elements (such as images). Otherwise use line-height for more flexibility.
-- Do not restate default property &amp; value combinations (for instance <code>display: block;</code> on block-level elements).
+- Do not restate default property &amp; value combinations (for instance `display: block;` on block-level elements).
 
 
 ### WP Admin CSS
