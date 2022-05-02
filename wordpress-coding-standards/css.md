@@ -177,7 +177,7 @@ There are numerous ways to input values for properties. Follow the guidelines be
 - Use double quotes rather than single quotes, and only when needed, such as when a font name has a space or for the values of the `content` property.
 - Font weights should be defined using numeric values (e.g. `400` instead of `normal`, `700` rather than `bold`).
 - 0 values should not have units unless necessary, such as with `transition-duration`.
-- Line height should also be unit-less, unless necessary to be defined as a specific pixel value. This is more than just a style convention, but is worth mentioning here. More information: [https://meyerweb.com/eric/thoughts/2006/02/08/unitless-line-heights/](https://meyerweb.com/eric/thoughts/2006/02/08/unitless-line-heights/).
+- Line height should also be unit-less, unless necessary to be defined as a specific pixel value. This is more than just a style convention, but is worth mentioning here. More information: <https://meyerweb.com/eric/thoughts/2006/02/08/unitless-line-heights/>.
 - Use a leading zero for decimal values, including in `rgba()`.
 - Multiple comma-separated values for one property should be separated by either a space or a newline. For better readability newlines should be used for lengthier multi-part values such as those for shorthand properties like `box-shadow` and `text-shadow`, including before the first value. Values should then be indented one level in from the property.
 - Lists of values within a value, like within `rgba()`, should be separated by a space.
