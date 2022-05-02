@@ -2,7 +2,7 @@
 
 ## About
 
-This repo contains the source for the [WordPress Coding Standards](https://developer.wordpress.org/coding-standards/) published at [https://developer.wordpress.org/coding-standards](https://developer.wordpress.org/coding-standards).
+This repo contains the source for the [WordPress Coding Standards](https://developer.wordpress.org/coding-standards/) published at <https://developer.wordpress.org/coding-standards>.
 
 When creating new files, these must be added to the [manifest.json](https://github.com/WordPress/wpcs-docs/blob/master/manifest.json) file.
 
