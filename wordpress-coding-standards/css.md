@@ -119,7 +119,7 @@ Above all else, choose something that is meaningful to you and semantic in some 
 </ul>
 Things that are not yet used in core itself, such as CSS3 animations, may not have a prescribed place above but likely would fit into one of the above in a logical manner. Just as CSS is evolving, so our standards will evolve with it.
 
-Top/Right/Bottom/Left (TRBL/trouble) should be the order for any relevant properties (e.g. margin), much as the order goes in values. Corner specifiers (e.g. border-radius-*-*) should be top-left, top-right, bottom-right, bottom-left. This is derived from how shorthand values would be ordered.
+Top/Right/Bottom/Left (TRBL/trouble) should be the order for any relevant properties (e.g. margin), much as the order goes in values. Corner specifiers (e.g. `border-radius-*-*`) should be top-left, top-right, bottom-right, bottom-left. This is derived from how shorthand values would be ordered.
 
 Example:
 
