@@ -85,8 +85,8 @@ Similar to selectors, properties that are too specific will hinder the flexibili
 
 - Properties should be followed by a colon and a space.
 - All properties and values should be lowercase, except for font names and vendor-specific properties.
-- Use hex code for colors, or rgba() if opacity is needed. Avoid RGB format and uppercase, and shorten values when possible: `#fff` instead of `#FFFFFF`.
-- Use shorthand (except when overriding styles) for background, border, font, list-style, margin, and padding values as much as possible. (For a shorthand reference, see [CSS Shorthand](https://codex.wordpress.org/CSS_Shorthand).)
+- Use hex code for colors, or `rgba()` if opacity is needed. Avoid RGB format and uppercase, and shorten values when possible: `#fff` instead of `#FFFFFF`.
+- Use shorthand (except when overriding styles) for `background`, `border`, `font`, `list-style`, `margin`, and `padding` values as much as possible. (For a shorthand reference, see [CSS Shorthand](https://codex.wordpress.org/CSS_Shorthand).)
 
 Correct:
 
@@ -115,7 +115,7 @@ Incorrect:
 > "Group like properties together, especially if you have a lot of them." 
 > -- Nacin
 
-Above all else, choose something that is meaningful to you and semantic in some way. Random ordering is chaos, not poetry. In WordPress Core, our choice is logical or grouped ordering, wherein properties are grouped by meaning and ordered specifically within those groups. The properties within groups are also strategically ordered to create transitions between sections, such as background directly before color. The baseline for ordering is:
+Above all else, choose something that is meaningful to you and semantic in some way. Random ordering is chaos, not poetry. In WordPress Core, our choice is logical or grouped ordering, wherein properties are grouped by meaning and ordered specifically within those groups. The properties within groups are also strategically ordered to create transitions between sections, such as `background` directly before `color`. The baseline for ordering is:
 
 - Display
 - Positioning
@@ -176,11 +176,11 @@ There are numerous ways to input values for properties. Follow the guidelines be
 - Always end in a semicolon.
 - Use double quotes rather than single quotes, and only when needed, such as when a font name has a space or for the values of the `content` property.
 - Font weights should be defined using numeric values (e.g. `400` instead of `normal`, `700` rather than `bold`).
-- 0 values should not have units unless necessary, such as with transition-duration.
+- 0 values should not have units unless necessary, such as with `transition-duration`.
 - Line height should also be unit-less, unless necessary to be defined as a specific pixel value. This is more than just a style convention, but is worth mentioning here. More information: [https://meyerweb.com/eric/thoughts/2006/02/08/unitless-line-heights/](https://meyerweb.com/eric/thoughts/2006/02/08/unitless-line-heights/).
-- Use a leading zero for decimal values, including in rgba().
-- Multiple comma-separated values for one property should be separated by either a space or a newline. For better readability newlines should be used for lengthier multi-part values such as those for shorthand properties like box-shadow and text-shadow, including before the first value. Values should then be indented one level in from the property.
-- Lists of values within a value, like within rgba(), should be separated by a space.
+- Use a leading zero for decimal values, including in `rgba()`.
+- Multiple comma-separated values for one property should be separated by either a space or a newline. For better readability newlines should be used for lengthier multi-part values such as those for shorthand properties like `box-shadow` and `text-shadow`, including before the first value. Values should then be indented one level in from the property.
+- Lists of values within a value, like within `rgba()`, should be separated by a space.
 
 Correct:
 
@@ -239,7 +239,7 @@ Incorrect:
 Media queries allow us to gracefully degrade the DOM for different screen sizes. If you are adding any, be sure to test above and below the break-point you are targeting.
 
 - It is generally advisable to keep media queries grouped by media at the bottom of the stylesheet.
-    - An exception is made for the wp-admin.css file in core, as it is very large and each section essentially represents a stylesheet of its own. Media queries are therefore added at the bottom of sections as applicable.
+    - An exception is made for the `wp-admin.css` file in core, as it is very large and each section essentially represents a stylesheet of its own. Media queries are therefore added at the bottom of sections as applicable.
 - Rule sets for media queries should be indented one level in.
 
 Example:
@@ -252,8 +252,8 @@ Example:
 
 ## Commenting
 
-- Comment, and comment liberally. If there are concerns about file size, utilize minified files and the SCRIPT_DEBUG constant. Long comments should manually break the line length at 80 characters.
-- A table of contents should be utilized for longer stylesheets, especially those that are highly sectioned. Using an index number (1.0, 1.1, 2.0, etc.) aids in searching and jumping to a location.
+- Comment, and comment liberally. If there are concerns about file size, utilize minified files and the `SCRIPT_DEBUG` constant. Long comments should manually break the line length at 80 characters.
+- A table of contents should be utilized for longer stylesheets, especially those that are highly sectioned. Using an index number (`1.0`, `1.1`, `2.0`, etc.) aids in searching and jumping to a location.
 - Comments should be formatted much as PHPDoc is. The [CSSDoc](https://web.archive.org/web/20070601200419/http://cssdoc.net/) standard is not necessarily widely accepted or used but some aspects of it may be adopted over time. Section/subsection headers should have newlines before and after. Inline comments should not have empty newlines separating the comment from the item to which it relates.
 
 For sections and subsections:
@@ -287,9 +287,8 @@ Stylesheets tend to grow in length and complexity, and as they grow the chance o
 - If you are attempting to fix an issue, attempt to remove code before adding more.
 - Magic Numbers are unlucky. These are numbers that are used as quick fixes on a one-off basis. Example: `.box { margin-top: 37px }`.
 - DOM will change over time, target the element you want to use as opposed to "finding it" through its parents. Example: Use `.highlight` on the element as opposed to `.highlight a` (where the selector is on the parent)
-- Know when to use the height property. It should be used when you are including outside elements (such as images). Otherwise use line-height for more flexibility.
+- Know when to use the `height` property. It should be used when you are including outside elements (such as images). Otherwise use `line-height` for more flexibility.
 - Do not restate default property &amp; value combinations (for instance `display: block;` on block-level elements).
-
 
 ### WP Admin CSS
 
