@@ -10,6 +10,7 @@
 ##### Heading h5
 ###### Heading h6
 ```
+
 Note: h1 - h4 items will be automatically added to the Table of Contents.
 
 ## Emphasis
@@ -23,6 +24,7 @@ This is _italic text_.
 ```
 
 ### Bold
+
 Wrap text with double `**` for **Bold** text:
 
 ```md
@@ -30,6 +32,7 @@ This is **bold text**.
 ```
 
 ### Strikethrough
+
 Wrap text with double `~~` for ~~strikethrough~~ text:
 
 ```md
@@ -79,6 +82,7 @@ Use numbered items followed by a `.:
 ## Horizontal Rules
 
 Use `---` for a horizontal rules:
+
 ```md
 ---
 ```
@@ -95,8 +99,9 @@ Use `---` for a horizontal rules:
 
 ### Inline Code
 
-Wrap inline code with <code>`\``</code> backticks:
-````
+Wrap inline code with single <code>`\``</code> backticks:
+
+````md
 ```
 This is `inline code` wrapped with backticks
 ```
@@ -107,7 +112,8 @@ When documenting an example, use the markdown <code>`\``</code> code block to de
 ### Fenced Code Blocks
 
 #### Javascript
-````
+
+````md
 ```javascript
 var foo = function (bar) {
   return bar++;
@@ -118,7 +124,8 @@ console.log(foo(5));
 ````
 
 #### JSON
-````
+
+````md
 ```json
 {
   "firstName": "John",
@@ -146,7 +153,8 @@ console.log(foo(5));
 ````
 
 #### CSS
-````
+
+````md
 ```css
 foo {
   padding: 5px;
@@ -160,7 +168,8 @@ foo {
 ````
 
 #### SCSS
-````
+
+````md
 ```scss
 foo {
   padding: 5px;
@@ -174,14 +183,16 @@ foo {
 ````
 
 #### HTML
-````
+
+````md
 ```html
 <span class="my-class">Example</span>
 ```
 ````
 
 #### PHP
-````
+
+````md
 ```php
 $array = array(
     "foo" => "bar",
@@ -191,7 +202,8 @@ $array = array(
 ````
 
 #### Markdown
-````
+
+````md
 ```md
 This is _italic text_. This is **bold text**.
 ```
