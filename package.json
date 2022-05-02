@@ -1,0 +1,25 @@
+{
+	"name": "wpcs-docs",
+	"version": "1.0.0",
+	"description": "WordPress Coding Standards Documentation",
+	"author": "The WordPress Community",
+	"license": "GPL-2.0-or-later",
+	"keywords": [
+		"wordpress"
+	],
+	"homepage": "https://github.com/WordPress/wpcs-docs#readme",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/WordPress/wpcs-docs.git"
+	},
+	"bugs": {
+		"url": "https://github.com/WordPress/wpcs-docs/issues"
+	},
+	"main": "index.js",
+	"devDependencies": {
+		"@wordpress/scripts": "^22"
+	},
+	"scripts": {
+		"test": "wp-scripts lint-md-docs"
+	}
+}
