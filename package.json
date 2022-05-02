@@ -15,7 +15,6 @@
 	"bugs": {
 		"url": "https://github.com/WordPress/wpcs-docs/issues"
 	},
-	"main": "index.js",
 	"devDependencies": {
 		"@wordpress/scripts": "^22"
 	},
