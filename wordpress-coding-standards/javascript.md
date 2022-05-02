@@ -49,7 +49,7 @@ These rules encourage liberal spacing for improved developer readability. The mi
 
 Whitespace can easily accumulate at the end of a line – avoid this, as trailing whitespace is caught as an error in JSHint. One way to catch whitespace buildup is enabling visible whitespace characters within your text editor.
 
-### Objects
+### Object Declarations
 
 Object declarations can be made on a single line if they are short (remember the line length guidelines). When an object declaration is too long to fit on one line, there must be one property per line. Property names only need to be quoted if they are reserved words or contain special characters:
 
@@ -58,7 +58,7 @@ Objects and arrays can be declared on a single line if they are short (remember 
 ```javascript
 // Preferred
 var obj = {
-	ready: 9,
+	ready: 9
 	when: 4,
 	'you are': 15,
 };
@@ -67,11 +67,11 @@ var arr = [
 	4,
 	15,
 ];
- 
+
 // Acceptable for small objects and arrays
 var obj = { ready: 9, when: 4, 'you are': 15 };
 var arr = [ 9, 4, 15 ];
- 
+
 // Bad
 var obj = { ready: 9,
 	when: 4, 'you are': 15 };
@@ -85,17 +85,17 @@ Always include extra spaces around elements and arguments:
 
 ```javascript
 array = [ a, b ];
- 
+
 foo( arg );
- 
+
 foo( 'string', object );
- 
+
 foo( options, object[ property ] );
- 
+
 foo( node, 'property', 2 );
- 
+
 prop = object[ 'default' ];
- 
+
 firstArrayElement = arr[ 0 ];
 ```
 
@@ -300,10 +300,10 @@ If an abbreviation or an acronym occurs at the start of a variable name, it must
 ```javascript
 // "Id" is an abbreviation of "Identifier":
 const userId = 1;
- 
+
 // "DOM" is an acronym of "Document Object Model":
 const currentDOMDocument = window.document;
- 
+
 // Acronyms and abbreviations at the start of a variable name are consistent
 // with camelcase rules covering the first letter of a variable or class.
 const domDocument = window.document;
@@ -327,7 +327,7 @@ class Earth {
 		return Earth.humans;
 	}
 }
- 
+
 Earth.humans = [];
 ```
 
@@ -345,10 +345,10 @@ Comments come before the code to which they refer, and should always be preceded
 
 ```javascript
 someStatement();
- 
+
 // Explanation of something complex on the next line
 $( 'p' ).doSomething();
- 
+
 // This is a comment that is long enough to warrant being stretched
 // over the span of multiple lines.
 ```
@@ -381,10 +381,11 @@ These are the preferred ways of checking the type of an object:
 - Element: `object.nodeType` or `_.isElement( object )`
 - null: `object === null`
 - null or undefined: `object == null`
-- undefined: <ul>- Global Variables: `typeof variable === 'undefined'`
-- Local Variables: `variable === undefined`
-- Properties: `object.prop === undefined`
-- Any of the above: `_.isUndefined( object )` </li></ul>
+- undefined:
+    - Global Variables: `typeof variable === 'undefined'`
+    - Local Variables: `variable === undefined`
+    - Properties: `object.prop === undefined`
+    - Any of the above: `_.isUndefined( object )`
 
 Anywhere Backbone or Underscore are already used, you are encouraged to use [Underscore.js](http://underscorejs.org/#isElement)'s type checking methods over jQuery's.
 
