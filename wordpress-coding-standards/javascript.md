@@ -58,7 +58,7 @@ Objects and arrays can be declared on a single line if they are short (remember 
 ```javascript
 // Preferred
 var obj = {
-	ready: 9
+	ready: 9,
 	when: 4,
 	'you are': 15,
 };
