@@ -38,7 +38,7 @@ Incorrect:
 
 With specificity, comes great responsibility. Broad selectors allow us to be efficient, yet can have adverse consequences if not tested. Location-specific selectors can save us time, but will quickly lead to a cluttered stylesheet. Exercise your best judgement to create selectors that find the right balance between contributing to the overall style and layout of the DOM.
 
-- Similar to the <a href="https://developer.wordpress.org/coding-standards/wordpress-coding-standards/php/#naming-conventions">WordPress PHP Coding Standards</a> for file names, use lowercase and separate words with hyphens when naming selectors. Avoid camelcase and underscores.
+- Similar to the [WordPress PHP Coding Standards](https://developer.wordpress.org/coding-standards/wordpress-coding-standards/php/#naming-conventions) for file names, use lowercase and separate words with hyphens when naming selectors. Avoid camelcase and underscores.
 - Use human readable selectors that describe what element(s) they style.
 - Attribute selectors should use double quotes around values
 - Refrain from using over-qualified selectors, `div.container` can simply be stated as `.container`
@@ -86,7 +86,7 @@ Similar to selectors, properties that are too specific will hinder the flexibili
 - Properties should be followed by a colon and a space.
 - All properties and values should be lowercase, except for font names and vendor-specific properties.
 - Use hex code for colors, or rgba() if opacity is needed. Avoid RGB format and uppercase, and shorten values when possible: `#fff` instead of `#FFFFFF`.
-- Use shorthand (except when overriding styles) for background, border, font, list-style, margin, and padding values as much as possible. (For a shorthand reference, see <a href="https://codex.wordpress.org/CSS_Shorthand">CSS Shorthand</a>.)
+- Use shorthand (except when overriding styles) for background, border, font, list-style, margin, and padding values as much as possible. (For a shorthand reference, see [CSS Shorthand](https://codex.wordpress.org/CSS_Shorthand).)
 
 Correct:
 
@@ -155,9 +155,9 @@ Example:
 
 ### Vendor Prefixes
 
-Updated on 2014-02-13, after <a href="https://core.trac.wordpress.org/changeset/27174">[27174]</a>:
+Updated on 2014-02-13, after [[27174](https://core.trac.wordpress.org/changeset/27174)]:
 
-We use <a href="https://github.com/postcss/autoprefixer">Autoprefixer</a> as a pre-commit tool to easily manage necessary browser prefixes, thus making the majority of this section moot. For those interested in following that output without using Grunt, vendor prefixes should go longest (-webkit-) to shortest (unprefixed). All other spacing remains as per the rest of standards.
+We use [Autoprefixer](https://github.com/postcss/autoprefixer) as a pre-commit tool to easily manage necessary browser prefixes, thus making the majority of this section moot. For those interested in following that output without using Grunt, vendor prefixes should go longest (-webkit-) to shortest (unprefixed). All other spacing remains as per the rest of standards.
 
 ```css
 .sample-output {
@@ -177,7 +177,7 @@ There are numerous ways to input values for properties. Follow the guidelines be
 - Use double quotes rather than single quotes, and only when needed, such as when a font name has a space or for the values of the `content` property.
 - Font weights should be defined using numeric values (e.g. `400` instead of `normal`, `700` rather than `bold`).
 - 0 values should not have units unless necessary, such as with transition-duration.
-- Line height should also be unit-less, unless necessary to be defined as a specific pixel value. This is more than just a style convention, but is worth mentioning here. More information: <a href="http://meyerweb.com/eric/thoughts/2006/02/08/unitless-line-heights/">http://meyerweb.com/eric/thoughts/2006/02/08/unitless-line-heights/</a>
+- Line height should also be unit-less, unless necessary to be defined as a specific pixel value. This is more than just a style convention, but is worth mentioning here. More information: [https://meyerweb.com/eric/thoughts/2006/02/08/unitless-line-heights/](https://meyerweb.com/eric/thoughts/2006/02/08/unitless-line-heights/).
 - Use a leading zero for decimal values, including in rgba().
 - Multiple comma-separated values for one property should be separated by either a space or a newline. For better readability newlines should be used for lengthier multi-part values such as those for shorthand properties like box-shadow and text-shadow, including before the first value. Values should then be indented one level in from the property.
 - Lists of values within a value, like within rgba(), should be separated by a space.
@@ -254,7 +254,7 @@ Example:
 
 - Comment, and comment liberally. If there are concerns about file size, utilize minified files and the SCRIPT_DEBUG constant. Long comments should manually break the line length at 80 characters.
 - A table of contents should be utilized for longer stylesheets, especially those that are highly sectioned. Using an index number (1.0, 1.1, 2.0, etc.) aids in searching and jumping to a location.
-- Comments should be formatted much as PHPDoc is. The <a href="http://web.archive.org/web/20070601200419/http://cssdoc.net/">CSSDoc</a> standard is not necessarily widely accepted or used but some aspects of it may be adopted over time. Section/subsection headers should have newlines before and after. Inline comments should not have empty newlines separating the comment from the item to which it relates.
+- Comments should be formatted much as PHPDoc is. The [CSSDoc](https://web.archive.org/web/20070601200419/http://cssdoc.net/) standard is not necessarily widely accepted or used but some aspects of it may be adopted over time. Section/subsection headers should have newlines before and after. Inline comments should not have empty newlines separating the comment from the item to which it relates.
 
 For sections and subsections:
 
@@ -293,8 +293,8 @@ Stylesheets tend to grow in length and complexity, and as they grow the chance o
 
 ### WP Admin CSS
 
-Check out the <a href="https://wordpress.github.io/css-audit/public/wp-admin">WP Admin CSS Audit</a>, a report generated to document the health of the WP Admin CSS code. Read more in <a href="https://github.com/WordPress/css-audit/blob/trunk/README.md">the repository's README</a>.
+Check out the [WP Admin CSS Audit](https://wordpress.github.io/css-audit/public/wp-admin), a report generated to document the health of the WP Admin CSS code. Read more in [the repository's README](https://github.com/WordPress/css-audit/blob/trunk/README.md).
 
 ## Related Links
 
-- Principles of writing consistent, idiomatic CSS: <a href="https://github.com/necolas/idiomatic-css">https://github.com/necolas/idiomatic-css</a>
+- Principles of writing consistent, idiomatic CSS: [https://github.com/necolas/idiomatic-css](https://github.com/necolas/idiomatic-css).
