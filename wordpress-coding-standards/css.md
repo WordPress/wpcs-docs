@@ -112,8 +112,8 @@ Incorrect:
 
 ### Property Ordering
 
-<blockquote>"Group like properties together, especially if you have a lot of them."
--- Nacin</blockquote>
+> "Group like properties together, especially if you have a lot of them." 
+> -- Nacin
 
 Above all else, choose something that is meaningful to you and semantic in some way. Random ordering is chaos, not poetry. In WordPress Core, our choice is logical or grouped ordering, wherein properties are grouped by meaning and ordered specifically within those groups. The properties within groups are also strategically ordered to create transitions between sections, such as background directly before color. The baseline for ordering is:
 
