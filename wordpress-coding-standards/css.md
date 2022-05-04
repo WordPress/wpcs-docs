@@ -40,8 +40,8 @@ With specificity, comes great responsibility. Broad selectors allow us to be eff
 
 - Similar to the [WordPress PHP Coding Standards](https://developer.wordpress.org/coding-standards/wordpress-coding-standards/php/#naming-conventions) for file names, use lowercase and separate words with hyphens when naming selectors. Avoid camelcase and underscores.
 - Use human readable selectors that describe what element(s) they style.
-- Attribute selectors should use double quotes around values
-- Refrain from using over-qualified selectors, `div.container` can simply be stated as `.container`
+- Attribute selectors should use double quotes around values.
+- Refrain from using over-qualified selectors, `div.container` can simply be stated as `.container`.
 
 Correct:
 
@@ -86,7 +86,7 @@ Similar to selectors, properties that are too specific will hinder the flexibili
 - Properties should be followed by a colon and a space.
 - All properties and values should be lowercase, except for font names and vendor-specific properties.
 - Use hex code for colors, or `rgba()` if opacity is needed. Avoid RGB format and uppercase, and shorten values when possible: `#fff` instead of `#FFFFFF`.
-- Use shorthand (except when overriding styles) for `background`, `border`, `font`, `list-style`, `margin`, and `padding` values as much as possible. (For a shorthand reference, see [CSS Shorthand](https://codex.wordpress.org/CSS_Shorthand).)
+- Use shorthand, except when overriding styles, for `background`, `border`, `font`, `list-style`, `margin`, and `padding` values as much as possible. For a shorthand reference, see [CSS Shorthand](https://codex.wordpress.org/CSS_Shorthand).
 
 Correct:
 
@@ -125,7 +125,7 @@ Above all else, choose something that is meaningful to you and semantic in some 
 
 Things that are not yet used in core itself, such as CSS3 animations, may not have a prescribed place above but likely would fit into one of the above in a logical manner. Just as CSS is evolving, so our standards will evolve with it.
 
-Top/Right/Bottom/Left (TRBL/trouble) should be the order for any relevant properties (e.g. margin), much as the order goes in values. Corner specifiers (e.g. border-radius-*-*) should be top-left, top-right, bottom-right, bottom-left. This is derived from how shorthand values would be ordered.
+Top/Right/Bottom/Left (TRBL/trouble) should be the order for any relevant properties (e.g. `margin`), much as the order goes in values. Corner specifiers (e.g. `border-radius-*-*`) should be ordered as top-left, top-right, bottom-right, bottom-left. This is derived from how shorthand values would be ordered.
 
 Example:
 
@@ -288,7 +288,7 @@ Stylesheets tend to grow in length and complexity, and as they grow the chance o
 - Magic Numbers are unlucky. These are numbers that are used as quick fixes on a one-off basis. Example: `.box { margin-top: 37px }`.
 - DOM will change over time, target the element you want to use as opposed to "finding it" through its parents. Example: Use `.highlight` on the element as opposed to `.highlight a` (where the selector is on the parent)
 - Know when to use the `height` property. It should be used when you are including outside elements (such as images). Otherwise use `line-height` for more flexibility.
-- Do not restate default property &amp; value combinations (for instance `display: block;` on block-level elements).
+- Do not restate default property and value combinations (for instance `display: block;` on block-level elements).
 
 ### WP Admin CSS
 
