@@ -149,7 +149,7 @@ $caption = preg_replace_callback(
 );
 ```
 
-Closures must not be passed as filter or action callbacks, as they cannot be removed by `remove_action()` / `remove_filter()` (see [#46635](https://core.trac.wordpress.org/ticket/46635 "Improve identifying of non–trivial callbacks in hooks") for a proposal to address this).
+Closures must not be passed as filter or action callbacks, as removing these via `remove_action()` / `remove_filter()` is complex (at this time)  (see [#46635](https://core.trac.wordpress.org/ticket/46635 "Improve identifying of non–trivial callbacks in hooks") for a proposal to address this)
 
 ## Multiline Function Calls
 
