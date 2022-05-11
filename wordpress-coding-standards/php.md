@@ -17,7 +17,7 @@ echo '<a href="/static/link" title="Yeah yeah!">Link name</a>';
 echo "<a href='$link' title='$linktitle'>$linkname</a>";
 ```
 
-Text that goes into HTML attributes should be run through `esc_attr()` so that single or double quotes do not end the attribute value and invalidate the HTML, causing a security issue. See [Data Validation](https://developer.wordpress.org/plugins/security/data-validation/) in the Plugin Handbook for further details.
+Text that goes into HTML or XML attributes should be escaped so that single or double quotes do not end the attribute value and invalidate the HTML, causing a security issue. See [Data Validation](https://developer.wordpress.org/plugins/security/data-validation/) in the Plugin Handbook for further details.
 
 ## Indentation
 
