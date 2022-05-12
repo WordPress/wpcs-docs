@@ -1,10 +1,12 @@
 # PHP Coding Standards
 
-WordPress aims for a consistent code-style and for complying with established best practices for code readability, clean code, security and interoperability with plugins and themes for all PHP code in the WordPress Core codebase.
+These coding standards are intended for all WordPress community, and we encourage you to use them in your themes and plugins as well. They are not mandatory, and if you follow any other coding style that's ok as well. The coding standards do encompass best practices, interoperability, translatability, and security in the WordPress ecosystem, so we recommend you use them for those purposes.
 
 While not all code may fully comply with these standards (yet), all newly committed and/or updated code should fully comply with these coding standards.
 
 Keep the following rules in mind when writing PHP code for WordPress, whether for core programming code, plugins, or themes.
+
+If you want to automate the coding standard checks, you can use official [WordPress Coding Standards](https://github.com/WordPress/WordPress-Coding-Standards) with PHP_CodeSniffer script.
 
 Also see the [PHP Inline Documentation Standards](https://developer.wordpress.org/coding-standards/inline-documentation-standards/php/) for further guidelines.
 
@@ -149,7 +151,7 @@ $caption = preg_replace_callback(
 );
 ```
 
-Closures must not be passed as filter or action callbacks, as removing these via `remove_action()` / `remove_filter()` is complex (at this time)  (see [#46635](https://core.trac.wordpress.org/ticket/46635 "Improve identifying of non–trivial callbacks in hooks") for a proposal to address this)
+Closures should not be passed as filter or action callbacks, as removing these via `remove_action()` / `remove_filter()` is complex (at this time)  (see [#46635](https://core.trac.wordpress.org/ticket/46635 "Improve identifying of non–trivial callbacks in hooks") for a proposal to address this)
 
 ## Multiline Function Calls
 
