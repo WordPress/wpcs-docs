@@ -1,12 +1,14 @@
 # PHP Coding Standards
 
-These coding standards are intended for all WordPress community, and we encourage you to use them in your themes and plugins as well. They are not mandatory, and if you follow any other coding style that's ok as well. The coding standards do encompass best practices, interoperability, translatability, and security in the WordPress ecosystem, so we recommend you use them for those purposes.
+These PHP coding standards are intended for the WordPress community as a whole. They are mandatory for WordPress Core and we encourage you to use them for your themes and plugins as well.
+
+While themes and plugin may choose to follow a different _coding style_, these **_coding standards_** are not just about _code style_, but also encompass established best practices regarding interoperability, translatability, and security in the WordPress ecosystem, so, even when using a different _code style_, we recommend you still adhere to the WordPress Coding Standards with regards to these best practices.
 
 While not all code may fully comply with these standards (yet), all newly committed and/or updated code should fully comply with these coding standards.
 
 Keep the following rules in mind when writing PHP code for WordPress, whether for core programming code, plugins, or themes.
 
-If you want to automate the coding standard checks, you can use official [WordPress Coding Standards](https://github.com/WordPress/WordPress-Coding-Standards) with PHP_CodeSniffer script.
+If you want to automatically check your code against this standard, you can use the official [WordPress Coding Standards](https://github.com/WordPress/WordPress-Coding-Standards) tooling, which is run using [PHP_CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer/).
 
 Also see the [PHP Inline Documentation Standards](https://developer.wordpress.org/coding-standards/inline-documentation-standards/php/) for further guidelines.
 
