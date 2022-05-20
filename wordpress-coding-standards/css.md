@@ -148,7 +148,7 @@ Example:
 ```
 
 <h3>Vendor Prefixes</h3>
-Updated on 2/13/2014, after <a href="https://core.trac.wordpress.org/changeset/27174">[27174]</a>:
+Updated on 2014-02-13, after <a href="https://core.trac.wordpress.org/changeset/27174">[27174]</a>:
 
 We use <a href="https://github.com/postcss/autoprefixer">Autoprefixer</a> as a pre-commit tool to easily manage necessary browser prefixes, thus making the majority of this section moot. For those interested in following that output without using Grunt, vendor prefixes should go longest (-webkit-) to shortest (unprefixed). All other spacing remains as per the rest of standards.
 
