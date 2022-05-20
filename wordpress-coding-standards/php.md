@@ -6,11 +6,9 @@ While themes and plugin may choose to follow a different _coding style_, these *
 
 While not all code may fully comply with these standards (yet), all newly committed and/or updated code should fully comply with these coding standards.
 
-Keep the following rules in mind when writing PHP code for WordPress, whether for core programming code, plugins, or themes.
+Also see the [PHP Inline Documentation Standards](https://developer.wordpress.org/coding-standards/inline-documentation-standards/php/) for further guidelines.
 
 If you want to automatically check your code against this standard, you can use the official [WordPress Coding Standards](https://github.com/WordPress/WordPress-Coding-Standards) tooling, which is run using [PHP_CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer/).
-
-Also see the [PHP Inline Documentation Standards](https://developer.wordpress.org/coding-standards/inline-documentation-standards/php/) for further guidelines.
 
 ## Single and Double Quotes
 
