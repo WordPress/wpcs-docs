@@ -2,7 +2,7 @@
 
 These PHP coding standards are intended for the WordPress community as a whole. They are mandatory for WordPress Core and we encourage you to use them for your themes and plugins as well.
 
-While themes and plugin may choose to follow a different _coding style_, these **_coding standards_** are not just about _code style_, but also encompass established best practices regarding interoperability, translatability, and security in the WordPress ecosystem, so, even when using a different _code style_, we recommend you still adhere to the WordPress Coding Standards with regards to these best practices.
+While themes and plugins may choose to follow a different _coding style_, these **_coding standards_** are not just about _code style_, but also encompass established best practices regarding interoperability, translatability, and security in the WordPress ecosystem, so, even when using a different _code style_, we recommend you still adhere to the WordPress Coding Standards with regards to these best practices.
 
 While not all code may fully comply with these standards (yet), all newly committed and/or updated code should fully comply with these coding standards.
 
