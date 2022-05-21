@@ -1,14 +1,16 @@
 # PHP Coding Standards
 
-Some parts of the WordPress code structure for PHP markup are inconsistent in their style. WordPress is working to gradually improve this by helping users maintain a consistent style so the code can become clean and easy to read at a glance.
+These PHP coding standards are intended for the WordPress community as a whole. They are mandatory for WordPress Core and we encourage you to use them for your themes and plugins as well.
 
-Keep the following points in mind when writing PHP code for WordPress, whether for core programming code, plugins, or themes. The guidelines are similar to [Pear standards](https://pear.php.net/manual/en/standards.php) in many ways, but differ in some key respects.
+While themes and plugins may choose to follow a different _coding style_, these **_coding standards_** are not just about _code style_, but also encompass established best practices regarding interoperability, translatability, and security in the WordPress ecosystem, so, even when using a different _code style_, we recommend you still adhere to the WordPress Coding Standards with regards to these best practices.
 
-See also: [PHP Inline Documentation Standards](https://developer.wordpress.org/coding-standards/inline-documentation-standards/php/).
+While not all code may fully comply with these standards (yet), all newly committed and/or updated code should fully comply with these coding standards.
 
-## PHP
+Also see the [PHP Inline Documentation Standards](https://developer.wordpress.org/coding-standards/inline-documentation-standards/php/) for further guidelines.
 
-### Single and Double Quotes
+If you want to automatically check your code against this standard, you can use the official [WordPress Coding Standards](https://github.com/WordPress/WordPress-Coding-Standards) tooling, which is run using [PHP_CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer/).
+
+## Single and Double Quotes
 
 Use single and double quotes when appropriate. If you're not evaluating anything in the string, use single quotes. You should almost never have to escape quotes in a string, because you can just alternate your quoting style, like so:
 
@@ -17,11 +19,11 @@ echo '<a href="/static/link" title="Yeah yeah!">Link name</a>';
 echo "<a href='$link' title='$linktitle'>$linkname</a>";
 ```
 
-Text that goes into attributes should be run through `esc_attr()` so that single or double quotes do not end the attribute value and invalidate the HTML and cause a security issue. See [Data Validation](https://developer.wordpress.org/plugins/security/data-validation/) in the Plugin Handbook for further details.
+Text that goes into HTML or XML attributes should be escaped so that single or double quotes do not end the attribute value and invalidate the HTML, causing a security issue. See [Data Validation](https://developer.wordpress.org/plugins/security/data-validation/) in the Plugin Handbook for further details.
 
-### Indentation
+## Indentation
 
-Your indentation should always reflect logical structure. Use **real tabs** and **not spaces**, as this allows the most flexibility across clients.
+Your indentation should always reflect logical structure. Use **real tabs**, **not spaces**, as this allows the most flexibility across clients.
 
 Exception: if you have a block of code that would be more readable if things are aligned, use spaces:
 
@@ -59,7 +61,7 @@ $my_array = array(
 );
 ```
 
-For `switch` structures `case` should indent one tab from the `switch` statement and `break` one tab from the `case` statement.
+For `switch` control structures, `case` statements should be indented one tab from the `switch` statement and the contents of the `case` should be indented one tab from the `case` condition statement.
 
 ```php
 switch ( $type ) {
@@ -74,7 +76,7 @@ switch ( $type ) {
 
 **Rule of thumb:** Tabs should be used at the beginning of the line for indentation, while spaces can be used mid-line for alignment.
 
-### Brace Style
+## Brace Style
 
 Braces shall be used for all blocks in the style shown here:
 
@@ -111,7 +113,7 @@ foreach ( $items as $item ) {
 }
 ```
 
-Note that requiring the use of braces just means that _single-statement inline control structures_ are prohibited. You are free to use the [alternative syntax for control structures](https://www.php.net/manual/en/control-structures.alternative-syntax.php) (e.g. `if`/`endif`, `while`/`endwhile`)—especially in your templates where PHP code is embedded within HTML, for instance:
+Note that requiring the use of braces means that _single-statement inline control structures_ are prohibited. You are free to use the [alternative syntax for control structures](https://www.php.net/manual/en/control-structures.alternative-syntax.php) (e.g. `if`/`endif`, `while`/`endwhile`)—especially in templates where PHP code is embedded within HTML, for instance:
 
 ```php
 <?php if ( have_posts() ) : ?>
@@ -125,17 +127,17 @@ Note that requiring the use of braces just means that _single-statement inline c
 <?php endif; ?>
 ```
 
-### Use `elseif`, not `else if`
+## Use `elseif`, not `else if`
 
 `else if` is not compatible with the colon syntax for `if|elseif` blocks. For this reason, use `elseif` for conditionals.
 
-### Declaring Arrays
+## Declaring Arrays
 
 Using long array syntax ( `array( 1, 2, 3 )` ) for declaring arrays is generally more readable than short array syntax ( `[ 1, 2, 3 ]` ), particularly for those with vision difficulties. Additionally, it's much more descriptive for beginners.
 
 Arrays must be declared using long array syntax.
 
-### Closures (Anonymous Functions)
+## Closures (Anonymous Functions)
 
 Where appropriate, closures may be used as an alternative to creating new functions to pass as callbacks. For example:
 
@@ -149,9 +151,9 @@ $caption = preg_replace_callback(
 );
 ```
 
-Closures must not be passed as filter or action callbacks, as they cannot be removed by `remove_action()` / `remove_filter()` (see [#46635](https://core.trac.wordpress.org/ticket/46635 "Improve identifying of non–trivial callbacks in hooks") for a proposal to address this).
+Closures should not be passed as filter or action callbacks, as removing these via `remove_action()` / `remove_filter()` is complex (at this time)  (see [#46635](https://core.trac.wordpress.org/ticket/46635 "Improve identifying of non–trivial callbacks in hooks") for a proposal to address this)
 
-### Multiline Function Calls
+## Multiline Function Calls
 
 When splitting a function call over multiple lines, each parameter must be on a separate line. Single line inline comments can take up their own line.
 
@@ -176,13 +178,13 @@ $a = foo(
 );
 ```
 
-### Regular Expressions
+## Regular Expressions
 
 Perl compatible regular expressions ([PCRE](https://www.php.net/pcre), `preg_` functions) should be used in preference to their POSIX counterparts. Never use the `/e` switch, use `preg_replace_callback` instead.
 
-It's most convenient to use single-quoted strings for regular expressions since, contrary to double-quoted strings, they have only two metasequences: `\'` and `\\`.
+It's most convenient to use single-quoted strings for regular expressions since, contrary to double-quoted strings, they have only two metasequences which need escaping: `\'` and `\\`.
 
-### Opening and Closing PHP Tags
+## Opening and Closing PHP Tags
 
 When embedding multi-line PHP snippets within an HTML block, the PHP open and close tags must be on a line by themselves.
 
@@ -217,7 +219,7 @@ if ( $a === $b ) { ?>
 <?php }
 ```
 
-### No Shorthand PHP Tags
+## No Shorthand PHP Tags
 
 **Important:** Never use shorthand PHP start tags. Always use full PHP tags.
 
@@ -235,11 +237,11 @@ Incorrect:
 <?= $var ?>
 ```
 
-### Remove Trailing Spaces
+## Remove Trailing Spaces
 
-Remove trailing whitespace at the end of each line of code. Omitting the closing PHP tag at the end of a file is preferred. If you use the tag, make sure you remove trailing whitespace.
+Remove trailing whitespace at the end of each line. Omitting the closing PHP tag at the end of a file is preferred. If you use the tag, make sure you remove trailing whitespace.
 
-### Space Usage
+## Space Usage
 
 Always put spaces after commas, and on both sides of logical, comparison, string and assignment operators.
 
@@ -252,7 +254,7 @@ $baz . '-5'
 $term .= 'X'
 ```
 
-Put spaces on both sides of the opening and closing parentheses of `if`, `elseif`, `foreach`, `for`, and `switch` blocks.
+Put spaces on both sides of the opening and closing parentheses of control structure blocks.
 
 ```php
 foreach ( $foo as $bar ) { ...
@@ -279,7 +281,7 @@ When performing logical comparisons, do it like so:
 if ( ! $foo ) { ...
 ```
 
-[Type casts](https://www.php.net/manual/en/language.types.type-juggling.php#language.types.typecasting) must be lowercase. Always prefer the short form of type casts, `(int)` instead of `(integer)` and `(bool)` rather than `(boolean)`. For float casts use `(float)`.:
+[Type casts](https://www.php.net/manual/en/language.types.type-juggling.php#language.types.typecasting) must be lowercase. Always prefer the short form of type casts, `(int)` instead of `(integer)` and `(bool)` rather than `(boolean)`. For float casts use `(float)`, not `(real)` which is [deprecated](https://www.php.net/manual/en/migration74.deprecated.php#migration74.deprecated.core.real) in PHP 7.4, and removed in PHP 8:
 
 ```php
 foreach ( (array) $foo as $bar ) { ...
@@ -300,7 +302,7 @@ $x = $foo[ $bar ]; // correct
 $x = $foo[$bar]; // incorrect
 ```
 
-In a `switch` block, there must be no space before the colon for a case statement.
+In a `switch` block, there must be no space between the `case` condition and the colon.
 
 ```php
 switch ( $foo ) {
@@ -325,9 +327,9 @@ if ( $foo && ( $bar || $baz ) ) { ...
 my_function( ( $x - 1 ) * 5, $y );
 ```
 
-### Formatting SQL statements
+## Formatting SQL statements
 
-When formatting SQL statements you may break it into several lines and indent if it is sufficiently complex to warrant it. Most statements work well as one line though. Always capitalize the SQL parts of the statement like `UPDATE` or `WHERE`.
+When formatting SQL statements you may break them into several lines and indent if it is sufficiently complex to warrant it. Most statements work well as one line though. Always capitalize the SQL parts of the statement like `UPDATE` or `WHERE`.
 
 Functions that update the database should expect their parameters to lack SQL slash escaping when passed. Escaping should be done as close to the time of the query as possible, preferably by using `$wpdb->prepare()`
 
@@ -340,17 +342,17 @@ $id = some_foo_number(); // data we expect to be an integer, but we're not certa
 $wpdb->query( $wpdb->prepare( "UPDATE $wpdb->posts SET post_title = %s WHERE ID = %d", $var, $id ) );
 ```
 
-`%s` is used for string placeholders and `%d` is used for integer placeholders. Note that they are not 'quoted'! `$wpdb->prepare()` will take care of escaping and quoting for us. The benefit of this is that we don't have to remember to manually use [`esc_sql()`](https://developer.wordpress.org/reference/functions/esc_sql/), and also that it is easy to see at a glance whether something has been escaped or not, because it happens right when the query happens.
+`%s` is used for string placeholders and `%d` is used for integer placeholders. Note that they are not 'quoted'! `$wpdb->prepare()` will take care of escaping and quoting for us. The benefit of this is that it is easy to see at a glance whether something has been escaped or not because it happens right when the query happens.
 
 See [Data Validation](https://developer.wordpress.org/plugins/security/data-validation/) in the Plugin Handbook for further details.
 
-### Database Queries
+## Database Queries
 
 Avoid touching the database directly. If there is a defined function that can get the data you need, use it. Database abstraction (using functions instead of queries) helps keep your code forward-compatible and, in cases where results are cached in memory, it can be many times faster.
 
-If you must touch the database, get in touch with some developers by posting a message to the [wp-hackers mailing list](https://codex.wordpress.org/Mailing_Lists#Hackers). They may want to consider creating a function for the next WordPress version to cover the functionality you wanted.
+If you must touch the database, consider creating a [Trac](https://core.trac.wordpress.org/) ticket. There you can discuss the possibility of adding a new function to cover the functionality you wanted, for a future version of WordPress. 
 
-### Naming Conventions
+## Naming Conventions
 
 Use lowercase letters in variable, action/filter, and function names (never `camelCase`). Separate words via underscores. Don't abbreviate variable names unnecessarily; let the code be unambiguous and self-documenting.
 
@@ -377,21 +379,21 @@ Files should be named descriptively using lowercase letters. Hyphens should sepa
 my-plugin-name.php
 ```
 
-Class file names should be based on the class name with `class-` prepended and the underscores in the class name replaced with hyphens, for example `WP_Error` becomes:
+Class file names should be based on the class name with `class-` prepended and the underscores in the class name replaced with hyphens, for example, `WP_Error` becomes:
 
 ```php
 class-wp-error.php
 ```
 
-This file-naming standard is for all current and new files with classes. There is one exception for three files that contain code that got ported into BackPress: `class.wp-dependencies.php`, `class.wp-scripts.php`, `class.wp-styles.php`. Those files are prepended with `class.`, a dot after the word class instead of a hyphen.
+This file-naming standard is for all current and new files with classes. There is one exception to this rule for three legacy files: `class.wp-dependencies.php`, `class.wp-scripts.php`, `class.wp-styles.php`. Those files are prepended with `class.`, a dot after the word class instead of a hyphen.
 
-Files containing template tags in `wp-includes` should have `-template` appended to the end of the name so that they are obvious.
+Files containing template tags in the `wp-includes` directory should have `-template` appended to the end of the name so that they are obvious.
 
 ```php
 general-template.php
 ```
 
-### Only one object structure (class/interface/trait) should be declared per file
+## Only one object structure (class/interface/trait) per file
 
 For instance, if we have a file called `class-example-class.php` it can only contain one class in that file.
 
@@ -414,7 +416,7 @@ class Example_Class { [...] }
 class Example_Class_Extended { [...] }
 ```
 
-### Self-Explanatory Flag Values for Function Arguments
+## Self-Explanatory Flag Values for Function Arguments
 
 Prefer string values to just `true` and `false` when calling functions.
 
@@ -428,7 +430,8 @@ eat( 'mushrooms', true ); // what does true mean?
 eat( 'dogfood', false ); // what does false mean? The opposite of true?
 ```
 
-Since PHP doesn't support named arguments, the values of the flags are meaningless, and each time we come across a function call like the examples above, we have to search for the function definition. The code can be made more readable by using descriptive string values, instead of booleans.
+PHP only supports named arguments as of PHP 8.0. However, as WordPress currently still supports older PHP versions, we cannot yet use those.
+Without named arguments, the values of the flags are meaningless, and each time we come across a function call like the examples above, we have to search for the function definition. The code can be made more readable by using descriptive string values, instead of booleans.
 
 ```php
 // Correct
@@ -450,7 +453,7 @@ function eat( $what, $args ) {
 eat ( 'noodles', array( 'speed' => 'moderate' ) );
 ```
 
-### Interpolation for Naming Dynamic Hooks
+## Interpolation for Naming Dynamic Hooks
 
 Dynamic hooks should be named using interpolation rather than concatenation for readability and discoverability purposes.
 
@@ -464,7 +467,7 @@ do_action( "{$new_status}_{$post->post_type}", $post->ID, $post );
 
 Where possible, dynamic values in tag names should also be as succinct and to the point as possible. `$user_id` is much more self-documenting than, say, `$this->id`.
 
-### Ternary Operator
+## Ternary Operator
 
 [Ternary operators](https://www.php.net/manual/en/language.operators.comparison.php#language.operators.comparison.ternary) are fine, but always have them test if the statement is true, not false. Otherwise, it just gets confusing. (An exception would be using `! empty()`, as testing for false here is generally more intuitive.)
 
@@ -478,7 +481,7 @@ $musictype = ( 'jazz' === $music ) ? 'cool' : 'blah';
 // (if field is not empty ) ? (do this) : (else, do this);
 ```
 
-### Yoda Conditions
+## Yoda Conditions
 
 ```php
 if ( true === $the_force ) {
@@ -494,7 +497,7 @@ A little bizarre, it is, to read. Get used to it, you will.
 
 This applies to `==`, `!=`, `===`, and `!==`. Yoda conditions for `<`, `>`, `<=` or `>=` are significantly more difficult to read and are best avoided.
 
-### Clever Code
+## Clever Code
 
 In general, readability is more important than cleverness or brevity.
 
@@ -568,34 +571,22 @@ switch ( $foo ) {
 
 The `goto` statement must never be used.
 
-The `eval()` construct is _very dangerous_, and is impossible to secure. Additionally, the `create_function()` function, which internally performs an `eval()`, is deprecated in PHP 7.2. Both of these must not be used.
+The `eval()` construct is _very dangerous_ and is impossible to secure. Additionally, the `create_function()` function, which internally performs an `eval()`, is deprecated since PHP 7.2 and has been removed in PHP 8.0. Neither of these must be used.
 
-### Error Control Operator `@`
+## Error Control Operator `@`
 
 As noted in the [PHP docs](https://www.php.net/manual/en/language.operators.errorcontrol.php):
 
-> PHP supports one error control operator: the at sign (@). When prepended to an expression in PHP, any error messages that might be generated by that expression will be ignored.
+> PHP supports one error control operator: the at sign (@). When prepended to an expression in PHP, any diagnostic error that might be generated by that expression will be suppressed.
 
 While this operator does exist in Core, it is often used lazily instead of doing proper error checking. Its use is highly discouraged, as even the PHP docs also state:
 
-> Warning: Currently the "@" error-control operator prefix will even disable error reporting for critical errors that will terminate script execution. Among other things, this means that if you use "@" to suppress errors from a certain function and either it isn't available or has been mistyped, the script will die right there with no indication as to why.
+> Warning: Prior to PHP 8.0.0, it was possible for the @ operator to disable critical errors that will terminate script execution. For example, prepending @ to a call of a function that did not exist, by being unavailable or mistyped, would cause the script to terminate with no indication as to why.
 
-### Don't `extract()`
+## Don't `extract()`
 
 Per [#22400](https://core.trac.wordpress.org/ticket/22400 "Remove all, or at least most, uses of extract() within WordPress"):
 
 > `extract()` is a terrible function that makes code harder to debug and harder to understand. We should discourage it's [sic] use and remove all of our uses of it.
 
-
 Joseph Scott has [a good write-up of why it's bad](https://blog.josephscott.org/2009/02/05/i-dont-like-phps-extract-function/).
-
-## Credits
-
-- PHP standards: [Pear standards](https://pear.php.net/manual/en/standards.php)
-
-### Major Changes
-
-- November 13, 2013: [Braces should always be used, even when they are optional](https://make.wordpress.org/core/2013/11/13/proposed-coding-standards-change-always-require-braces/)
-- June 20, 2014: Add (#error-control-operator) to discourage use of the [error control operator]((https://www.php.net/manual/en/language.operators.errorcontrol.php)) (`@`). See [#wordpress-dev](https://irclogs.wordpress.org/chanlog.php?channel=wordpress-dev&amp;day=2014-06-20&amp;sort=asc#m873356).
-- October 20, 2014: Update brace usage to indicate that the alternate syntax for control structures is allowed, even encouraged. It is single-line inline control structures that are forbidden.
-- January 21, 2014: Add section to forbid extract().
