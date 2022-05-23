@@ -195,7 +195,7 @@ Class = Parent.extend( /** @lends namespace.Class.prototype */{
 	 * @param {Object} attributes     The model's attributes.
 	 * @param {type}   attributes.key One of the model's attributes.
 	 * @param {Object} [options]      The model's options.
-	 * @param {type}   attributes.key One of the model's options.
+	 * @param {type}   options.key One of the model's options.
 	 */
 	initialize: function() {
 		//Do stuff.
