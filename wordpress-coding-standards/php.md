@@ -521,7 +521,7 @@ Unless absolutely necessary, loose comparisons should not be used, as their beha
 Correct:
 
 ```php
-if ( 0 === strpos( 'WordPress', 'foo' ) ) {
+if ( 0 === strpos( $text, 'WordPress' ) ) {
 	echo esc_html__( 'Yay WordPress!' );
 }
 ```
