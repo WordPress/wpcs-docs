@@ -454,7 +454,7 @@ function eat( $what, $args ) {
 eat ( 'noodles', array( 'speed' => 'moderate' ) );
 ```
 
-Be careful when using this pattern, as it can lead to "Undefined array index" notices in your code if proper checks are not set in place. Use this pattern only where it makes sense (i.e. multiple possible arguments), not just for the sake of it.
+Be careful when using this pattern, as it can lead to "Undefined array index" notices if input isn't validated before use. Use this pattern only where it makes sense (i.e. multiple possible arguments), not just for the sake of it.
 
 ## Interpolation for Naming Dynamic Hooks
 
