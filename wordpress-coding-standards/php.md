@@ -16,7 +16,7 @@ Use single and double quotes when appropriate. If you're not evaluating anything
 
 ```php
 echo '<a href="/static/link" class="button button-primary">Link name</a>';
-echo "<a href='$escaped_link'>text with a ' single quote</a>";
+echo "<a href='{$escaped_link}'>text with a ' single quote</a>";
 ```
 
 Text that goes into HTML or XML attributes should be escaped so that single or double quotes do not end the attribute value and invalidate the HTML, causing a security issue. See [Data Validation](https://developer.wordpress.org/plugins/security/data-validation/) in the Plugin Handbook for further details.
