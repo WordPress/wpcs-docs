@@ -559,7 +559,7 @@ In a `switch` statement, it's okay to have multiple empty cases fall through to 
 switch ( $foo ) {
 	case 'bar':	      // Correct, an empty case can fall through without comment.
 	case 'baz':
-		echo esc_html( $foo );    // Incorrect, a case with a block must break, return, or have a comment.
+		echo esc_html( $foo ); // Incorrect, a case with a block must break, return, or have a comment.
 	case 'cat':
 		echo 'mouse';
 		break;        // Correct, a case with a break does not require a comment.
