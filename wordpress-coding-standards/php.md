@@ -522,7 +522,7 @@ Correct:
 
 ```php
 if ( 0 === strpos( $text, 'WordPress' ) ) {
-	echo esc_html__( 'Yay WordPress!' );
+	echo esc_html__( 'Yay WordPress!', 'textdomain' );
 }
 ```
 
@@ -530,7 +530,7 @@ Incorrect:
 
 ```php
 if ( 0 == strpos( 'WordPress', 'foo' ) ) {
-	echo esc_html__( 'Yay WordPress!' );
+	echo esc_html__( 'Yay WordPress!', 'textdomain' );
 }
 ```
 
