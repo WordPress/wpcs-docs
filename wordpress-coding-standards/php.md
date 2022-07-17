@@ -15,8 +15,8 @@ If you want to automatically check your code against this standard, you can use 
 Use single and double quotes when appropriate. If you're not evaluating anything in the string, use single quotes. You should almost never have to escape quotes in a string, because you can just alternate your quoting style, like so:
 
 ```php
-echo '<a href="/static/link" title="Yeah yeah!">Link name</a>';
-echo "<a href='$link' title='$linktitle'>$linkname</a>";
+echo '<a href="/static/link" class="button button-primary">Link name</a>';
+echo "<a href='{$escaped_link}'>text with a ' single quote</a>";
 ```
 
 Text that goes into HTML or XML attributes should be escaped so that single or double quotes do not end the attribute value and invalidate the HTML, causing a security issue. See [Data Validation](https://developer.wordpress.org/plugins/security/data-validation/) in the Plugin Handbook for further details.
@@ -119,7 +119,7 @@ Note that requiring the use of braces means that _single-statement inline contro
 <?php if ( have_posts() ) : ?>
 	<div class="hfeed">
 		<?php while ( have_posts() ) : the_post(); ?>
-			<article id="post-<?php the_ID() ?>" class="<?php post_class() ?>">
+			<article id="<?php echo esc_attr( 'post-' . get_the_ID() ); ?>" class="<?php echo esc_attr( get_post_class() ); ?>">
 				<!-- ... -->
 			</article>
 		<?php endwhile; ?>
@@ -166,7 +166,7 @@ $bar = array(
 );
 $baz = sprintf(
     /* translators: %s: Friend's name */
-    esc_html__( 'Hello, %s!', 'yourtextdomain' ),
+    __( 'Hello, %s!', 'yourtextdomain' ),
     $friend_name
 );
  
@@ -192,16 +192,18 @@ Correct (Multiline):
 
 ```php
 function foo() {
-    ?>
-    <div>
-        <?php
-        echo bar(
-            $baz,
-            $bat
-        );
-        ?>
-    </div>
-    <?php
+	?>
+	<div>
+		<?php
+		echo esc_html(
+			bar(
+				$baz,
+				$bat
+			)
+		);
+		?>
+	</div>
+	<?php
 }
 ```
 
@@ -227,14 +229,14 @@ Correct:
 
 ```php
 <?php ... ?>
-<?php echo $var; ?>
+<?php echo esc_html( $var ); ?>
 ```
 
 Incorrect:
 
 ```php
 <? ... ?>
-<?= $var ?>
+<?= esc_html( $var ) ?>
 ```
 
 ## Remove Trailing Spaces
@@ -246,12 +248,12 @@ Remove trailing whitespace at the end of each line. Omitting the closing PHP tag
 Always put spaces after commas, and on both sides of logical, comparison, string and assignment operators.
 
 ```php
-x === 23
-foo && bar
-! foo
-array( 1, 2, 3 )
-$baz . '-5'
-$term .= 'X'
+SOME_CONST === 23;
+foo() && bar();
+! $foo;
+array( 1, 2, 3 );
+$baz . '-5';
+$term .= 'X';
 ```
 
 Put spaces on both sides of the opening and closing parentheses of control structure blocks.
@@ -292,22 +294,22 @@ $foo = (bool) $bar;
 When referring to array items, only include a space around the index if it is a variable, for example:
 
 ```php
-$x = $foo['bar']; // correct
-$x = $foo[ 'bar' ]; // incorrect
+$x = $foo['bar']; // Correct.
+$x = $foo[ 'bar' ]; // Incorrect.
 
-$x = $foo[0]; // correct
-$x = $foo[ 0 ]; // incorrect
+$x = $foo[0]; // Correct.
+$x = $foo[ 0 ]; // Incorrect.
 
-$x = $foo[ $bar ]; // correct
-$x = $foo[$bar]; // incorrect
+$x = $foo[ $bar ]; // Correct.
+$x = $foo[$bar]; // Incorrect.
 ```
 
 In a `switch` block, there must be no space between the `case` condition and the colon.
 
 ```php
 switch ( $foo ) {
-	case 'bar': // correct
-	case 'ba' : // incorrect
+	case 'bar': // Correct.
+	case 'ba' : // Incorrect.
 }
 ```
 
@@ -336,8 +338,8 @@ Functions that update the database should expect their parameters to lack SQL sl
 `$wpdb->prepare()` is a method that handles escaping, quoting, and int-casting for SQL queries. It uses a subset of the `sprintf()` style of formatting. Example :
 
 ```php
-$var = "dangerous'"; // raw data that may or may not need to be escaped
-$id = some_foo_number(); // data we expect to be an integer, but we're not certain
+$var = "dangerous'"; // Raw data that may or may not need to be escaped.
+$id = some_foo_number(); // Data we expect to be an integer, but we're not certain.
 
 $wpdb->query( $wpdb->prepare( "UPDATE $wpdb->posts SET post_title = %s WHERE ID = %d", $var, $id ) );
 ```
@@ -421,20 +423,20 @@ class Example_Class_Extended { [...] }
 Prefer string values to just `true` and `false` when calling functions.
 
 ```php
-// Incorrect
+// Incorrect.
 function eat( $what, $slowly = true ) {
 ...
 }
 eat( 'mushrooms' );
-eat( 'mushrooms', true ); // what does true mean?
-eat( 'dogfood', false ); // what does false mean? The opposite of true?
+eat( 'mushrooms', true ); // What does true mean?
+eat( 'dogfood', false ); // What does false mean? The opposite of true?
 ```
 
 PHP only supports named arguments as of PHP 8.0. However, as WordPress currently still supports older PHP versions, we cannot yet use those.
 Without named arguments, the values of the flags are meaningless, and each time we come across a function call like the examples above, we have to search for the function definition. The code can be made more readable by using descriptive string values, instead of booleans.
 
 ```php
-// Correct
+// Correct.
 function eat( $what, $speed = 'slowly' ) {
 ...
 }
@@ -446,12 +448,13 @@ eat( 'dogfood', 'quickly' );
 When more words are needed to describe the function parameters, an `$args` array may be a better pattern.
 
 ```php
-// Even Better
 function eat( $what, $args ) {
 ...
 }
 eat ( 'noodles', array( 'speed' => 'moderate' ) );
 ```
+
+Be careful when using this pattern, as it can lead to "Undefined array index" notices if input isn't validated before use. Use this pattern only where it makes sense (i.e. multiple possible arguments), not just for the sake of it.
 
 ## Interpolation for Naming Dynamic Hooks
 
@@ -518,8 +521,8 @@ Unless absolutely necessary, loose comparisons should not be used, as their beha
 Correct:
 
 ```php
-if ( 0 === strpos( 'WordPress', 'foo' ) ) {
-	echo __( 'Yay WordPress!' );
+if ( 0 === strpos( $text, 'WordPress' ) ) {
+	echo esc_html__( 'Yay WordPress!', 'textdomain' );
 }
 ```
 
@@ -527,7 +530,7 @@ Incorrect:
 
 ```php
 if ( 0 == strpos( 'WordPress', 'foo' ) ) {
-	echo __( 'Yay WordPress!' );
+	echo esc_html__( 'Yay WordPress!', 'textdomain' );
 }
 ```
 
@@ -538,7 +541,7 @@ Correct:
 ```php
 $data = $wpdb->get_var( '...' );
 if ( $data ) {
-    // Use $data
+    // Use $data.
 }
 ```
 
@@ -546,7 +549,7 @@ Incorrect:
 
 ```php
 if ( $data = $wpdb->get_var( '...' ) ) {
-    // Use $data
+    // Use $data.
 }
 ```
 
@@ -556,7 +559,7 @@ In a `switch` statement, it's okay to have multiple empty cases fall through to 
 switch ( $foo ) {
 	case 'bar':	      // Correct, an empty case can fall through without comment.
 	case 'baz':
-		echo $foo;    // Incorrect, a case with a block must break, return, or have a comment.
+		echo esc_html( $foo ); // Incorrect, a case with a block must break, return, or have a comment.
 	case 'cat':
 		echo 'mouse';
 		break;        // Correct, a case with a break does not require a comment.
