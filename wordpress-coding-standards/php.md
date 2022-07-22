@@ -300,7 +300,7 @@ if ( condition ) {
 }
 ```
 
-If you have a really long block, consider whether it can be broken into two or shorter blocks, functions, or methods, to reduce complexity, improve ease of testing, and increase readability.
+If you have a really long block, consider whether it can be broken into two or more shorter blocks, functions, or methods, to reduce complexity, improve ease of testing, and increase readability.
 
 Braces should always be used, even when they are not required:
 
