@@ -482,6 +482,24 @@ While import `use` statements can already be used in WordPress Core, it is, for 
 Import `use` statements are most useful when combined with namespaces and a class autoloading implementation.
 As neither of these are currently in place for WordPress Core and discussions about this are ongoing, holding off on adding import `use` statements to WordPress Core is the sensible choice for now.
 
+### Using fully qualified names in inline code
+
+When using a fully or partially qualified name, no whitespace or comments are allowed within the name.
+
+```php
+// Correct.
+$foo = new \Vendor\Domain\Foo();
+
+$result = namespace\function_name();
+
+// Incorrect.
+$foo = new \Vendor // Source: external dependency.
+           \Domain
+           \Foo();
+
+$result = namespace \function_name(); // Notice the space between namespace and \function_name().
+```
+
 ## Object-Oriented Programming
 
 ### Only One Object Structure (Class/Interface/Trait) per File
