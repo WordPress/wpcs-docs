@@ -385,6 +385,62 @@ $a = foo(
 );
 ```
 
+### Type declarations
+
+Type declarations must have exactly one space before and after the type. The nullability operator (`?`) is regarded as part of the type declaration and there should be no space between this operator and the actual type. Class/interface/enum name based type declarations should use the case of the class/interface/enum name as declared, while the keyword-based type declarations should be lowercased.
+
+Return type declarations should have no space between the closing parenthesis of the function declaration and the colon starting a return type.
+
+These rules apply to all structures allowing for type declarations: functions, closures, enums, catch conditions as well as the PHP 7.4 arrow functions and typed properties.
+
+```php
+// Correct.
+function foo( Class_Name $parameter, callable $callable, int $number_of_things = 0 ) {
+    // Do something.
+}
+
+function bar(
+    Interface_Name&Concrete_Class $param_a,
+    string|int $param_b,
+    callable $param_c = 'default_callable'
+): User|false {
+    // Do something.
+}
+
+// Incorrect.
+function baz(Class_Name $param_a, String$param_b,      CALLABLE     $param_c )   :   ?   iterable   {
+    // Do something.
+}
+```
+
+[info]
+Type declaration usage has the following restrictions based on the minimum required PHP version of an application, whether it is WordPress Core, a plugin or a theme:
+
+- The scalar `bool`, `int`, `float`, and `string` type declarations cannot be used until the minimum PHP version is PHP 7.0 or higher.
+- Return type declarations cannot be used until the minimum PHP version is PHP 7.0 or higher.
+- Nullable type declarations cannot be used until the minimum PHP version is PHP 7.1 or higher.
+- The `iterable` and `void` type declarations cannot be used until the minimum PHP version is PHP 7.1 or higher. The `void` type can only be used as a return type.
+- The `object` type declaration cannot be used until the minimum PHP version is PHP 7.2 or higher.
+- Property type declarations cannot be used until the minimum PHP version is PHP 7.4 or higher.
+- `static` (return type only) cannot be used until the minimum PHP version is PHP 8.0 or higher.
+- `mixed` type cannot be used until the minimum PHP version is PHP 8.0 or higher. Take note that the `mixed` type includes `null`, so cannot be made nullable.
+- Union types cannot be used until the minimum PHP version is PHP 8.0 or higher.
+- Intersection types cannot be used until the minimum PHP version is PHP 8.1 or higher.
+- `never` (return type only) cannot be used until the minimum PHP version is PHP 8.1 or higher.
+- Disjunctive normal form types (combining union types and intersection types) cannot be used until the minimum PHP version is PHP 8.2 or higher.
+[/info]
+
+_Usage in WordPress Core_
+
+[warning]
+Adding type declarations to existing WordPress Core functions should be done with extreme care.
+[/warning]
+
+The function signature of any function (method) which can be overloaded by plugins or themes should not be touched.
+This leaves, for now, only unconditionally declared functions in the global namespace, `private` class methods, and code new to Core, as candidates for adding type declarations.
+
+Note: Using the `array` keyword in type declarations is **strongly discouraged** for now, as most often, it would be better to use `iterable` to allow for more flexibility in the implementation and that keyword is not yet available for use in WordPress Core until the minimum requirements are raised to PHP 7.1.
+
 ## Declare Statements, Namespace, and Import Statements
 
 ### Namespace declarations
