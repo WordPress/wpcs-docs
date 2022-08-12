@@ -407,6 +407,81 @@ Namespacing has no effect on variables, constants declared with `define()` or no
 Those still need to be prefixed individually.
 [/info]
 
+### Using import `use` statements
+
+Using import `use` statements allows you to refer to constants, functions, classes, interfaces, namespaces, enums and traits that live outside of the current namespace.
+
+Import `use` statements should be at the top of the file and follow the (optional) `namespace` declaration. They should follow a specific order based on the **type** of the import:
+
+1. `use` statements for namespaces, classes, interfaces, traits and enums
+2. `use` statements for functions
+3. `use` statements for constants
+
+Aliases can be used to prevent name collisions (two classes in different namespaces using the same class name).
+When using aliases, make sure the aliases follow the WordPress naming convention and are unique.
+
+The following examples showcase the correct and incorrect usage of import `use` statements regarding things like spacing, groupings, leading backslashes, etc.
+
+Correct:
+
+```php
+namespace Project_Name\Feature;
+
+use Project_Name\Sub_Feature\Class_A;
+use Project_Name\Sub_Feature\Class_C as Aliased_Class_C;
+use Project_Name\Sub_Feature\{
+    Class_D,
+    Class_E as Aliased_Class_E,
+}
+
+use function Project_Name\Sub_Feature\function_a;
+use function Project_Name\Sub_Feature\function_b as aliased_function;
+
+use const Project_Name\Sub_Feature\CONSTANT_A;
+use const Project_Name\Sub_Feature\CONSTANT_D as ALIASED_CONSTANT;
+
+// Rest of the code.
+```
+
+Incorrect:
+
+```php
+namespace Project_Name\Feature;
+
+use   const   Project_Name\Sub_Feature\CONSTANT_A; // Superfluous whitespace after the "use" and the "const" keywords.
+use function Project_Name\Sub_Feature\function_a; // Function import after constant import. 
+use \Project_Name\Sub_Feature\Class_C as aliased_class_c; // Leading backslash shouldn't be used, alias doesn't comply with naming conventions.
+use Project_Name\Sub_Feature\{Class_D, Class_E   as   Aliased_Class_E} // Extra spaces around the "as" keyword, incorrect whitespace use inside the brace opener and closer.
+use Vendor\Package\{ function function_a, function function_b,
+     Class_C,
+        const CONSTANT_NAME}; // Combining different types of imports in one use statement, incorrect whitespace use within group use statement.
+
+class Foo {
+    // Code.
+}
+
+use const \Project_Name\Sub_Feature\CONSTANT_D as Aliased_constant; // Import after class definition, leading backslash, naming conventions violation.
+use function Project_Name\Sub_Feature\function_b as Aliased_Function; // Import after class definition, naming conventions violation.
+
+// Rest of the code.
+```
+
+[alert]
+Import `use` statements have no effect on dynamic class, function or constant names. 
+Group `use` statements are available from PHP 7.0, and trailing commas in group `use` statements are available from PHP 7.2. 
+[/alert]
+
+[info]
+Note that, unless you have implemented [autoloading](https://www.php.net/manual/en/language.oop5.autoload.php), the `use` statement won't automatically load whatever is being imported. You'll either need to set up autoloading or load the file containing the class/function/constant using a `require/import` statement, for the aliased constructs to be loaded when used.
+[/info]
+
+**Note about WordPres Core usage**
+
+While import `use` statements can already be used in WordPress Core, it is, for the moment, **strongly discouraged**.
+
+Import `use` statements are most useful when combined with namespaces and a class autoloading implementation.
+As neither of these are currently in place for WordPress Core and discussions about this are ongoing, holding off on adding import `use` statements to WordPress Core is the sensible choice for now.
+
 ## Object-Oriented Programming
 
 ### Only One Object Structure (Class/Interface/Trait) per File
