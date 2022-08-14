@@ -2,8 +2,6 @@
 
 WordPress uses a customized documentation schema that draws inspiration from PHPDoc, an evolving standard for providing documentation to PHP code, which is maintained by [phpDocumentor](http://phpdoc.org/).
 
-In some special cases - such as WordPress' implementation of hash notations - standards are derived from the [draft PSR-5 recommendations](https://github.com/phpDocumentor/fig-standards/blob/master/proposed/phpdoc.md). This does not mean we are attempting to be "PSR-5 compliant" at this time, it simply means that we've adopted PSR-5 recommendations _in part_.
-
 ## What Should Be Documented
 
 PHP documentation in WordPress mostly takes the form of either formatted blocks of documentation or inline comments.
@@ -23,7 +21,7 @@ The following is a list of what should be documented in WordPress files:
 
 #### Language
 
-Summaries (formerly Short Descriptions) should be clear, simple, and brief. Avoid describing "why" an element exists, rather, focus on documenting "what" and "when" it does something.
+Summaries should be clear, simple, and brief. Avoid describing "why" an element exists, rather, focus on documenting "what" and "when" it does something.
 
 A function, hook, class, or method is a _third-person singular_ element, meaning that _third-person singular verbs_ should be used to describe what each does.
 
@@ -73,7 +71,7 @@ WordPress' inline documentation standards for PHP are specifically tailored for 
 
 DocBlocks should directly precede the hook, action, function, method, or class line. There should not be any opening/closing tags or other things between the DocBlock and the declarations to prevent the parser becoming confused.
 
-#### Summary (formerly Short Description)
+#### Summary
 
 No HTML markup or Markdown of any kind should be used in the summary. If the text refers to an HTML element or tag, then it should be written as "image tag" or "img" element, not "`<img>`". For example:
 
@@ -82,7 +80,7 @@ No HTML markup or Markdown of any kind should be used in the summary. If the tex
 
 Inline PHPDoc tags may be used.
 
-#### Description (formerly Long Description)
+#### Description
 
 HTML markup should never be used outside of code examples, though Markdown can be used, as needed, in the description.
 
@@ -155,6 +153,7 @@ If significant changes have been made to a function, hook, class, or method, add
 - Required arguments becoming optional.
 - Changing default/expected behaviors.
 - Functions or methods becoming wrappers for new APIs.
+- Parameters which have been renamed (once PHP 8.0 support has been announced).
 
 PHPDoc supports multiple `@since` versions in DocBlocks for this explicit reason. When adding changelog entries to the `@since` block, a version should be cited, and a description should be added in sentence case and form and end with a period:
 
@@ -486,10 +485,10 @@ For the most part, tags are used correctly, but not all the time. For instance, 
 
 | Tag               | Usage                                                       | Description                                                                                                                                                                                                                                    |
 |-------------------|-------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **`@access`**     | private                                                     | Only used in limited circumstances, and only when private, such as for core-only functions or core classes implementing "private" APIs. Used directly below the `@since` line in block.                                                        |
+| **`@access`**     | private                                                     | Only used in limited circumstances, like when visibility modifiers cannot be used in the code, and only when private, such as for core-only functions or core classes implementing "private" APIs. Used directly below the `@since` line in block.                                                        |
 | **`@deprecated`** | version x.x.x Use _replacement function name_ instead       | What version of WordPress the function/method was deprecated. Use 3-digit version number. Should be accompanied by a matching `@see` tag.                                                                                                      |
 | **`@global`**     | datatype $variable description                              | Document global(s) used in the function/method. For boolean and integer types, use `bool` and `int`, respectively.                                                                                                                             |
-| **`@internal`**   | information string                                          | Typically used for adding notes for internal use only.                                                                                                                                                                                         |
+| **`@internal`**   | information string                                          | Typically used wrapped in `{}` for adding notes for internal use only.                                                                                                                                                                                         |
 | **`@ignore`**     | (standalone)                                                | Used to skip parsing of the entire element.                                                                                                                                                                                                    |
 | **`@link`**       | URL                                                         | Link to additional information for the function/method. For an external script/library, links to source. Not to be used for related functions/methods; use `@see` instead.                                                                     |
 | **`@method`**     | returntype description                                      | Shows a "magic" method found inside the class.                                                                                                                                                                                                 |
@@ -527,6 +526,8 @@ Note: Even with help generating DocBlocks, most code editors don't do a very tho
 As proposed in the [new PSR-5](https://github.com/phpDocumentor/fig-standards/blob/master/proposed/phpdoc.md) recommendations, the following PHPDoc tag should be deprecated:
 
 - `@subpackage` (in favor of a unified package tag: `@package Package\Subpackage`)
+- `@static` (no longer needed)
+- `@staticvar` (no longer needed)
 
 ### Other Tags
 
@@ -552,3 +553,4 @@ The `@copyright` and `@license` tags are used in external libraries and scripts,
 - [phpDocumentor](http://www.phpdoc.org/)
 - [phpDocumentor Tutorial Tags](http://manual.phpdoc.org/HTMLSmartyConverter/HandS/phpDocumentor/tutorial_tags.pkg.html)
 - [Draft PSR-5 recommendations](https://github.com/phpDocumentor/fig-standards/blob/master/proposed/phpdoc.md)
+- [Draft PSR-19 recommendations](https://github.com/phpDocumentor/fig-standards/blob/master/proposed/phpdoc-tags.md)
