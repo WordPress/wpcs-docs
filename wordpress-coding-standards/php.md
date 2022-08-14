@@ -366,6 +366,47 @@ $a = foo(
 );
 ```
 
+## Declare Statements, Namespace, and Import Statements
+
+### Namespace declarations
+
+Each part of a namespace name should consist of capitalized words separated by underscores.
+
+Namespace declarations should have exactly one blank line before the declaration and at least one blank line after.
+
+```php
+namespace Prefix\Admin\Domain_URL\Sub_Domain\Event; // Correct.
+```
+
+There should be only one namespace declaration per file, and it should be at the top of the file. Namespace declarations using curly brace syntax are not allowed. Explicit global namespace declaration (namespace declaration without name) are also not allowed.
+
+```php
+// Incorrect: namespace declaration using curly brace syntax.
+namespace Foo {
+    // Code.
+}
+
+// Incorrect: namespace declaration for the global namespace.
+namespace {
+    // Code.
+}
+```
+
+_There is currently no timeline for introducing namespaces to WordPress Core._ 
+
+The use of namespaces in plugins and themes is strongly encouraged. It is a great way to prefix a lot of your code to prevent naming conflicts with other plugins, themes and/or WordPress Core.
+
+Please do make sure you use a unique and long enough namespace prefix to actually prevent conflicts. Generally speaking, using a namespace prefix along the lines of `Vendor\Project_Name` is a good idea.
+
+[warning]
+The `wp` and `WordPress` namespace prefixes are reserved for WordPress itself.
+[/warning]
+
+[info]
+Namespacing has no effect on variables, constants declared with `define()` or non-PHP native constructs, like the hook names as used in WordPress.
+Those still need to be prefixed individually.
+[/info]
+
 ## Object-Oriented Programming
 
 ### Only One Object Structure (Class/Interface/Trait) per File
