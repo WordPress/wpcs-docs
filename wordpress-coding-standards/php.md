@@ -78,6 +78,21 @@ echo "<a href='{$escaped_link}'>text with a ' single quote</a>";
 
 Text that goes into HTML or XML attributes should be escaped so that single or double quotes do not end the attribute value and invalidate the HTML, causing a security issue. See [Data Validation](https://developer.wordpress.org/plugins/security/data-validation/) in the Plugin Handbook for further details.
 
+### Writing include/require statements
+
+Because `include[_once]` and `require[_once]` are language constructs, they do not need parentheses around the path, so those shouldn't be used. There should only be one space between the path and the include/require keywords.
+
+It is _strongly recommended_ to use `require[_once]` for unconditional includes. When using `include[_once]`, PHP will throw a warning when the file is not found but will continue execution, which will almost certainly lead to other errors/warnings/notices being thrown if your application depends on the file loaded, potentially leading to security leaks. For that reason, `require[_once]` is generally the better choice as it will throw a `Fatal Error` if the file cannot be found.
+
+```php
+// Correct.
+require_once ABSPATH . 'file-name.php';
+
+// Incorrect.
+include_once  ( ABSPATH . 'file-name.php' );
+require_once     __DIR__ . '/file-name.php';
+```
+
 ## Naming
 
 ### Naming Conventions
