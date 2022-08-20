@@ -286,6 +286,8 @@ switch ( $type ) {
 
 Remove trailing whitespace at the end of each line. Omitting the closing PHP tag at the end of a file is preferred. If you use the tag, make sure you remove trailing whitespace.
 
+There should be no trailing blank lines at the end of a function body.
+
 ## Formatting
 
 ### Brace Style
