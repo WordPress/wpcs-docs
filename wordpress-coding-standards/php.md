@@ -468,6 +468,8 @@ add_action( 'action_name', array( My_Class::class, 'method_name' ) );
 add_action( 'action_name', array( My_Class :: CLASS, 'method_name' ) );
 ```
 
+The [PHP native `__*__` magic constants](https://www.php.net/manual/en/language.constants.magic.php), like `__CLASS__` and `__DIR__`, should be written in uppercase when used.
+
 ### Spread operator `...`
 
 When using the spread operator, there should be one space or a new line with the appropriate indentation before the spread operator. There should be no spaces between the spread operator and the variable/function call it applies to. When combining the spread operator with the reference operator (`&`), there should be no spaces between them.
