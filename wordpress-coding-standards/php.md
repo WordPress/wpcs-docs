@@ -772,3 +772,9 @@ Per [#22400](https://core.trac.wordpress.org/ticket/22400 "Remove all, or at lea
 > `extract()` is a terrible function that makes code harder to debug and harder to understand. We should discourage it's [sic] use and remove all of our uses of it.
 
 Joseph Scott has [a good write-up of why it's bad](https://blog.josephscott.org/2009/02/05/i-dont-like-phps-extract-function/).
+
+### Shell commands
+
+Use of the [backtick operator](https://www.php.net/manual/en/language.operators.execution.php) is not allowed.
+
+Use of the backtick operator is identical to [`shell_exec()`](https://www.php.net/manual/en/function.shell-exec.php), and most hosts disable this function in the `php.ini` file for security reasons.
