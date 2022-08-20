@@ -710,6 +710,90 @@ _Usage in WordPress Core_
 
 Visibility for class constants can not be used in WordPress Core until the minimum PHP version has been raised to PHP 7.1.
 
+### Visibility and modifier order
+
+When using multiple modifiers for a class declaration, the order should be as follows:
+
+1. First the optional `abstract` or `final` modifier.
+2. Next, the optional `readonly` modifier.
+
+```php
+// Correct.
+abstract readonly class Foo {}
+
+// Incorrect.
+readonly final class Foo {}
+```
+
+When using multiple modifiers for a constant declaration inside object-oriented structures, the order should be as follows:
+
+1. First the optional `final` modifier.
+2. Next, the visibility modifier.
+
+```php
+// Correct.
+class Foo {
+    private const LABEL = 'Book';
+
+    final public const SLUG = 'book';
+}
+
+// Incorrect.
+interface Mailer {
+    protected final const SLUG = 'book';
+}
+```
+
+When using multiple modifiers for a property declaration, the order should be as follows:
+
+1. First a visibility modifier.
+2. Next, the optional `static` or `readonly` modifier (these keywords are mutually exclusive).
+3. Finally, the `type` declaration (if possible due to PHP version).
+
+```php
+// Correct.
+abstract class Foo {
+    public static $foo;
+
+    private readonly string $bar;
+}
+
+// Incorrect.
+class Foo {
+    static public $foo;
+
+    readonly private string $foo;
+}
+```
+
+When using multiple modifiers for a method declaration, the order should be as follows:
+
+1. First the optional `abstract` or `final` modifier.
+2. Then, a visibility modifier.
+3. Finally, the optional `static` modifier.
+
+```php
+// Correct.
+abstract class Foo {
+    abstract protected static function bar();
+}
+
+// Incorrect.
+class Foo {
+    static protected final function bar() {
+        // Code.
+    };
+}
+```
+
+[info]
+Visibility for OO constants can be declared since PHP 7.1.
+Typed properties are available since PHP 7.4.
+Readonly properties are available since PHP 8.1.
+`final` modifier for constants in object-oriented structures is available since PHP 8.1.
+Readonly classes are available since PHP 8.2.
+[/info]
+
 ## Control Structures
 
 ### Use `elseif`, not `else if`
