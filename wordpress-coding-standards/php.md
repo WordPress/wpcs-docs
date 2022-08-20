@@ -143,7 +143,7 @@ Where possible, dynamic values in tag names should also be as succinct and to th
 
 ### Space Usage
 
-Always put spaces after commas, and on both sides of logical, comparison, string and assignment operators.
+Always put spaces after commas, and on both sides of logical, arithmetic, comparison, string and assignment operators.
 
 ```php
 SOME_CONST === 23;
@@ -152,6 +152,8 @@ foo() && bar();
 array( 1, 2, 3 );
 $baz . '-5';
 $term .= 'X';
+if( $object instanceof Post_Type_Interface ) { [...] };
+$result = 2 ** 3; // 8.
 ```
 
 Put spaces on both sides of the opening and closing parentheses of control structure blocks.
