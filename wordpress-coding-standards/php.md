@@ -552,6 +552,31 @@ class Foo {
 }
 ```
 
+### Visibility should always be declared
+
+For all constructs that allow it (properties, methods, class constants since PHP 7.1), visibility should be explicitly declared.
+Using the `var` keyword for property declarations is not allowed.
+
+```php
+// Correct.
+class Foo {
+    public $foo;
+
+    protected function bar() {}
+}
+
+// Incorrect.
+class Foo {
+    var $foo;
+
+    function bar() {}
+}
+```
+
+_Usage in WordPress Core_
+
+Visibility for class constants can not be used in WordPress Core until the minimum PHP version has been raised to PHP 7.1.
+
 ## Control Structures
 
 ### Use `elseif`, not `else if`
