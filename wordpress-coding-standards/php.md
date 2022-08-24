@@ -500,6 +500,8 @@ $foo = new \Vendor // Source: external dependency.
 $result = namespace \function_name(); // Notice the space between namespace and \function_name().
 ```
 
+Note that as of PHP 8.0, using whitespace or comments within the name will throw a parse error.
+
 ## Object-Oriented Programming
 
 ### Only One Object Structure (Class/Interface/Trait) per File
