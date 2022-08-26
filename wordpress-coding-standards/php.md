@@ -227,6 +227,17 @@ if ( $foo && ( $bar || $baz ) ) { ...
 my_function( ( $x - 1 ) * 5, $y );
 ```
 
+When using increment (`++`) or decrement (`--`) operators, there should be no spaces between the operator and the variable it applies to.
+
+```php
+// Correct.
+for ( $i = 0; $i < 10; $i++ ) { [...] }
+
+// Incorrect.
+for ( $i = 0; $i < 10; $i ++ ) { [...] }
+++   $b; // Multiple spaces.
+```
+
 ### Indentation
 
 Your indentation should always reflect logical structure. Use **real tabs**, **not spaces**, as this allows the most flexibility across clients.
@@ -601,6 +612,21 @@ As noted in the [PHP docs](https://www.php.net/manual/en/language.operators.erro
 While this operator does exist in Core, it is often used lazily instead of doing proper error checking. Its use is highly discouraged, as even the PHP docs also state:
 
 > Warning: Prior to PHP 8.0.0, it was possible for the @ operator to disable critical errors that will terminate script execution. For example, prepending @ to a call of a function that did not exist, by being unavailable or mistyped, would cause the script to terminate with no indication as to why.
+
+### Increment/decrement operators
+
+Pre-increment/decrement should be favoured over post-increment/decrement for stand-alone statements.
+
+Pre-increment/decrement will increment/decrement and then return, while post-increment/decrement will return and then increment/decrement.
+Using the "pre" version is slightly more performant and can prevent future bugs when code gets moved around.
+
+```php
+// Correct: Pre-decrement.
+--$a;
+
+// Incorrect: Post-decrement.
+$a--;
+```
 
 ## Database
 
