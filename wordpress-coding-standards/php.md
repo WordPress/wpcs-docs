@@ -88,11 +88,15 @@ Use lowercase letters in variable, action/filter, and function names (never `cam
 function some_name( $some_variable ) { [...] }
 ```
 
-Class names should use capitalized words separated by underscores. Any acronyms should be all upper case.
+Class, trait, interface and enum names should use capitalized words separated by underscores. Any acronyms should be all upper case.
 
 ```php
 class Walker_Category extends Walker { [...] }
 class WP_HTTP { [...] }
+
+interface Mailer_Interface { [...] }
+trait Forbid_Dynamic_Properties { [...] }
+enum Post_Status { [...] }
 ```
 
 Constants should be in all upper-case with underscores separating words:
@@ -505,6 +509,47 @@ class Example_Class { [...] }
 ```php
 // Correct: file class-example-class-extended.php.
 class Example_Class_Extended { [...] }
+```
+
+### Trait Use Statements
+
+Trait `use` statements should be at the top of a class and should have exactly one blank line before the first `use` statement, and at least one blank line after the last statement. The only exception is when the class only contains trait `use` statements, in which case the blank line after may be omitted.
+
+The following code examples show the formatting requirements for trait `use` statements regarding things like spacing, grouping and indentation.
+
+```php
+// Correct.
+class Foo {
+
+    use Bar_Trait;
+    use Foo_Trait,
+        Bazinga_Trait {
+        Bar_Trait::method_name insteadof Bar_Trait;
+        Bazinga_Trait::method_name as bazinga_method;
+    }
+    use Loopy_Trait { eat as protected; }
+
+    public $baz = true;
+
+    ...
+}
+
+// Incorrect.
+class Foo {
+    // No blank line before trait use statement, multiple spaces after the use keyword.
+    use       Bar_Trait;
+
+    /*
+     * Multiple spaces when importing traits, no new line after opening brace.
+     * Aliasing should be done on the same line as the method it's replacing.
+     */
+    use Foo_Trait,   Bazinga_Trait{Bar_Trait::method_name    insteadof     Foo_Trait; Bazinga_Trait::method_name
+        as     bazinga_method;
+            }; // Wrongly indented brace.
+    public $baz = true; // Missing blank line after trait import.
+
+    ...
+}
 ```
 
 ## Control Structures
