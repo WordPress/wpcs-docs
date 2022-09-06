@@ -152,7 +152,7 @@ foo() && bar();
 array( 1, 2, 3 );
 $baz . '-5';
 $term .= 'X';
-if ( $object instanceof Post_Type_Interface ) {};
+if ( $object instanceof Post_Type_Interface ) {}
 $result = 2 ** 3; // 8.
 ```
 
