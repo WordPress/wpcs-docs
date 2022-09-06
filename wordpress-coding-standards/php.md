@@ -85,18 +85,18 @@ Text that goes into HTML or XML attributes should be escaped so that single or d
 Use lowercase letters in variable, action/filter, and function names (never `camelCase`). Separate words via underscores. Don't abbreviate variable names unnecessarily; let the code be unambiguous and self-documenting.
 
 ```php
-function some_name( $some_variable ) { [...] }
+function some_name( $some_variable ) {}
 ```
 
 Class, trait, interface and enum names should use capitalized words separated by underscores. Any acronyms should be all upper case.
 
 ```php
-class Walker_Category extends Walker { [...] }
-class WP_HTTP { [...] }
+class Walker_Category extends Walker {}
+class WP_HTTP {}
 
-interface Mailer_Interface { [...] }
-trait Forbid_Dynamic_Properties { [...] }
-enum Post_Status { [...] }
+interface Mailer_Interface {}
+trait Forbid_Dynamic_Properties {}
+enum Post_Status {}
 ```
 
 Constants should be in all upper-case with underscores separating words:
@@ -152,7 +152,7 @@ foo() && bar();
 array( 1, 2, 3 );
 $baz . '-5';
 $term .= 'X';
-if( $object instanceof Post_Type_Interface ) { [...] };
+if ( $object instanceof Post_Type_Interface ) {};
 $result = 2 ** 3; // 8.
 ```
 
@@ -233,10 +233,10 @@ When using increment (`++`) or decrement (`--`) operators, there should be no sp
 
 ```php
 // Correct.
-for ( $i = 0; $i < 10; $i++ ) { [...] }
+for ( $i = 0; $i < 10; $i++ ) {}
 
 // Incorrect.
-for ( $i = 0; $i < 10; $i ++ ) { [...] }
+for ( $i = 0; $i < 10; $i ++ ) {}
 ++   $b; // Multiple spaces.
 ```
 
@@ -577,21 +577,21 @@ For instance, if we have a file called `class-example-class.php` it can only con
 
 ```php
 // Incorrect: file class-example-class.php.
-class Example_Class { [...] }
+class Example_Class {}
 
-class Example_Class_Extended { [...] }
+class Example_Class_Extended {}
 ```
 
 The second class should be in its own file called `class-example-class-extended.php`.
 
 ```php
 // Correct: file class-example-class.php.
-class Example_Class { [...] }
+class Example_Class {}
 ```
 
 ```php
 // Correct: file class-example-class-extended.php.
-class Example_Class_Extended { [...] }
+class Example_Class_Extended {}
 ```
 
 ### Trait Use Statements
