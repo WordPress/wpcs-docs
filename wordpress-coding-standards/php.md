@@ -468,6 +468,37 @@ add_action( 'action_name', array( My_Class::class, 'method_name' ) );
 add_action( 'action_name', array( My_Class :: CLASS, 'method_name' ) );
 ```
 
+### Spread operator `...`
+
+When using the spread operator, there should be one space or a new line with the appropriate indentation before the spread operator. There should be no spaces between the spread operator and the variable/function call it applies to. When combining the spread operator with the reference operator (`&`), there should be no spaces between them.
+
+```php
+// Correct.
+function foo( &...$spread ) {
+    bar( ...$spread );
+
+    bar(
+        array( ...$foo ),
+        ...array_values( $keyed_array )
+    );
+}
+
+// Incorrect.
+function fool( &   ... $spread ) {
+    bar(...
+             $spread );
+
+    bar(
+        [...  $foo ],... array_values( $keyed_array )
+    );
+}
+```
+
+[info]
+The spread operator (or splat operator as it's known in other languages) can be used for packing arguments in function declarations (variadic functions) and unpacking them in function calls as of PHP 5.6. Since PHP 7.4, the spread operator is also used for unpacking numerically-indexed arrays, with string-keyed array unpacking available since PHP 8.1.
+When used in a function declaration, the spread operator can only be used with the last parameter.
+[/info]
+
 ## Declare Statements, Namespace, and Import Statements
 
 ### Namespace declarations
