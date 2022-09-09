@@ -456,15 +456,19 @@ This leaves, for now, only unconditionally declared functions in the global name
 
 Note: Using the `array` keyword in type declarations is **strongly discouraged** for now, as most often, it would be better to use `iterable` to allow for more flexibility in the implementation and that keyword is not yet available for use in WordPress Core until the minimum requirements are raised to PHP 7.1.
 
-### The ::class constant
+### Magic constants
+
+The [PHP native `__*__` magic constants](https://www.php.net/manual/en/language.constants.magic.php), like `__CLASS__` and `__DIR__`, should be written in uppercase when used.
 
 When using the `::class` constant for class name resolution, the `class` keyword should be in lowercase and there should be no spaces around the `::` operator.
 
 ```php
 // Correct.
+add_action( 'action_name', array( __CLASS__, 'method_name' ) );
 add_action( 'action_name', array( My_Class::class, 'method_name' ) );
  
 // Incorrect.
+require_once __dIr__ . '/relative-path/file-name.php';
 add_action( 'action_name', array( My_Class :: CLASS, 'method_name' ) );
 ```
 
