@@ -726,7 +726,7 @@ When using multiple modifiers for a _property declaration_, the order should be 
 
 1. First a visibility modifier.
 2. Next, the optional `static` or `readonly` modifier (these keywords are mutually exclusive).
-3. Finally, the `type` declaration (if possible due to PHP version).
+3. Finally, the optional `type` declaration.
 
 When using multiple modifiers for a _method declaration_, the order should be as follows:
 
