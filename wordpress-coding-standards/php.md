@@ -710,6 +710,62 @@ _Usage in WordPress Core_
 
 Visibility for class constants can not be used in WordPress Core until the minimum PHP version has been raised to PHP 7.1.
 
+### Visibility and modifier order
+
+When using multiple modifiers for a _class declaration_, the order should be as follows:
+
+1. First the optional `abstract` or `final` modifier.
+2. Next, the optional `readonly` modifier.
+
+When using multiple modifiers for a _constant declaration_ inside object-oriented structures, the order should be as follows:
+
+1. First the optional `final` modifier.
+2. Next, the visibility modifier.
+
+When using multiple modifiers for a _property declaration_, the order should be as follows:
+
+1. First a visibility modifier.
+2. Next, the optional `static` or `readonly` modifier (these keywords are mutually exclusive).
+3. Finally, the optional `type` declaration.
+
+When using multiple modifiers for a _method declaration_, the order should be as follows:
+
+1. First the optional `abstract` or `final` modifier.
+2. Then, a visibility modifier.
+3. Finally, the optional `static` modifier.
+
+```php
+// Correct.
+abstract readonly class Foo {
+    private const LABEL = 'Book';
+    
+    public static $foo;
+    
+    private readonly string $bar;
+    
+    abstract protected static function bar();
+}
+
+// Incorrect.
+class Foo {
+    protected final const SLUG = 'book';
+
+    static public $foo;
+    
+    static protected final function bar() {
+        // Code.
+    };
+}
+```
+
+[info]
+- Visibility for OO constants can be declared since PHP 7.1.
+- Typed properties are available since PHP 7.4.
+- Readonly properties are available since PHP 8.1.
+- `final` modifier for constants in object-oriented structures is available since PHP 8.1.
+- Readonly classes are available since PHP 8.2.
+[/info]
+
 ## Control Structures
 
 ### Use `elseif`, not `else if`
