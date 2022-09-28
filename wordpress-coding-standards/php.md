@@ -766,6 +766,22 @@ class Foo {
 - Readonly classes are available since PHP 8.2.
 [/info]
 
+### Object Instantiation
+
+When instantiating a new object instance, parenthesis must always be used, even when not strictly necessary.
+There should be no space between the name of the class being instantiated and the opening parenthesis.
+
+```php
+// Correct.
+$foo = new Foo();
+$anonymous_class = new class( $parameter ) { ... };
+$instance = new static();
+
+// Incorrect.
+$foo = new Foo;
+$anonymous_class = new class ( $input ) { ... };
+```
+
 ## Control Structures
 
 ### Use `elseif`, not `else if`
