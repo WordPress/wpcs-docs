@@ -60,7 +60,7 @@ Use `>` for blockquotes, double `>>` to further indent:
 
 ### Unordered Lists
 
-Use `-` for unordereed lists, and intent two spaces for list subitems:
+Use `-` for unordered lists, and intent two spaces for list subitems:
 
 ```md
 - List

@@ -191,7 +191,7 @@ Functions and class methods should be formatted as follows:
 - **`@since x.x.x`**: Should always be 3-digit (e.g. `@since 3.9.0`). Exception is `@since MU (3.0.0)`.
 - **`@access`**: Only used for core-only functions or classes implementing "private" core APIs. If the element is private it will be output with a message stating its intention for internal use.
 - **`@see`**: Reference to a function, method, or class that is heavily-relied on within. See the note above about inline `@see` tags for expected formatting.
-- **`@link`**: URL that provides more information. This should never been used to reference another function, hook, class, or method, see `@see`.
+- **`@link`**: URL that provides more information. This should never be used to reference another function, hook, class, or method, see `@see`.
 - **`@global`**: List PHP globals that are used within the function or method, with an optional description of the global. If multiple globals are listed, they should be aligned by type, variable, and description, with each other as a group.
 - **`@param`**: Note if the parameter is _Optional_ before the description, and include a period at the end. The description should mention accepted values as well as the default. For example: _Optional. This value does something. Accepts 'post', 'term', or empty. Default empty._
 - **`@return`**: Should contain all possible return types, and a description for each. Use a period at the end. Note: `@return void` should not be used outside of the default bundled themes.
