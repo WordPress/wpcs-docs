@@ -92,7 +92,7 @@ Functions should be formatted as follows:
 - **`@since x.x.x`**: Should be 3-digit for initial introduction (e.g. `@since 3.6.0`). If significant changes are made, additional `@since` tags, versions, and descriptions should be added to serve as a changelog.
 - **`@access`**: Only use for functions if private. If the function is private, it is intended for internal use only, and there will be no documentation for it in the code reference.
 - **`@class`**: Use for class constructors.
-- **`@augments`**: For class constuctors, list direct parents.
+- **`@augments`**: For class constructors, list direct parents.
 - **`@mixes`**: List mixins that are mixed into the object.
 - **`@alias`**: If this function is first assigned to a temporary variable this allows you to change the name it's documented under.
 - **`@memberof`**: Namespace that this function is contained within if JSDoc is unable to resolve this automatically.
