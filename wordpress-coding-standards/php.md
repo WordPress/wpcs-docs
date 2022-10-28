@@ -103,6 +103,9 @@ Use lowercase letters in variable, action/filter, and function names (never `cam
 function some_name( $some_variable ) {}
 ```
 
+For function parameter names, it is _strongly recommended_ to avoid reserved keywords as names, as it leads to hard to read and confusing code when using the PHP 8.0 "named parameters in function calls" feature.
+Also keep in mind that renaming a function parameter should be considered a breaking change since PHP 8.0, so name function parameters with due care!
+
 Class, trait, interface and enum names should use capitalized words separated by underscores. Any acronyms should be all upper case.
 
 ```php
