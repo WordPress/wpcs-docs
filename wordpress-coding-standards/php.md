@@ -228,14 +228,6 @@ switch ( $foo ) {
 }
 ```
 
-Similarly, there should be no space before the colon on return type declarations.
-
-```php
-function sum( $a, $b ): float {
-    return $a + $b;
-}
-```
-
 Unless otherwise specified, parentheses should have spaces inside them.
 
 ```php
