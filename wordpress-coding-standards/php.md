@@ -135,7 +135,8 @@ Class file names should be based on the class name with `class-` prepended and t
 class-wp-error.php
 ```
 
-This file-naming standard is for all current and new files with classes. There is one exception to this rule for three legacy files: `class.wp-dependencies.php`, `class.wp-scripts.php`, `class.wp-styles.php`. Those files are prepended with `class.`, a dot after the word class instead of a hyphen.
+This file-naming standard is for all current and new files with classes, except test classes.
+For files containing test classes, the file name should reflect the class name exactly, as per PSR4. This is to ensure cross-version [compatibility with all supported PHPUnit versions](https://github.com/sebastianbergmann/phpunit/pull/4109).
 
 Files containing template tags in the `wp-includes` directory should have `-template` appended to the end of the name so that they are obvious.
 
