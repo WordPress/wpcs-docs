@@ -119,9 +119,10 @@ For more information on techniques, visit [Understanding Techniques for WCAG Suc
 ## Authoritative Resources
 
 - [WebAIM: Web Accessibility In Mind](https://webaim.org/) (see Articles and Resources)
-- [Government Digital Service](https://gds.blog.gov.uk)
-- [Accessibility in government](https://accessibility.blog.gov.uk/)
-- [Blog | TPG – The Accessibility Experts](https://developer.paciellogroup.com/blog/)
+- [UK Government Digital Service](https://gds.blog.gov.uk)
+- [Accessibility in Government Blog (UK)](https://accessibility.blog.gov.uk/)
+- [Create Accessible Software & Websites - Section 508 (US)](https://www.section508.gov/develop/software-websites/)
+- [Blog | TPGi](https://www.tpgi.com/blog/)
 - [Web Accessibility Blog (Deque)](https://www.deque.com/blog/)
 - [Tink - Léonie Watson](https://tink.uk) (Léonie Watson)
 - [Adrian Roselli](https://adrianroselli.com)
@@ -134,6 +135,9 @@ For more information on techniques, visit [Understanding Techniques for WCAG Suc
 - [Accessibility London (London, United Kingdom)](https://www.meetup.com/London-Accessibility-Meetup/) (London accessibility meetup: they live stream meetups on youtube)
 - [24 Accessibility](https://www.24a11y.com/)
 - [Mozilla Accessibility - Users first, no matter their abilities](https://blog.mozilla.org/accessibility/)
+- [WordPress Accessibility Meetup](https://www.meetup.com/wordpress-accessibility-meetup-group/)
+- [Equalize Digital Blog](https://equalizedigital.com/resources/)
+- [WordPress Accessibility Day Conference](https://wpaccessibility.day)
 
 ### Technical and / or specific topics
 
@@ -141,7 +145,8 @@ For more information on techniques, visit [Understanding Techniques for WCAG Suc
 - [Accessibility APIs: A Key To Web Accessibility](https://www.smashingmagazine.com/2015/03/web-accessibility-with-accessibility-api/) (by Léonie Watson)
 - [How accessibility trees inform assistive tech](https://hacks.mozilla.org/2019/06/how-accessibility-trees-inform-assistive-tech/) (by Hidde de Vries)
 - [What is this thing and what does it do?](https://www.youtube.com/watch?v=YLihNhn_MO4 ) (presentation by Karl Groves)
-- [The Browser Accessibility Tree](https://developer.paciellogroup.com/blog/2015/01/the-browser-accessibility-tree/) (by Steve Faulkner)
-- [Brief history of browser accessibility support](https://www.paciellogroup.com/blog/2011/10/brief-history-of-browser-accessibility-support/) (by Steve Faulkner)
+- [The Browser Accessibility Tree](https://www.tpgi.com/the-browser-accessibility-tree/) (by Steve Faulkner)
+- [Brief history of browser accessibility support](https://www.tpgi.com/brief-history-of-browser-accessibility-support/) (by Steve Faulkner)
 - [ARIA Landmarks Example: General Principles](https://www.w3.org/TR/wai-aria-practices/examples/landmarks/)
 - [ARIA Landmarks Example: HTML Sectioning Elements](https://www.w3.org/TR/wai-aria-practices/examples/landmarks/HTML5.html)
+- [Mozilla Developer Docs - Accessibility](https://developer.mozilla.org/en-US/docs/Web/Accessibility)
