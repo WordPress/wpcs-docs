@@ -219,7 +219,7 @@ Functions and class methods should be formatted as follows:
 
 Parameters that are an array of arguments should be documented in the "originating" function only, and cross-referenced via an `@see` tag in corresponding DocBlocks.
 
-Array values should be documented using WordPress' flavor of hash notation style similar to how [Hooks](http://make.wordpress.org/core/handbook/inline-documentation-standards/php-documentation-standards/#4-hooks-actions-and-filters) can be documented, each array value beginning with the `@type` tag, and taking the form of:
+Array values should be documented using WordPress' flavor of hash notation style similar to how [Hooks](https://developer.wordpress.org/coding-standards/inline-documentation-standards/php/#4-hooks-actions-and-filters) can be documented, each array value beginning with the `@type` tag, and taking the form of:
 
 ```php
 *     @type type $key Description. Default 'value'. Accepts 'value', 'value'.
