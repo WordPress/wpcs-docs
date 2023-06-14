@@ -72,7 +72,7 @@ var arr = [
 var obj = { ready: 9, when: 4, 'you are': 15 };
 var arr = [ 9, 4, 15 ];
 
-// Bad
+// Bad Practice
 var obj = { ready: 9,
 	when: 4, 'you are': 15 };
 var arr = [ 9,
@@ -174,11 +174,11 @@ if ( myFunction() ) {
 When a statement is too long to fit on one line, line breaks must occur after an operator.
 
 ```javascript
-// Bad
+// Bad Practice
 var html = '&lt;p>The sum of ' + a + ' and ' + b + ' plus ' + c
 	+ ' is ' + ( a + b + c ) + '&lt;/p>';
 
-// Good
+// Good Practice
 var html = '&lt;p>The sum of ' + a + ' and ' + b + ' plus ' + c +
 	' is ' + ( a + b + c ) + '&lt;/p>';
 ```
@@ -235,12 +235,12 @@ Each function should begin with a single comma-delimited `var` statement that de
 Assignments within the `var` statement should be listed on individual lines, while declarations can be grouped on a single line. Any additional lines should be indented with an additional tab. Objects and functions that occupy more than a handful of lines should be assigned outside of the `var` statement, to avoid over-indentation.
 
 ```javascript
-// Good
+// Good Practice
 var k, m, length,
 	// Indent subsequent lines by one tab
 	value = 'WordPress';
 
-// Bad
+// Bad Practice
 var foo = true;
 var bar = false;
 var a;
@@ -495,7 +495,7 @@ prop = object['key-with-hyphens'];
 When iterating over a large collection using a `for` loop, it is recommended to store the loop's max value as a variable rather than re-computing the maximum every time:
 
 ```javascript
-// Good &amp; Efficient
+// Good &amp; Efficient Practice
 var i, max;
 
 // getItemCount() gets called once
@@ -503,7 +503,7 @@ for ( i = 0, max = getItemCount(); i &lt; max; i++ ) {
 	// Do stuff
 }
 
-// Bad &amp; Potentially Inefficient:
+// Bad &amp; Potentially Inefficient Practice
 // getItemCount() gets called every time
 for ( i = 0; i &lt; getItemCount(); i++ ) {
 	// Do stuff
