@@ -605,7 +605,7 @@ Group `use` statements are available from PHP 7.0, and trailing commas in group 
 [/alert]
 
 [info]
-Note that, unless you have implemented [autoloading](https://www.php.net/manual/en/language.oop5.autoload.php), the `use` statement won't automatically load whatever is being imported. You'll either need to set up autoloading or load the file containing the class/function/constant using a `require/import` statement, for the aliased constructs to be loaded when used.
+Note that, unless you have implemented [autoloading](https://www.php.net/manual/en/language.oop5.autoload.php), the `use` statement won't automatically load whatever is being imported. You'll either need to set up autoloading or load the file containing the class/function/constant using a `require/import` statement, for the imported constructs to be loaded when used.
 [/info]
 
 **Note about WordPres Core usage**
@@ -617,7 +617,7 @@ As neither of these are currently in place for WordPress Core and discussions ab
 
 ## Object-Oriented Programming
 
-### Only One Object Structure (Class/Interface/Trait) per File
+### Only One Object Structure (Class/Interface/Trait/Enum) per File
 
 For instance, if we have a file called `class-example-class.php` it can only contain one class in that file.
 
