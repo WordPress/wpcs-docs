@@ -276,7 +276,7 @@ $args = array(
 [tab]'post_author' => 123,
 [tab]'post_status' => 'publish',
 );
- 
+
 $query = new WP_Query( $args );
 ```
 
@@ -462,7 +462,7 @@ When using the `::class` constant for class name resolution, the `class` keyword
 // Correct.
 add_action( 'action_name', array( __CLASS__, 'method_name' ) );
 add_action( 'action_name', array( My_Class::class, 'method_name' ) );
- 
+
 // Incorrect.
 require_once __dIr__ . '/relative-path/file-name.php';
 add_action( 'action_name', array( My_Class :: CLASS, 'method_name' ) );
@@ -525,7 +525,7 @@ namespace {
 }
 ```
 
-_There is currently no timeline for introducing namespaces to WordPress Core._ 
+_There is currently no timeline for introducing namespaces to WordPress Core._
 
 The use of namespaces in plugins and themes is strongly encouraged. It is a great way to prefix a lot of your code to prevent naming conflicts with other plugins, themes and/or WordPress Core.
 
@@ -582,7 +582,7 @@ Incorrect:
 namespace Project_Name\Feature;
 
 use   const   Project_Name\Sub_Feature\CONSTANT_A; // Superfluous whitespace after the "use" and the "const" keywords.
-use function Project_Name\Sub_Feature\function_a; // Function import after constant import. 
+use function Project_Name\Sub_Feature\function_a; // Function import after constant import.
 use \Project_Name\Sub_Feature\Class_C as aliased_class_c; // Leading backslash shouldn't be used, alias doesn't comply with naming conventions.
 use Project_Name\Sub_Feature\{Class_D, Class_E   as   Aliased_Class_E} // Extra spaces around the "as" keyword, incorrect whitespace use inside the brace opener and closer.
 use Vendor\Package\{ function function_a, function function_b,
@@ -600,8 +600,8 @@ use function Project_Name\Sub_Feature\function_b as Aliased_Function; // Import 
 ```
 
 [alert]
-Import `use` statements have no effect on dynamic class, function or constant names. 
-Group `use` statements are available from PHP 7.0, and trailing commas in group `use` statements are available from PHP 7.2. 
+Import `use` statements have no effect on dynamic class, function or constant names.
+Group `use` statements are available from PHP 7.0, and trailing commas in group `use` statements are available from PHP 7.2.
 [/alert]
 
 [info]
@@ -736,11 +736,11 @@ When using multiple modifiers for a _method declaration_, the order should be as
 // Correct.
 abstract readonly class Foo {
     private const LABEL = 'Book';
-    
+
     public static $foo;
-    
+
     private readonly string $bar;
-    
+
     abstract protected static function bar();
 }
 
@@ -749,7 +749,7 @@ class Foo {
     protected final const SLUG = 'book';
 
     static public $foo;
-    
+
     static protected final function bar() {
         // Code.
     };
