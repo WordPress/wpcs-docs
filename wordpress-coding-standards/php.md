@@ -656,7 +656,9 @@ class Foo {
         Bar_Trait::method_name insteadof Bar_Trait;
         Bazinga_Trait::method_name as bazinga_method;
     }
-    use Loopy_Trait { eat as protected; }
+    use Loopy_Trait {
+        eat as protected;
+    }
 
     public $baz = true;
 
