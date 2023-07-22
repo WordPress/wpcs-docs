@@ -866,7 +866,14 @@ $id = some_foo_number(); // Data we expect to be an integer, but we're not certa
 $wpdb->query( $wpdb->prepare( "UPDATE $wpdb->posts SET post_title = %s WHERE ID = %d", $var, $id ) );
 ```
 
-`%s` is used for string placeholders and `%d` is used for integer placeholders. Note that they are not 'quoted'! `$wpdb->prepare()` will take care of escaping and quoting for us. The benefit of this is that it is easy to see at a glance whether something has been escaped or not because it happens right when the query happens.
+The following placeholders can be used in the query string:
+
+- %d (integer)
+- %f (float)
+- %s (string)
+- %i (identifier, e.g. table/field names)
+
+Note that these placeholders should not be 'quoted'! `$wpdb->prepare()` will take care of escaping and quoting for us. This makes it easy to see at a glance whether something has been escaped or not because it happens right when the query happens.
 
 See [Data Validation](https://developer.wordpress.org/plugins/security/data-validation/) in the Plugin Handbook for further details.
 
