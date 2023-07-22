@@ -873,7 +873,7 @@ The following placeholders can be used in the query string:
 - %s (string)
 - %i (identifier, e.g. table/field names)
 
-`$wpdb->prepare()` will take care of escaping and quoting for us. This makes it easy to see at a glance whether something has been escaped or not because it happens right when the query happens.
+Note that these placeholders should not be 'quoted'! `$wpdb->prepare()` will take care of escaping and quoting for us. This makes it easy to see at a glance whether something has been escaped or not because it happens right when the query happens.
 
 See [Data Validation](https://developer.wordpress.org/plugins/security/data-validation/) in the Plugin Handbook for further details.
 
