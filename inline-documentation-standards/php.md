@@ -194,7 +194,7 @@ Functions and class methods should be formatted as follows:
 - **`@link`**: URL that provides more information. This should never be used to reference another function, hook, class, or method, see `@see`.
 - **`@global`**: List PHP globals that are used within the function or method, with an optional description of the global. If multiple globals are listed, they should be aligned by type, variable, and description, with each other as a group.
 - **`@param`**: Note if the parameter is _Optional_ before the description, and include a period at the end. The description should mention accepted values as well as the default. For example: _Optional. This value does something. Accepts 'post', 'term', or empty. Default empty._
-- **`@return`**: Should contain all possible return types, and a description for each. Use a period at the end. Note: `@return void` should not be used outside of the default bundled themes.
+- **`@return`**: Should contain all possible return types, and a description for each. Use a period at the end. Note: `@return void` should not be used outside of the default bundled themes, third-party libraries, and PHP compatibility shims.
 
 ```php
 /**
