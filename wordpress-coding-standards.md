@@ -24,4 +24,4 @@ WordPress is committed to meeting the <a href="https://www.w3.org/TR/WCAG20/">We
 
 <h2>Where to (not) apply the coding standards</h2>
 
-Third-party libraries are not subject to these standards, even when bundled with the main project code. This may occasionally be the case, for example WordPress core bundles several third-party libraries in its codebase.
+Third-party libraries are not subject to these standards, even when integrated with the primary project. This includes instances like WordPress core, where multiple third-party libraries are incorporated into its codebase.
