@@ -21,3 +21,7 @@ If you are planning to contribute to WordPress core, you need to familiarize you
 <h2>Accessibility Standards</h2>
 
 WordPress is committed to meeting the <a href="https://www.w3.org/TR/WCAG20/">Web Content Accessibility Guidelines (WCAG) at level AA</a> for all new and updated code. We've provided a <a href="https://developer.wordpress.org/coding-standards/wordpress-coding-standards/accessibility/">quick guide to common accessibility issues</a> you should be aware of when creating patches or feature plug-ins. 
+
+<h2>Where do the coding standards _not_ apply?</h2>
+
+Third-party libraries are not subject to these standards, even when integrated with the primary project. This includes instances like WordPress core, where multiple third-party libraries are incorporated into its codebase.
