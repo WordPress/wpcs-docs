@@ -41,12 +41,34 @@ Correct (Single Line):
 <input name="<?php echo esc_attr( $name ); ?>" />
 ```
 
+When embedding single lines of PHP within an HTML block, the PHP open and close tags must be on the same line as the PHP code, surrounding it.
+
+Correct:
+
+```php
+<div class="hfeed">
+   <?php while ( have_posts() ) : the_post(); ?>
+      <article id="someid class="someclass">
+         <!-- ... -->
+      </article>
+   <?php endwhile; ?>
+</div>
+```
+
 Incorrect:
 
 ```php
-if ( $a === $b ) { ?>
-<some html>
-<?php }
+<div class="hfeed">
+   <?php 
+   while ( have_posts() ) : the_post(); 
+      ?>
+         <article id="someid class="someclass">
+            <!-- ... -->
+         </article>
+      <?php 
+   endwhile; 
+   ?>
+</div>
 ```
 
 ### No Shorthand PHP Tags
