@@ -51,20 +51,20 @@ if ( $a === $b ) { ?>
 
 ### No Shorthand PHP Tags
 
-**Important:** Never use shorthand PHP start tags. Always use full PHP tags.
+**Important:** Never use shorthand PHP start tags. Shorthand PHP echo tags are allowable.
 
 Correct:
 
 ```php
 <?php ... ?>
 <?php echo esc_html( $var ); ?>
+<?= esc_html( $var ) ?>
 ```
 
 Incorrect:
 
 ```php
 <? ... ?>
-<?= esc_html( $var ) ?>
 ```
 
 ### Single and Double Quotes
