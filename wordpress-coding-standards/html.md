@@ -55,7 +55,19 @@ Incorrect:
 <input type=text name=email disabled>
 ```
 
-In HTML, attributes do not all have to have values, and attribute values do not always have to be quoted. While all of the examples above are valid HTML, _failing to quote attributes can lead to security vulnerabilities_. Always quote attributes.
+In HTML, attributes do not all have to have values, and attribute values do not always have to be quoted. While all of the examples above are valid HTML, _failing to quote attributes can lead to security vulnerabilities_. Always quote attributes. Omitting the value on boolean attributes is allowed. The values `true` and `false` are not valid on boolean attributes ([HTML5 source](https://www.w3.org/TR/2011/WD-html5-20110405/common-microsyntaxes.html#boolean-attributes)).
+
+Correct:
+
+```html
+<input type="text" name="email" disabled />
+```
+
+Incorrect:
+
+```html
+<input type="text" name="email" disabled="true" />
+```
 
 ### Indentation
 
