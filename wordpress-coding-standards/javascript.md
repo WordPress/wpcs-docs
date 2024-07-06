@@ -51,7 +51,7 @@ Whitespace can easily accumulate at the end of a line – avoid this, as trailin
 
 ### Object Declarations
 
-Object declarations can be made on a single line if they are short (remember the line length guidelines). When an object declaration is too long to fit on one line, there must be one property per line, and each line must be ended by a comma. Property names only need to be quoted if they are reserved words or contain special characters:
+Object declarations can be made on a single line if they are short (remember the line length guidelines). When an object declaration is too long to fit on one line, there must be one property per line and each line ended by a comma. Property names only need to be quoted if they are reserved words or contain special characters:
 
 Arrays can be declared on a single line if they are short (remember the line length guidelines). When an array is too long to fit on one line, each member must be placed on its own line and each line ended by a comma.
 
