@@ -359,6 +359,7 @@ Inline comments are allowed as an exception when used to annotate special argume
 
 ```javascript
 function foo( types, selector, data, fn, /* INTERNAL */ one ) {
+
 	// Do stuff
 }
 ```
