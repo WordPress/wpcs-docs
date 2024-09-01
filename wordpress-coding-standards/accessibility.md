@@ -1,6 +1,6 @@
 # Accessibility Coding Standards
 
-Code integrated into the WordPress ecosystem - including WordPress core, WordPress.org websites, and official plugins, is expected to conform to the Web Content Accessibility Guidelines (WCAG), version 2.1, at level AA.
+Code integrated into the WordPress ecosystem - including WordPress core, WordPress.org websites, and official plugins, is expected to conform to the Web Content Accessibility Guidelines (WCAG), version 2.2, at level AA.
 
 New or updated interfaces are encouraged to incorporate the Authoring Tool Accessibility Guidelines (ATAG) 2.0. The most significant way that ATAG 2.0 guidelines can be incorporated is by emphasizing choices that help people make more accessible content: encouraging alternative text, captions, and semantic structures, for example.
 
@@ -10,15 +10,15 @@ The WordPress A11y team is in the process of developing a library of recommended
 
 Normative Documents:
 
-- [W3C WCAG 2.1](https://www.w3.org/TR/WCAG21)
+- [W3C WCAG 2.2](https://www.w3.org/TR/WCAG22)
 - [W3C ATAG 2.0](https://www.w3.org/TR/ATAG20/)
 - [W3C WAI ARIA 1.1](https://www.w3.org/TR/wai-aria/)
 
 Informative Documents:
 
-- [W3C Understanding WCAG 2.1](https://www.w3.org/WAI/WCAG21/Understanding/)
+- [W3C Understanding WCAG 2.2](https://www.w3.org/WAI/WCAG22/Understanding/)
 - [W3C Using ARIA](https://www.w3.org/TR/using-aria/)
-- [W3C WAI-ARIA Authoring Practices 1.1 (accessible design patterns)](https://www.w3.org/TR/wai-aria-practices-1.1/)
+- [W3C WAI-ARIA Authoring Practices Guide (accessible design patterns)](https://www.w3.org/WAI/ARIA/apg/)
 - [W3C Introduction to ATAG](https://www.w3.org/WAI/standards-guidelines/atag)
 
 ## About WCAG A, AA, and AAA Conformance Levels
@@ -35,7 +35,7 @@ The WordPress commitment is to conform to all WCAG 2.1 Level A and Level AA guid
 
 ## Applying WCAG Conformance Levels
 
-WCAG 2.1 consists of 4 layers:
+WCAG 2.2 consists of 4 layers:
 
 - Principles
 - Guidance
@@ -44,7 +44,7 @@ WCAG 2.1 consists of 4 layers:
 
 ### Principles
 
-When applying WCAG 2.1, the guidance and success criteria are organized around 4 principles. These principles place emphasis on how people interact with content and must be:
+When applying WCAG 2.2, the guidance and success criteria are organized around 4 principles. These principles place emphasis on how people interact with content and must be:
 
 - **Perceivable** - interacting with the content using the medium that they are familiar with. For example, providing text alternatives for those who are blind.
 - **Operable** - finding and using content is accessible. For example, being able to use a keyboard or a screen reader.
@@ -53,7 +53,7 @@ When applying WCAG 2.1, the guidance and success criteria are organized around 4
 
 ### Guidance
 
-Each principle is supported by a list of guidelines to ensure that content is more accessible and presentable across the different devices that meet a user’s disability. The guidelines are listed below, the full detail can be found in the WCAG 2.1.
+Each principle is supported by a list of guidelines to ensure that content is more accessible and presentable across the different devices that meet a user’s disability. The guidelines are listed below, the full detail can be found in the WCAG 2.2.
 
 #### Principle: Perceivable
 
