@@ -4,7 +4,7 @@ Code integrated into the WordPress ecosystem - including WordPress core, WordPre
 
 New or updated interfaces are encouraged to incorporate the Authoring Tool Accessibility Guidelines (ATAG) 2.0. The most significant way that ATAG 2.0 guidelines can be incorporated is by emphasizing choices that help people make more accessible content: encouraging alternative text, captions, and semantic structures, for example.
 
-Official information about web accessibility standards can be divided into two groups: "normative" and "informative" documents. Only the guidelines themselves are normative, and establish the actual requirements for conforming to WCAG 2.1. Other documents should be considered to be informational, and offer help in interpreting the guidelines, but are not definitive.
+Official information about web accessibility standards can be divided into two groups: "normative" and "informative" documents. Only the guidelines themselves are normative, and establish the actual requirements for conforming to WCAG 2.2. Other documents should be considered to be informational, and offer help in interpreting the guidelines, but are not definitive.
 
 The WordPress A11y team is in the process of developing a library of recommended accessibility patterns to help describe the WordPress recommended way to accomplish a variety of interfaces. These may not be the only reasonable way to create an accessible example of the pattern, but are preferred for the sake of consistency across WordPress.
 
@@ -23,7 +23,7 @@ Informative Documents:
 
 ## About WCAG A, AA, and AAA Conformance Levels
 
-The WordPress commitment is to conform to all WCAG 2.1 Level A and Level AA guidelines. Conformance to level AAA success criteria is encouraged where relevant, as is exceeding the accessibility of any of these guidelines.
+The WordPress commitment is to conform to all WCAG 2.2 Level A and Level AA guidelines. Conformance to level AAA success criteria is encouraged where relevant, as is exceeding the accessibility of any of these guidelines.
 
 **Level A** success criteria address concerns considered to be accessibility barriers on a very wide scale that will prevent many people from accessing the site and the minimum set of accomplished goals required for the majority of web-based interfaces.
 
@@ -31,7 +31,7 @@ The WordPress commitment is to conform to all WCAG 2.1 Level A and Level AA guid
 
 **Level AAA** success criteria are mostly targeted at very specific needs and may be quite difficult to implement effectively.
 
-[W3C Quick Reference to WCAG 2.1 Level A and Level AA Requirements](https://www.w3.org/WAI/WCAG21/quickref/?versions=2.1&currentsidebar=%23col_overview&levels=aaa)
+[W3C Quick Reference to WCAG 2.2 Level A and Level AA Requirements](https://www.w3.org/WAI/WCAG22/quickref/?versions=2.2&currentsidebar=%23col_customize&levels=aaa)
 
 ## Applying WCAG Conformance Levels
 
