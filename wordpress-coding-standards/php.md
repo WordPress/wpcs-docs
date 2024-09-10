@@ -605,7 +605,7 @@ Group `use` statements are available from PHP 7.0, and trailing commas in group 
 [/alert]
 
 [info]
-Note that, unless you have implemented [autoloading](https://www.php.net/manual/en/language.oop5.autoload.php), the `use` statement won't automatically load whatever is being imported. You'll either need to set up autoloading or load the file containing the class/function/constant using a `require/include` statement, for the imported constructs to be loaded when used.
+Note that, unless you have implemented [autoloading](https://www.php.net/manual/en/language.oop5.autoload.php), the `use` statement won't automatically load referenced classes. You'll either need to set up autoloading or load the file containing the class using a `require/include` statement, for the imported classes to be loaded when used.Autoloading is only applicable to classes; for functions and constants, you must always use `require` or `include`.
 [/info]
 
 **Note about WordPress Core usage**
