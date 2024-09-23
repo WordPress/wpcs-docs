@@ -78,11 +78,11 @@ echo "<a href='{$escaped_link}'>text with a ' single quote</a>";
 
 Text that goes into HTML or XML attributes should be escaped so that single or double quotes do not end the attribute value and invalidate the HTML, causing a security issue. See [Data Validation](https://developer.wordpress.org/plugins/security/data-validation/) in the Plugin Handbook for further details.
 
-### Writing include/require statements
+### Writing require/include statements
 
-Because `include[_once]` and `require[_once]` are language constructs, they do not need parentheses around the path, so those shouldn't be used. There should only be one space between the path and the include/require keywords.
+Because `require[_once]` and `include[_once]` are language constructs, they do not need parentheses around the path, so those shouldn't be used. There should only be one space between the path and the require/include keywords.
 
-It is _strongly recommended_ to use `require[_once]` for unconditional includes. When using `include[_once]`, PHP will throw a warning when the file is not found but will continue execution, which will almost certainly lead to other errors/warnings/notices being thrown if your application depends on the file loaded, potentially leading to security leaks. For that reason, `require[_once]` is generally the better choice as it will throw a `Fatal Error` if the file cannot be found.
+It is _strongly recommended_ to use `require[_once]` for unconditional includes. When using `include[_once]`, PHP will throw a warning when the file is not found but will continue execution, which will almost certainly lead to other errors/warnings/notices being thrown if your application depends on the file loaded, potentially leading to security leaks, or result in silent malfunctions which are hard to track down. For that reason, `require[_once]` is generally the better choice as it will throw a `Fatal Error` if the file cannot be found.
 
 ```php
 // Correct.
@@ -605,7 +605,7 @@ Group `use` statements are available from PHP 7.0, and trailing commas in group 
 [/alert]
 
 [info]
-Note that, unless you have implemented [autoloading](https://www.php.net/manual/en/language.oop5.autoload.php), the `use` statement won't automatically load referenced classes. You'll either need to set up autoloading or load the file containing the class using `include[_once]` or `require[_once]` statement, for the imported classes to be loaded when used. Autoloading is only applicable to classes; for functions and constants, you must always use `include[_once]` or `require[_once]`.
+Note that, unless you have implemented [autoloading](https://www.php.net/manual/en/language.oop5.autoload.php), the `use` statement won't automatically load referenced classes. You'll either need to set up autoloading or load the file containing the class using `require[_once]` or `include[_once]` statement, for the imported classes to be loaded when used. Autoloading is only applicable to classes; for functions and constants, you must always use `require[_once]` or `include[_once]`.
 [/info]
 
 **Note about WordPress Core usage**
