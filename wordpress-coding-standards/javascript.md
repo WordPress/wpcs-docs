@@ -566,7 +566,7 @@ You should now be able to type `npm run grunt jshint` to have Grunt check all th
 
 ### JSHint Settings
 
-The configuration options used for JSHint are stored within a [`.jshintrc` title="WordPress JSHint file in svn trunk"](https://develop.svn.wordpress.org/trunk/.jshintrc) in the WordPress SVN repository. This file defines which errors JSHint should flag if it finds them within the WordPress source code.
+The configuration options used for JSHint are stored within a [`.jshintrc`](https://develop.svn.wordpress.org/trunk/.jshintrc "WordPress JSHint file in svn trunk") in the WordPress SVN repository. This file defines which errors JSHint should flag if it finds them within the WordPress source code.
 
 ### Target A Single File
 
