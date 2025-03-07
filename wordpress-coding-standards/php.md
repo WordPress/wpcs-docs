@@ -464,7 +464,7 @@ add_action( 'action_name', array( __CLASS__, 'method_name' ) );
 add_action( 'action_name', array( My_Class::class, 'method_name' ) );
 
 // Incorrect.
-require_once __dIr__ . '/relative-path/file-name.php';
+require_once __DIR__ . '/relative-path/file-name.php';
 add_action( 'action_name', array( My_Class :: CLASS, 'method_name' ) );
 ```
 
