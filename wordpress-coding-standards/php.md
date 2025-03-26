@@ -82,7 +82,7 @@ Text that goes into HTML or XML attributes should be escaped so that single or d
 
 Because `require[_once]` and `include[_once]` are language constructs, they do not need parentheses around the path, so those shouldn't be used. There should only be one space between the path and the require/include keywords.
 
-It is _strongly recommended_ to use `require[_once]` for unconditional includes. When using `include[_once]`, PHP will throw a warning when the file is not found but will continue execution, which will almost certainly lead to other errors/warnings/notices being thrown if your application depends on the file loaded, potentially leading to security leaks, or result in silent malfunctions which are hard to track down. For that reason, `require[_once]` is generally the better choice as it will throw a `Fatal Error` if the file cannot be found.
+It is _strongly recommended_ to use `require[_once]` for unconditional includes. When using `include[_once]`, PHP will throw a warning when the file is not found but will continue execution, which will almost certainly lead to other errors/warnings/notices being thrown if your application depends on the file loaded, potentially leading to security leaks. For that reason, `require[_once]` is generally the better choice as it will throw a `Fatal Error` if the file cannot be found.
 
 ```php
 // Correct.
