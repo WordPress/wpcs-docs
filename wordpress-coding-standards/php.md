@@ -605,7 +605,8 @@ Group `use` statements are available from PHP 7.0, and trailing commas in group 
 [/alert]
 
 [info]
-Note that, unless you have implemented [autoloading](https://www.php.net/manual/en/language.oop5.autoload.php), the `use` statement won't automatically load referenced classes. You'll either need to set up autoloading or load the file containing the class using `require[_once]` or `include[_once]` statement, for the imported classes to be loaded when used. Autoloading is only applicable to classes; for functions and constants, you must always use `require[_once]` or `include[_once]`.
+Note that, unless you have implemented [autoloading](https://www.php.net/manual/en/language.oop5.autoload.php), the `use` statement won't automatically load whatever is being imported. For OO constructs, you'll either need to set up autoloading or load the file(s) containing the OO declaration(s) using `require[_once]` or `include[_once]` statements.
+Autoloading is only applicable to OO constructs; for functions and constants, you must always use `require[_once]` or `include[_once]`.
 [/info]
 
 **Note about WordPress Core usage**
