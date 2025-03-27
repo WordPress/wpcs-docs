@@ -78,9 +78,9 @@ echo "<a href='{$escaped_link}'>text with a ' single quote</a>";
 
 Text that goes into HTML or XML attributes should be escaped so that single or double quotes do not end the attribute value and invalidate the HTML, causing a security issue. See [Data Validation](https://developer.wordpress.org/plugins/security/data-validation/) in the Plugin Handbook for further details.
 
-### Writing include/require statements
+### Writing require/include statements
 
-Because `include[_once]` and `require[_once]` are language constructs, they do not need parentheses around the path, so those shouldn't be used. There should only be one space between the path and the include/require keywords.
+Because `require[_once]` and `include[_once]` are language constructs, they do not need parentheses around the path, so those shouldn't be used. There should only be one space between the path and the require/include keywords.
 
 It is _strongly recommended_ to use `require[_once]` for unconditional includes. When using `include[_once]`, PHP will throw a warning when the file is not found but will continue execution, which will almost certainly lead to other errors/warnings/notices being thrown if your application depends on the file loaded, potentially leading to security leaks. For that reason, `require[_once]` is generally the better choice as it will throw a `Fatal Error` if the file cannot be found.
 
@@ -605,7 +605,8 @@ Group `use` statements are available from PHP 7.0, and trailing commas in group 
 [/alert]
 
 [info]
-Note that, unless you have implemented [autoloading](https://www.php.net/manual/en/language.oop5.autoload.php), the `use` statement won't automatically load whatever is being imported. You'll either need to set up autoloading or load the file containing the class/function/constant using a `require/import` statement, for the imported constructs to be loaded when used.
+Note that, unless you have implemented [autoloading](https://www.php.net/manual/en/language.oop5.autoload.php), the `use` statement won't automatically load whatever is being imported. For OO constructs, you'll either need to set up autoloading or load the file(s) containing the OO declaration(s) using `require[_once]` or `include[_once]` statement(s).
+Autoloading is only applicable to OO constructs; for functions and constants, you must always use `require[_once]` or `include[_once]`.
 [/info]
 
 **Note about WordPress Core usage**
