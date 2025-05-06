@@ -228,7 +228,7 @@ In a `switch` block, there must be no space between the `case` condition and the
 ```php
 switch ( $foo ) {
     case 'bar': // Correct.
-    case 'ba' : // Incorrect.
+    case 'bar' : // Incorrect.
 }
 ```
 
