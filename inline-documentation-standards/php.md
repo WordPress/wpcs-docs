@@ -206,8 +206,8 @@ Functions and class methods should be formatted as follows:
  *
  * @see Function/method/class relied on
  * @link URL
- * @global type $varname Description.
- * @global type $varname Description.
+ * @global type $variable_name    Description.
+ * @global type $another_variable Description.
  *
  * @param type $var Description.
  * @param type $var Optional. Description. Default.
