@@ -831,7 +831,7 @@ While this operator does exist in Core, it is often used lazily instead of doing
 
 ### Increment/decrement operators
 
-Pre-increment/decrement should be favoured over post-increment/decrement for stand-alone statements.
+Pre-increment/decrement should be favored over post-increment/decrement for stand-alone statements.
 
 Pre-increment/decrement will increment/decrement and then return, while post-increment/decrement will return and then increment/decrement.
 Using the "pre" version is slightly more performant and can prevent future bugs when code gets moved around.
@@ -934,7 +934,7 @@ if ( ! isset( $var ) ) {
 }
 ```
 
-Unless absolutely necessary, loose comparisons should not be used, as their behaviour can be misleading.
+Unless absolutely necessary, loose comparisons should not be used, as their behavior can be misleading.
 
 Correct:
 
