@@ -1,0 +1,6 @@
+[files]
+ignore-hidden = true
+
+[default]
+locale = "en-us"
+check-filename = true
