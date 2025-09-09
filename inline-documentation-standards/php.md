@@ -42,8 +42,8 @@ Summary examples:
     - Good: _Filters the post content._
     - Bad: _Lets you edit the post content that is output in the post template._
 - **Actions:** _When_ does an action fire?
-    - Good: _Fires after most of core is loaded, and the user is authenticated.
-    - Bad: _Allows you to register custom post types, custom taxonomies, and other general housekeeping tasks after a lot of WordPress core has loaded.
+    - Good: _Fires after most of core is loaded, and the user is authenticated._
+    - Bad: _Allows you to register custom post types, custom taxonomies, and other general housekeeping tasks after a lot of WordPress core has loaded._
 
 #### Grammar
 
