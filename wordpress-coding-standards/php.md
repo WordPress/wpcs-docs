@@ -1012,7 +1012,8 @@ Closures should not be passed as filter or action callbacks, as removing these v
 
 ### Regular Expressions
 
-Perl compatible regular expressions ([PCRE](https://www.php.net/pcre), `preg_` functions) should be used in preference to their POSIX counterparts. Never use the `/e` switch, use `preg_replace_callback` instead.
+Perl compatible regular expressions ([PCRE](https://www.php.net/pcre), `preg_` functions) should be used.
+Never use the `/e` switch, use `preg_replace_callback` instead.
 
 It's most convenient to use single-quoted strings for regular expressions since, contrary to double-quoted strings, they have only two metasequences which need escaping: `\'` and `\\`.
 
