@@ -202,12 +202,11 @@ When performing logical comparisons, do it like so:
 if ( ! $foo ) { ...
 ```
 
-[Type casts](https://www.php.net/manual/en/language.types.type-juggling.php#language.types.typecasting) must be lowercase. Always prefer the short form of type casts, `(int)` instead of `(integer)` and `(bool)` rather than `(boolean)`. For float casts use `(float)`, not `(real)` which is [deprecated](https://www.php.net/manual/en/migration74.deprecated.php#migration74.deprecated.core.real) in PHP 7.4, and removed in PHP 8:
+[Type casts](https://www.php.net/manual/en/language.types.type-juggling.php#language.types.typecasting) must be lowercase. Always prefer the short, canonical form of type casts, `(int)` instead of `(integer)` and `(bool)` rather than `(boolean)`. For float casts use `(float)`.
 
 ```php
-foreach ( (array) $foo as $bar ) { ...
-
-$foo = (bool) $bar;
+$foo = (bool) $bar; // Correct.
+$foo = (boolean) $bar; // Incorrect.
 ```
 
 When referring to array items, only include a space around the index if it is a variable, for example:
