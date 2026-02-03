@@ -263,7 +263,7 @@ Exception: if you have a block of code that would be more readable if things are
 [tab]$foo5  = 'somevalue4';
 ```
 
-For arrays with keys, _each item_ should start on a new line when the array contains more than one item:
+For arrays with explicit keys, _each item_ should start on a new line when the array contains more than one item:
 
 ```php
 $query = new WP_Query( array( 'ID' => 123 ) );
