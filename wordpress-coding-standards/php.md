@@ -991,7 +991,9 @@ switch ( $foo ) {
 
 The `goto` statement must never be used.
 
-The `eval()` construct is _very dangerous_ and is impossible to secure. Additionally, the `create_function()` function, which internally performs an `eval()`, is deprecated since PHP 7.2 and has been removed in PHP 8.0. Neither of these must be used.
+The `eval()` construct is _very dangerous_ and is impossible to secure. It must not be used.
+
+The `create_function()` function internally performs an `eval()`. It was deprecated in PHP 7.2 and removed in PHP 8.0. It must not be used.
 
 ### Closures (Anonymous Functions)
 
