@@ -13,6 +13,7 @@ If you are planning to contribute to WordPress core, you need to familiarize you
 <h2>Language-specific Standards</h2>
 <ul>
 		<li><a href="https://developer.wordpress.org/coding-standards/wordpress-coding-standards/css/">CSS Coding Standards</a></li>
+		<li><a href="https://developer.wordpress.org/coding-standards/wordpress-coding-standards/github-actions/">GitHub Actions Workflow Standards</a></li>
 		<li><a href="https://developer.wordpress.org/coding-standards/wordpress-coding-standards/html/">HTML Coding Standards</a></li>
 		<li><a href="https://developer.wordpress.org/coding-standards/wordpress-coding-standards/javascript/">JavaScript Coding Standards</a></li>
 		<li><a href="https://developer.wordpress.org/coding-standards/wordpress-coding-standards/php/">PHP Coding Standards</a></li>

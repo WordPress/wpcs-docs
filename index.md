@@ -6,6 +6,7 @@ WordPress is a big project with thousands of contributors. It's important that b
 <ul>
 	<li><a href="https://developer.wordpress.org/coding-standards/wordpress-coding-standards/accessibility/">Accessibility Coding Standards</a></li>
 	<li><a href="https://developer.wordpress.org/coding-standards/wordpress-coding-standards/css/">CSS Coding Standards</a></li>
+	<li><a href="https://developer.wordpress.org/coding-standards/wordpress-coding-standards/github-actions/">GitHub Actions Workflow Standards</a></li>
 	<li><a href="https://developer.wordpress.org/coding-standards/wordpress-coding-standards/html/">HTML Coding Standards</a></li>
 	<li><a href="https://developer.wordpress.org/coding-standards/wordpress-coding-standards/javascript/">JavaScript Coding Standards</a></li>
 	<li><a href="https://developer.wordpress.org/coding-standards/wordpress-coding-standards/php/">PHP Coding Standards</a></li>
