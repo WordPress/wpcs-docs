@@ -71,7 +71,7 @@ Use `-` for unordered lists, and intent two spaces for list subitems:
 
 ### Ordered Lists
 
-Use numbered items followed by a `.:
+Use numbered items followed by a `.`:
 
 ```md
 1. One
