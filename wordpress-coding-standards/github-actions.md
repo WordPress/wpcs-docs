@@ -43,7 +43,7 @@ From the root of the repository, run (note the trailing period):
 zizmor .
 ```
 
-To enable the online audits that check for known-vulnerable actions and impostor commits, provide a GitHub token:
+To enable the online audits that check for known-vulnerable actions and impostor commits, you can use [the `gh` CLI tool from GitHub](https://cli.github.com/) to provide an auth token:
 
 ```
 GH_TOKEN=$(gh auth token) zizmor .
