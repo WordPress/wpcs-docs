@@ -6,6 +6,8 @@ on:
   # Allow manually triggering the workflow.
   workflow_dispatch:
 
+permissions: {}
+
 # Cancels all previous workflow runs for the same branch that have not yet completed.
 concurrency:
   # The concurrency group contains the workflow name and the branch name.
@@ -18,9 +20,14 @@ jobs:
 
     runs-on: "ubuntu-latest"
 
+    permissions:
+      contents: read
+
     steps:
       - name: "Checkout"
-        uses: "actions/checkout@v4"
+        uses: "actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5" # v4.3.1
+        with:
+          persist-credentials: false
 
       - name: "Search for misspellings"
-        uses: "crate-ci/typos@v1"
+        uses: "crate-ci/typos@bbaefadf97b0ec5fdc942684b647f1a6ab250274" # v1.46.0
