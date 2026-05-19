@@ -139,7 +139,7 @@ jobs:
       contents: read
 ```
 
-### Artipacked credentials
+### Git credential persistence
 
 The `actions/checkout` action persists credentials by default so that subsequent git operations can authenticate. If the checkout directory is later uploaded as an artifact (or its contents are otherwise exposed), the persisted credentials can be leaked.
 
@@ -154,6 +154,8 @@ Always set `persist-credentials: false` on `actions/checkout` unless subsequent 
 ```
 
 If the job needs persistent credentials (for example, to push built files), set `persist-credentials: true` explicitly so the intent is clear and auditable, and include an accompanying comment.
+
+This credential persistence risk is often referred to as "artipacked", and Zizmor uses this name for its corresponding audit.
 
 ### GitHub environment manipulation
 
@@ -183,6 +185,8 @@ Always include a comment after the SHA that includes the exact name of the pinne
 
 ### Cache poisoning
 
-Using GitHub Actions caching in workflows that produce release artifacts is risky. A cache can be poisoned by an attacker in a separate workflow, allowing the poisoned cache to inject malicious content into a release.
+Using GitHub Actions caching in workflows that produce release artifacts is risky. It's possible for a cache to be poisoned by an attacker in a separate workflow, allowing the poisoned cache to inject malicious content into a release.
 
-Avoid using `actions/cache` or built-in caching features in workflows that build and publish packages or release artifacts. If caching is necessary in such workflows, ensure the cache key is scoped tightly, do not use partial cache key matching patterns, and verify the cache contents before use.
+An attacker with access to a valid `GITHUB_TOKEN` can poison the repository's GitHub Actions caches. Combined with the default behaviour of `actions/cache` during cache restoration, an attacker's payload can be retrieved from the poisoned entry and executed at workflow runtime, potentially compromising the package or release artifact that's about to be published.
+
+Do not use `actions/cache` or the built-in caching features of other actions in workflows that build or publish packages or release artifacts.
