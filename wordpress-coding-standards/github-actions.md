@@ -72,9 +72,9 @@ Template injection occurs when a GitHub Actions expression such as `${{ github.e
 
 ```yaml
 - name: Print title
-  run: echo "Title: ${PR_TITLE}"
   env:
     PR_TITLE: ${{ github.event.pull_request.title }}
+  run: echo "Title: ${PR_TITLE}"
 ```
 
 When the value is passed through an environment variable, it is treated as data rather than code, preventing injection.
@@ -84,7 +84,8 @@ For `actions/github-script` steps, pass values through the `env` block and acces
 **Incorrect:**
 
 ```yaml
-- uses: actions/github-script@...
+- name: Print title
+  uses: actions/github-script@...
   with:
     script: |
       const title = "${{ github.event.pull_request.title }}";
@@ -93,9 +94,10 @@ For `actions/github-script` steps, pass values through the `env` block and acces
 **Correct:**
 
 ```yaml
-- uses: actions/github-script@...
+- name: Print title
   env:
     PR_TITLE: ${{ github.event.pull_request.title }}
+  uses: actions/github-script@...
   with:
     script: |
       const title = process.env.PR_TITLE;
@@ -176,10 +178,10 @@ All third-party actions must be pinned to a full commit SHA, not a tag, branch, 
 - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
 ```
 
-Always include a version comment after the SHA to make the pinned version human-readable. When updating an action, update both the SHA and the version comment.
+Always include a comment after the SHA that includes the exact name of the pinned tag, for example `v6.0.`. A floating value such as `v6` is not sufficient. When updating an action, update both the SHA and the version comment.
 
 ### Cache poisoning
 
 Using GitHub Actions caching in workflows that produce release artifacts is risky. A cache can be poisoned by an attacker in a separate workflow, allowing the poisoned cache to inject malicious content into a release.
 
-Avoid using `actions/cache` or built-in caching features in workflows that build and publish packages or release artifacts. If caching is necessary in such workflows, ensure the cache key is scoped tightly and the cache contents are verified before use.
+Avoid using `actions/cache` or built-in caching features in workflows that build and publish packages or release artifacts. If caching is necessary in such workflows, ensure the cache key is scoped tightly, do not use partial cache key matching patterns, and verify the cache contents before use.
