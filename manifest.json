@@ -24,6 +24,12 @@
 		"parent": "wordpress-coding-standards",
 		"markdown_source": "https://github.com/WordPress/wpcs-docs/blob/master/wordpress-coding-standards/css.md"
 	},
+	"wordpress-coding-standards/github-actions": {
+		"title": "GitHub Actions Workflow Standards",
+		"slug": "github-actions",
+		"parent": "wordpress-coding-standards",
+		"markdown_source": "https://github.com/WordPress/wpcs-docs/blob/master/wordpress-coding-standards/github-actions.md"
+	},
 	"wordpress-coding-standards/html": {
 		"title": "HTML Coding Standards",
 		"slug": "html",

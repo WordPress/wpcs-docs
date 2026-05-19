@@ -25,3 +25,9 @@ WordPress is committed to meeting the <a href="https://www.w3.org/TR/WCAG20/">We
 <h2>Where do the coding standards _not_ apply?</h2>
 
 Third-party libraries are not subject to these standards, even when integrated with the primary project. This includes instances like WordPress core, where multiple third-party libraries are incorporated into its codebase.
+
+<h2>GitHub Actions Workflow Standards</h2>
+
+GitHub Actions workflows operate in a highly privileged software supply chain environment.
+
+All repos under the WordPress organisation on GitHub are expected to adhere to <a href="https://developer.wordpress.org/coding-standards/wordpress-coding-standards/github-actions/">the GitHub Actions Workflow Standards</a>.
