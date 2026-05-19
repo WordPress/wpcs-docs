@@ -159,7 +159,8 @@ If the job needs persistent credentials (for example, to push built files), set 
 
 Writing to `$GITHUB_ENV` or `$GITHUB_PATH` from a shell script is dangerous if the input is user-controlled, because an attacker can inject arbitrary environment variables or prepend to `PATH`.
 
-- Only write to `$GITHUB_ENV` or `$GITHUB_OUTPUT` with values that are fully controlled by the workflow, not with values derived from pull request content, issue bodies, commit messages, or other user-controllable inputs.
+- To pass state between steps, prefer writing to `$GITHUB_OUTPUT` instead. Unlike `$GITHUB_ENV` and `$GITHUB_PATH`, outputs are not injected into the environment or `PATH` of subsequent steps.
+- If you must write to `$GITHUB_ENV` or `$GITHUB_PATH`, only write values that are fully controlled by the workflow, not with values derived from pull request content, issue bodies, commit messages, or other user-controllable inputs.
 - If you must process user-controllable input, validate and sanitize it before writing to these files.
 
 ### Unpinned uses
