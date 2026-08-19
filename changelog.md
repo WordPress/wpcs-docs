@@ -1,6 +1,5 @@
 # Changelog
 
-- 2026-08-17 Updated `css.md` to adapt to the new Stylelint configuration.
 - 2020-09-25 Update code examples to use Markdown code fence notation instead of shortcodes.
 - 2019-12-21 Update `javascript.md` from the [handbook page](https://make.wordpress.org/core/handbook/best-practices/coding-standards/javascript/).
 - 2019-12-21 Update `accessibility.md` from the [handbook page](https://make.wordpress.org/core/handbook/best-practices/coding-standards/accessibility-coding-standards/).
