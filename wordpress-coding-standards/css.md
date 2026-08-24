@@ -48,7 +48,9 @@ Selectors using this convention are extensively used in legacy stylesheets and t
 
 ### New naming convention
 
-For new stylesheets, contributors are encouraged to use the new naming convention for class selectors. ID selectors should still use the legacy naming convention with only hyphens to separate words.
+For new stylesheets, contributors are encouraged to use the new naming convention for class selectors.
+
+ID selectors are not encouraged but are sometimes unavoidable. Avoid them as much as possible. They should still use the legacy naming convention with only hyphens to separate words.
 
 For consistency with [the naming convention used in the block editor](https://github.com/wordpress/gutenberg/blob/trunk/docs/contributors/code/coding-guidelines.md#naming), class selectors are now allowed to use the [Two Dashes style of the BEM (Block, Element, Modifier) methodology](https://bem.info/en/methodology/naming-convention/#two-dashes-style).
 
