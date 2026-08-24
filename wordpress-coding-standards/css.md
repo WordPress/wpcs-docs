@@ -165,7 +165,7 @@ Above all else, choose something that is meaningful to you and semantic in some 
 - Colors and Typography
 - Other
 
-Things that are not yet used in core itself, such as CSS3 animations, may not have a prescribed place above but likely would fit into one of the above in a logical manner. Just as CSS is evolving, so our standards will evolve with it.
+Things that are not yet used in core itself may not have a prescribed place above but likely would fit into one of the above in a logical manner. Just as CSS is evolving, so our standards will evolve with it.
 
 Top/Right/Bottom/Left (TRBL/trouble) should be the order for any relevant properties (e.g. `margin`), much as the order goes in values. Corner specifiers (e.g. `border-radius-*-*`) should be ordered as top-left, top-right, bottom-right, bottom-left. This is derived from how shorthand values would be ordered.
 
@@ -281,7 +281,6 @@ Incorrect:
 Media queries allow us to gracefully degrade the DOM for different screen sizes. If you are adding any, be sure to test above and below the break-point you are targeting.
 
 - It is generally advisable to keep media queries grouped by media at the bottom of the stylesheet.
-    - An exception is made for the `wp-admin.css` file in core, as it is very large and each section essentially represents a stylesheet of its own. Media queries are therefore added at the bottom of sections as applicable.
 - Rule sets for media queries should be indented one level in.
 
 Example:
@@ -294,9 +293,12 @@ Example:
 
 ## Commenting
 
-- Comment, and comment liberally. If there are concerns about file size, utilize minified files and the `SCRIPT_DEBUG` constant. Long comments should manually break the line length at 80 characters.
+- Comment, and comment liberally. If there are concerns about file size, utilize minified files and the `SCRIPT_DEBUG` constant.
+- Long comments should manually break the line length at 80 characters.
 - A table of contents should be utilized for longer stylesheets, especially those that are highly sectioned. Using an index number (`1.0`, `1.1`, `2.0`, etc.) aids in searching and jumping to a location.
-- Comments should be formatted much as PHPDoc is. The [CSSDoc](https://web.archive.org/web/20070601200419/http://cssdoc.net/) standard is not necessarily widely accepted or used but some aspects of it may be adopted over time. Section/subsection headers should have newlines before and after. Inline comments should not have empty newlines separating the comment from the item to which it relates.
+- Comments should be formatted much as PHPDoc is. The [CSSDoc](https://web.archive.org/web/20070601200419/http://cssdoc.net/) standard is not necessarily widely accepted or used but some aspects of it may be adopted over time.
+- Section/subsection headers should have newlines before and after.
+- Inline comments should not have empty newlines separating the comment from the item to which it relates.
 
 For sections and subsections:
 
