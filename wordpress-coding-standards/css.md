@@ -9,8 +9,10 @@ Within core stylesheets, inconsistencies will often be found. We are working on 
 There are plenty of different methods for structuring a stylesheet. With the CSS in core, it is important to retain a high degree of legibility. This enables subsequent contributors to have a clear understanding of the flow of the document.
 
 - Use tabs, not spaces, to indent each property.
-- Add two blank lines between sections and one blank line between blocks in a section.
-- Each selector should be on its own line, ending in either a comma or an opening curly brace. Property-value pairs should be on their own line, with one tab of indentation and an ending semicolon. The closing brace should be flush left, using the same level of indentation as the opening selector.
+- Add one blank line between sections and between blocks in a section.
+- Each selector should be on its own line, ending in either a comma or an opening curly brace.
+- Property-value pairs should be on their own line, with one tab of indentation and an ending semicolon.
+- The closing brace should be flush left, using the same level of indentation as the opening selector.
 
 Correct:
 
@@ -31,15 +33,41 @@ Incorrect:
 	color: #000;
 	}
 
-#selector-1 { background: #fff; color: #000; }
+#selector-4 { background: #fff; color: #000; }
 ```
 
 ## Selectors
 
 With specificity, comes great responsibility. Broad selectors allow us to be efficient, yet can have adverse consequences if not tested. Location-specific selectors can save us time, but will quickly lead to a cluttered stylesheet. Exercise your best judgment to create selectors that find the right balance between contributing to the overall style and layout of the DOM.
 
-- Similar to the [WordPress PHP Coding Standards](https://developer.wordpress.org/coding-standards/wordpress-coding-standards/php/#naming-conventions) for file names, use lowercase and separate words with hyphens when naming selectors. Avoid camelcase and underscores.
-- Use human readable selectors that describe what element(s) they style.
+### Legacy naming convention
+
+Similar to the [WordPress PHP Coding Standards](https://developer.wordpress.org/coding-standards/wordpress-coding-standards/php/#naming-conventions) for file names, use lowercase and separate words with hyphens when naming selectors. Avoid camelcase and underscores.
+
+Selectors using this convention are extensively used in legacy stylesheets and they should not be changed for backward compatibility reasons.
+
+### New naming convention
+
+For new stylesheets, contributors are encouraged to use the new naming convention for class selectors.
+
+ID selectors are not encouraged but are sometimes unavoidable. Avoid them as much as possible. They should still use the legacy naming convention with only hyphens to separate words.
+
+For consistency with [the naming convention used in the block editor](https://github.com/wordpress/gutenberg/blob/trunk/docs/contributors/code/coding-guidelines.md#naming), class selectors are now allowed to use the [Two Dashes style of the BEM (Block, Element, Modifier) methodology](https://bem.info/en/methodology/naming-convention/#two-dashes-style).
+
+Example:
+
+```
+block-name__element-name--modifier-name
+```
+
+And when the modifier has a value:
+
+```
+block-name__element-name--modifier-name_modifier-value
+```
+
+### General recommendations
+
 - Attribute selectors should use double quotes around values.
 - Refrain from using over-qualified selectors, `div.container` can simply be stated as `.container`.
 
@@ -50,8 +78,20 @@ Correct:
 	margin: 1em 0;
 }
 
-input[type="text"] {
+[type="text"] {
 	line-height: 1.1;
+}
+
+.about__section {
+	margin: 1em 0;
+}
+
+.wp-tooltip__toggle {
+	margin: 1em 0;
+}
+
+.card__title--size_medium {
+	font-size: 1rem;
 }
 ```
 
@@ -84,14 +124,18 @@ input[type=text] { /&042; Should be [type="text"] &042;/
 Similar to selectors, properties that are too specific will hinder the flexibility of the design. Less is more. Make sure you are not repeating styling or introducing fixed dimensions (when a fluid solution is more acceptable).
 
 - Properties should be followed by a colon and a space.
-- All properties and values should be lowercase, except for font names and vendor-specific properties.
-- Use hex code for colors, or `rgba()` if opacity is needed. Avoid RGB format and uppercase, and shorten values when possible: `#fff` instead of `#FFFFFF`.
+- All properties should be lowercase.
+- All values should be lowercase, except for font names and vendor-specific properties. Additional exceptions are:
+  - `currentColor`
+  - `optimizeLegibility`
+- Use hex code for colors, or `rgba()` if opacity is needed. Avoid RGB format and uppercase.
+- Shorten color values when possible: `#fff` instead of `#FFFFFF`.
 - Use shorthand, except when overriding styles, for `background`, `border`, `font`, `list-style`, `margin`, and `padding` values as much as possible. For a shorthand reference, see [CSS Shorthand](https://codex.wordpress.org/CSS_Shorthand).
 
 Correct:
 
 ```css
-#selector-1 {
+#selector-5 {
 	background: #fff;
 	display: block;
 	margin: 0;
@@ -102,7 +146,7 @@ Correct:
 Incorrect:
 
 ```css
-#selector-1 {
+#selector-5 {
 	background:#FFFFFF;
 	display: BLOCK;
 	margin-left: 20PX;
@@ -123,7 +167,7 @@ Above all else, choose something that is meaningful to you and semantic in some 
 - Colors and Typography
 - Other
 
-Things that are not yet used in core itself, such as CSS3 animations, may not have a prescribed place above but likely would fit into one of the above in a logical manner. Just as CSS is evolving, so our standards will evolve with it.
+Things that are not yet used in core itself may not have a prescribed place above but likely would fit into one of the above in a logical manner. Just as CSS is evolving, so our standards will evolve with it.
 
 Top/Right/Bottom/Left (TRBL/trouble) should be the order for any relevant properties (e.g. `margin`), much as the order goes in values. Corner specifiers (e.g. `border-radius-*-*`) should be ordered as top-left, top-right, bottom-right, bottom-left. This is derived from how shorthand values would be ordered.
 
@@ -239,7 +283,6 @@ Incorrect:
 Media queries allow us to gracefully degrade the DOM for different screen sizes. If you are adding any, be sure to test above and below the break-point you are targeting.
 
 - It is generally advisable to keep media queries grouped by media at the bottom of the stylesheet.
-    - An exception is made for the `wp-admin.css` file in core, as it is very large and each section essentially represents a stylesheet of its own. Media queries are therefore added at the bottom of sections as applicable.
 - Rule sets for media queries should be indented one level in.
 
 Example:
@@ -252,9 +295,12 @@ Example:
 
 ## Commenting
 
-- Comment, and comment liberally. If there are concerns about file size, utilize minified files and the `SCRIPT_DEBUG` constant. Long comments should manually break the line length at 80 characters.
+- Comment, and comment liberally. If there are concerns about file size, utilize minified files and the `SCRIPT_DEBUG` constant.
+- Long comments should manually break the line length at 80 characters.
 - A table of contents should be utilized for longer stylesheets, especially those that are highly sectioned. Using an index number (`1.0`, `1.1`, `2.0`, etc.) aids in searching and jumping to a location.
-- Comments should be formatted much as PHPDoc is. The [CSSDoc](https://web.archive.org/web/20070601200419/http://cssdoc.net/) standard is not necessarily widely accepted or used but some aspects of it may be adopted over time. Section/subsection headers should have newlines before and after. Inline comments should not have empty newlines separating the comment from the item to which it relates.
+- Comments should be formatted much as PHPDoc is. The [CSSDoc](https://web.archive.org/web/20070601200419/http://cssdoc.net/) standard is not necessarily widely accepted or used but some aspects of it may be adopted over time.
+- Section/subsection headers should have newlines before and after.
+- Inline comments should not have empty newlines separating the comment from the item to which it relates.
 
 For sections and subsections:
 
@@ -264,7 +310,6 @@ For sections and subsections:
  *
  * Description of section, whether or not it has media queries, etc.
  */
-
 .selector {
 	float: left;
 }
