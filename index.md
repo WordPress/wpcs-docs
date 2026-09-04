@@ -15,7 +15,6 @@ WordPress is a big project with thousands of contributors. It's important that b
 <ul>
 	<li><a href="https://developer.wordpress.org/coding-standards/inline-documentation-standards/javascript/">JavaScript Documentation Standards</a></li>
 	<li><a href="https://developer.wordpress.org/coding-standards/inline-documentation-standards/php/">PHP Documentation Standards</a></li>
-	<li><a href="https://developer.wordpress.org/coding-standards/inline-documentation-standards/runnable-examples/">Runnable code examples in DocBlocks</a></li>
 </ul>
 </li>
 </ul>
