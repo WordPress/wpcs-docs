@@ -68,7 +68,7 @@ Only a trailing standalone line comment counts. `// Outputs:` inside a string, a
 If the example needs a helper function, a post, or an option, put that in a setup Blueprint ([Playground Blueprint](https://developer.wordpress.org/playground/blueprints/) JSON). It runs first and never appears on the page.
 
 Inline, directly before or after the PHP fence:
-````arduino
+````
 ```setup-blueprint
 { "steps": [ { "step": "writeFile", "path": "/wordpress/wp-content/mu-plugins/docs-fixture.php", "data": "<?php\nfunction docs_fixture_greeting() { return 'Hello'; }\n" } ] }
 ```
@@ -79,7 +79,7 @@ echo docs_fixture_greeting();
 ````
 
 Named and shared — define once, reference with `setup-blueprint=<name>`. A named Blueprint in the file-level DocBlock is available to every example in the file:
-````go
+````
 ```setup-blueprint shared-greeting
 { "steps": [ ... ] }
 ```
