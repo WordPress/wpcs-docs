@@ -140,6 +140,7 @@ A DocBlock example can be marked as runnable. The Code Reference then shows it w
 This is opt-in. Existing indented examples keep working. Convert an example only when running it teaches something reading it does not.
 
 ##### Example
+
 ````php
 /**
  * Generator for a foreach loop to step through each class name for the matched tag.
