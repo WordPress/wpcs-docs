@@ -133,6 +133,8 @@ HTML markup should never be used outside of code examples, though Markdown can b
      * @link https://core.trac.wordpress.org/ticket/20000
     ```
 
+For guidance on making a PHP example runnable in the Code Reference, see [Runnable code examples in DocBlocks](https://developer.wordpress.org/coding-standards/inline-documentation-standards/runnable-examples/).
+
 #### `@since` Section (Changelogs)
 
 Every function, hook, class, and method should have a corresponding `@since` version associated with it (more on that below).
